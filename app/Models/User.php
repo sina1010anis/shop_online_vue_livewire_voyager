@@ -41,4 +41,24 @@ class User extends \TCG\Voyager\Models\User
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function panel_messages()
+    {
+        return $this->hasMany(PanelMessgae::class , 'user_id' , 'id');
+    }
+
+    public function product_comments()
+    {
+        return $this->hasMany(ProductComment::class , 'user_id' , 'id');
+    }
+
+    public function user()
+    {
+        return $this->hasMany(Cart::class , 'user_id' , 'id');
+    }
+
+    public function factors()
+    {
+        return $this->hasMany(Factor::class , 'user_id' , 'id');
+    }
 }
