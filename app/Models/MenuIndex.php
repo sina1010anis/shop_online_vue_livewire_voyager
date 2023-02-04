@@ -13,6 +13,6 @@ class MenuIndex extends Model
 
     public function menu_subs()
     {
-        return $this->hasMany(MenuSub::class , 'menu_id' , 'id');
+        return $this->hasMany(MenuSub::class , 'menu_index_id' , 'id');
     }
 }

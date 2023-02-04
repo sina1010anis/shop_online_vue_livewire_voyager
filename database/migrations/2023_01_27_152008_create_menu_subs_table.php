@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('image');
-            $table->foreignId('menu_id')->constrained();
+            $table->foreignId('menu_index_id')->constrained();
             $table->foreignId('berand_id')->constrained();
             $table->timestamps();
         });

@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('factors', function (Blueprint $table) {
             $table->id();
             $table->integer('total_number');
-            $table->bigInteger('total_number');
             $table->text('pyment_code');
             $table->integer('buy_status');
             $table->integer('send_status');
