@@ -55,6 +55,11 @@ a{
     outline: none;
     text-align: right;
 }
+.icon-menu-header i
+{
+    background-color: #cbcbcb;
+    border-radius: 5px;
+}
 /* My Style --------------------------------------------------------------- */
 .my-select-none{
     user-select: none!important;
