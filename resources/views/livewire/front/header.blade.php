@@ -1,7 +1,7 @@
 <div>
-    {{--  <div id="loading" class="page-loading">
+     <div id="loading" class="page-loading">
         <img src="{{ url("storage/front/load.gif") }}" alt="load">
-    </div>  --}}
+    </div>
     <div class="container-fluid box d-none d-sm-block">
         <div class="row bg-white">
             <div class="col-3 py-2">
@@ -33,7 +33,7 @@
                 <div class="d-flex flex-row-reverse align-items-center">
 
                     <div class="my-f-9 my-font-IYB my-pointer me-2 my-select-none">
-                        <span class="name-menu">
+                        <span id="btn_show_menu" class="name-menu">
                             <span class="my-color-b-600">محصولات</span>
                             <span>
                                 <i class="bi bi-caret-down-fill ms-1 my-pos-rel my-color-b-600"></i>
@@ -56,11 +56,23 @@
                             </span>
                         </span>
                     </div>
-
-
                 </div>
             </div>
-
+        </div>
+        <div class="row mt-3 row-index-box-menu" style="display: none" >
+            <div class="col-10 rounded-2 offset-1 bg-white shadow index-box-menu row p-2">
+                <div class="col-8 p-1 box-menu-image d-flex justify-content-center align-items-center">
+                    <img src="{{"storage/front/surface-laptop-5.jpg"}}" width="400" alt="name">
+                </div>
+                <div class="col-4 p-1 box-menu-item">
+                    <div class="my-select-none w-100 p-2 rounded-1 mt-2 my-pointer menu-item d-flex justify-content-between align-items-center">
+                        <span>
+                            <img width="50" src="{{ url("storage/brand/microsoft-logo.jpg") }}" alt="name">
+                        </span>
+                        <span class="my-font-IYM my-color-b-800 my-f-12">نام منو (name menu)</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
