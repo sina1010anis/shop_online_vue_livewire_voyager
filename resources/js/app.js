@@ -15,6 +15,7 @@ const app = createApp({
     },mounted(){
         $("#btn_show_menu").click(()=>{
             $(".row-index-box-menu").stop().slideToggle();
+            $(".index-menu-item-index").stop().slideToggle();
         })
     }
 

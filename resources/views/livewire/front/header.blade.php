@@ -59,7 +59,16 @@
                 </div>
             </div>
         </div>
+        <div class="row index-menu-item-index my-2" style="display: none;">
+            <div class="col-10 offset-1 bg-white p-3 d-flex rounded-2 shadow my-overflow-x-scroll" dir="rtl">
+                <div class="px-4 my-select-none item-menu-a">
+                    <a href="/" class="my-color-b-600 my-f-12 ">laptop</a>
+                </div>
+
+            </div>
+        </div>
         <div class="row mt-3 row-index-box-menu" style="display: none" >
+
             <div class="col-10 rounded-2 offset-1 bg-white shadow index-box-menu row p-2">
                 <div class="col-8 p-1 box-menu-image d-flex justify-content-center align-items-center">
                     <img src="{{"storage/front/surface-laptop-5.jpg"}}" width="400" alt="name">
@@ -69,7 +78,7 @@
                         <span>
                             <img width="50" src="{{ url("storage/brand/microsoft-logo.jpg") }}" alt="name">
                         </span>
-                        <span class="my-font-IYM my-color-b-800 my-f-12">نام منو (name menu)</span>
+                        <a href="/" class="my-font-IYM my-color-b-800 my-f-12">نام منو (name menu)</a>
                     </div>
                 </div>
             </div>

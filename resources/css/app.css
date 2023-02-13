@@ -67,9 +67,7 @@ a{
 .row-index-box-menu{
     display: none;
 }
-.index-box-menu > div{
-    height: 100%;
-}
+
 .box-menu-item{
     overflow-y: scroll;
 }
@@ -80,9 +78,54 @@ a{
 .menu-item:hover{
     background-color: #fcfcfc;
 }
+.index-menu-item-index{
+
+}
+a{
+    text-decoration: none!important;
+}
+a:hover{
+    text-decoration: none!important;
+}
+.item-menu-a{
+    position: relative;
+}
+.item-menu-a::before{
+    content: '';
+    width: 50%;
+    height: 2px;
+    border: 20px;
+    opacity: 0;
+    position: absolute;
+    bottom: -10px;
+    transition: 0.2s;
+    right: 0;
+    background-color: rgb(255, 153, 153);
+
+}
+.item-menu-a:hover::before{
+    content: '';
+    width:100%;
+    opacity: 100%;
+}
 /* My Style --------------------------------------------------------------- */
 .my-select-none{
     user-select: none!important;
+}
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #dbdbdb;
+    border-radius: 100px;
+}
+.my-overflow-x-scroll{
+    overflow-x:scroll ;
+}
+.my-overflow-y-scroll{
+    overflow-y:scroll ;
 }
 @font-face {
     font-family: IYM;

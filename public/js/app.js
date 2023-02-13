@@ -22733,6 +22733,7 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({
   mounted: function mounted() {
     jquery__WEBPACK_IMPORTED_MODULE_5___default()("#btn_show_menu").click(function () {
       jquery__WEBPACK_IMPORTED_MODULE_5___default()(".row-index-box-menu").stop().slideToggle();
+      jquery__WEBPACK_IMPORTED_MODULE_5___default()(".index-menu-item-index").stop().slideToggle();
     });
   }
 });
