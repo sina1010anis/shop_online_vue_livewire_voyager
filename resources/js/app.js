@@ -17,6 +17,9 @@ const app = createApp({
             $(".row-index-box-menu").stop().slideToggle();
             $(".index-menu-item-index").stop().slideToggle();
         })
+        $("#icon-menu-header").click(()=>{
+            $(".box-menu-mobile-a").stop().slideToggle();
+        })
     }
 
 })

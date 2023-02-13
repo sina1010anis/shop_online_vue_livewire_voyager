@@ -108,6 +108,23 @@ a:hover{
     width:100%;
     opacity: 100%;
 }
+a:hover{
+    color: #686868!important;
+}
+a{
+    color: #686868;
+}
+.box-menu-index{
+    box-shadow: 0px 21px 17px rgba(44, 44, 44, 0.1);
+}
+.btn-login-and-register{
+    background-color: rgb(255, 128, 128);
+}
+.box-menu-mobile{
+    max-height: 450px;
+    min-height: 450px;
+    background-color: white;
+}
 /* My Style --------------------------------------------------------------- */
 .my-select-none{
     user-select: none!important;

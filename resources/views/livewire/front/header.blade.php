@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <div class="row shadow p-2">
+        <div class="row box-menu-index p-2">
             <div class="col-6 d-flex align-items-center">
                 <button class="ms-1 border-0 py-2 my-font-IYB my-f-9 btn-header  px-3 my-sc-0-9">
                     <a href="/" class="text-white ">
@@ -64,7 +64,6 @@
                 <div class="px-4 my-select-none item-menu-a">
                     <a href="/" class="my-color-b-600 my-f-12 ">laptop</a>
                 </div>
-
             </div>
         </div>
         <div class="row mt-3 row-index-box-menu" style="display: none" >
@@ -93,10 +92,29 @@
                         <img src="{{ url("storage/front/logo.png") }}" width="100" alt="logo">
                     </a>
                 </div>
-                <div class="p-2 icon-menu-header">
+                <div class="p-2 icon-menu-header" id="icon-menu-header">
                     <i class="bi bi-list px-2 py-1 my-color-b-700"></i>
                 </div>
-
+            </div>
+        </div>
+        <div class="row box-menu-mobile-a" style="display: none">
+            <div class="col-12 bg-white mt-2">
+                <a href="/" class="btn-login-and-register my-color-b my-font-IYM my-f-13  d-block py-3 rounded-2 text-center">ورود / عضویت</a>
+            </div>
+            <div class="col-12 bg-white p-3 d-flex rounded-2 shadow my-overflow-x-scroll" dir="rtl">
+                <div class="px-4 my-select-none item-menu-a">
+                    <span  class="my-color-b-600 my-f-12 ">laptop</a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-1 shadow box-menu-mobile-a" style="display: none">
+            <div class="col-12 rounded-2 box-menu-mobile p-2 my-overflow-y-scroll">
+                <div class="my-select-none w-100 p-2 rounded-1 mt-2 my-pointer menu-item d-flex justify-content-between align-items-center">
+                    <span>
+                        <img width="50" src="{{ url("storage/brand/microsoft-logo.jpg") }}" alt="name">
+                    </span>
+                    <a href="/" class="my-font-IYM my-color-b-800 my-f-12">نام منو (name menu)</a>
+                </div>
             </div>
         </div>
     </div>

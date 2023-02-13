@@ -22735,6 +22735,9 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({
       jquery__WEBPACK_IMPORTED_MODULE_5___default()(".row-index-box-menu").stop().slideToggle();
       jquery__WEBPACK_IMPORTED_MODULE_5___default()(".index-menu-item-index").stop().slideToggle();
     });
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()("#icon-menu-header").click(function () {
+      jquery__WEBPACK_IMPORTED_MODULE_5___default()(".box-menu-mobile-a").stop().slideToggle();
+    });
   }
 });
 app.mount("#app");
