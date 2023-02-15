@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Fromt\FrontController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +15,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(FrontController::class)->as('front.')->prefix('/')->group(function(){
+    Route::get('' , 'frontPage')->name('index');
+    Route::post('get/item/sub/menu' , 'getSubMenu')->name('get.SubMenu');
 });
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
