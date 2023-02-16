@@ -13,18 +13,33 @@
                     <label for="firstName" class="form-label my-f-11 my-color-b-500 my-font-IYM text-end d-block" dir="rtl">شماره موبایل</label>
                     <input type="text" class="my-outline-none form-control text-end my-f-9 py-2 px-3 my-color-b-300 my-font-IYL" id="firstName" placeholder="********09" name="mobile" dir="rtl">
                 </div>
-                <div class="error-input text-danger my-f-11 my-font-IYM my-select-none p-1 my-2 text-end d-flex back-error-input align-items-center" dir="rtl">
-                    <i class="bi bi-info my-f-18"></i>
-                    شماره موبایل یا پسورد نادرست وارد شده است
-                </div>
+                @error('mobile')
+                    <div class="error-input text-danger my-f-11 my-font-IYM my-select-none p-1 my-2 text-end d-flex back-error-input align-items-center" dir="rtl">
+                        <i class="bi bi-info my-f-18"></i>
+                        {{$message}}
+                    </div>
+                @enderror
+
                 <div class="w-100 mb-3">
                     <label for="paswwordId" class="form-label my-f-11 my-color-b-500 my-font-IYM text-end d-block" dir="rtl">رمز عبور</label>
                     <input type="text" class="my-outline-none form-control text-end my-f-9 py-2 px-3 my-color-b-300 my-font-IYL" id="paswwordId" placeholder="**********" name="password" dir="rtl">
                 </div>
+                @error('password')
+                    <div class="error-input text-danger my-f-11 my-font-IYM my-select-none p-1 my-2 text-end d-flex back-error-input align-items-center" dir="rtl">
+                        <i class="bi bi-info my-f-18"></i>
+                        {{$message}}
+                    </div>
+                @enderror
                 <div class="w-100 mb-3">
                     <label for="password_confirmation" class="form-label my-f-11 my-color-b-500 my-font-IYM text-end d-block" dir="rtl"> تکرار رمز عبور</label>
                     <input type="text" class="my-outline-none form-control text-end my-f-9 py-2 px-3 my-color-b-300 my-font-IYL" id="password_confirmation" placeholder="**********" name="password_confirmation" dir="rtl">
                 </div>
+                @error('password_confirmation')
+                    <div class="error-input text-danger my-f-11 my-font-IYM my-select-none p-1 my-2 text-end d-flex back-error-input align-items-center" dir="rtl">
+                        <i class="bi bi-info my-f-18"></i>
+                        {{$message}}
+                    </div>
+                @enderror
                 <button type="submit" class="mt-3 mb-4 border-0 text-center my-f-13 my-color-b my-font-IYM w-100 py-3 rounded-2 btn-send-validation">ورود</button>
             </form>
             <div class="my-line mb-3"></div>
