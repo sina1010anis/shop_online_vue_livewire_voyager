@@ -125,11 +125,40 @@ a{
     min-height: 450px;
     background-color: white;
 }
+.page-validation
+{
+    width: 400px;
+    height: auto;
+    border: 1px solid rgb(223, 223, 223);
+    max-width: 98%;
+}
+.btn-send-validation{
+    background-color: #50C0A2;
+}
+.icon-error-input{
+    position: relative;
+    bottom: 4px;
+}
+.back-error-input{
+    background-color: rgb(255 202 202);
+    border-radius: 3px;
+}
 /* My Style --------------------------------------------------------------- */
 .my-select-none{
     -webkit-user-select: none!important;
        -moz-user-select: none!important;
             user-select: none!important;
+}
+.my-outline-none{
+    outline: none;
+}
+.my-outline-none:hover{
+    box-shadow: none!important;
+}
+.my-outline-none:focus{
+    box-shadow: none!important;
+    outline: none;
+
 }
 ::-webkit-scrollbar {
     width: 7px;
@@ -289,7 +318,9 @@ a{
 .my-pointer {
     cursor: pointer;
 }
-
+.my-pointer-none {
+    cursor: default;
+}
 .box {
     max-width: 1366px!important;
 }
