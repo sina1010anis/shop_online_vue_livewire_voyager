@@ -26,7 +26,9 @@
                     <i class="bi bi-cart-fill my-f-13"></i>
                 </button>
                 <button class=" my-sc-0-9  btn-header border-0 text-white my-pos-rel ms-2">
-                    <i class="bi bi-person-fill my-f-13"></i>
+                    <a href="{{route('login')}}" class="my-color-b">
+                        <i class="bi bi-person-fill my-f-13"></i>
+                    </a>
                 </button>
             </div>
             <div class="col-6">
@@ -101,23 +103,23 @@
         </div>
         <div class="row box-menu-mobile-a" style="display: none">
             <div class="col-12 bg-white mt-2">
-                <a href="/" class="btn-login-and-register my-color-b my-font-IYM my-f-13  d-block py-3 rounded-2 text-center">ورود / عضویت</a>
+                <a href="{{route('login')}}" class="btn-login-and-register my-color-b my-font-IYM my-f-13  d-block py-3 rounded-2 text-center">ورود / عضویت</a>
             </div>
             <div class="col-12 bg-white p-3 d-flex rounded-2 shadow my-overflow-x-scroll" dir="rtl">
                 @foreach ($menus as $menu)
-                    <div class="px-4 my-select-none item-menu-a">
-                        <span  class="my-color-b-600 my-f-12 ">{{$menu->name}}</span>
+                    <div class="px-2 my-select-none item-menu-a" @click='show_sub_menu("{{$menu->id}}" , "{{$menu->image}}")'>
+                        <span  class="my-color-b-600 my-f-9 my-font-IYB ">{{$menu->name}}</span>
                     </div>
                 @endforeach
             </div>
         </div>
         <div class="row mt-1 shadow box-menu-mobile-a" style="display: none">
-            <div class="col-12 rounded-2 box-menu-mobile p-2 my-overflow-y-scroll">
-                <div class="my-select-none w-100 p-2 rounded-1 mt-2 my-pointer menu-item d-flex justify-content-between align-items-center">
+            <div v-if="dataSubMenu != null" class="col-12 rounded-2 box-menu-mobile p-2 my-overflow-y-scroll">
+                <div v-for="(subMenu , index) in dataSubMenu.data" :key="index" class="my-select-none w-100 p-2 rounded-1 mt-2 my-pointer menu-item d-flex justify-content-between align-items-center">
                     <span>
-                        <img width="50" src="{{ url("storage/brand/microsoft.jpg") }}" alt="name">
+                        <img width="50" :src="subMenu.brand.image" alt="name">
                     </span>
-                    <a href="/" class="my-font-IYM my-color-b-800 my-f-12">نام منو (name menu)</a>
+                    <a href="/" class="my-font-IYM my-color-b-800 my-f-12">@{{subMenu.name}}</a>
                 </div>
             </div>
         </div>
