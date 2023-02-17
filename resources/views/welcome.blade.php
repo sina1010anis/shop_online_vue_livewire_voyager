@@ -11,8 +11,9 @@
         @livewireStyles
     </head>
     <body class="antialiased">
-        <div id="app">
+        <div id="app" class="box ">
             @livewire('front.header' , ['menus' => $menus])
+            @livewire('front.slider' , ['images' => $images])
         </div>
     </body>
     @livewireScripts

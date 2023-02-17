@@ -22,6 +22,7 @@ class User extends \TCG\Voyager\Models\User
         'email',
         'password',
         'mobile',
+        'google_id',
     ];
 
     /**
@@ -43,7 +44,7 @@ class User extends \TCG\Voyager\Models\User
         'email_verified_at' => 'datetime',
     ];
 
-    protected $attributes = ['name' => 'None' , 'email' => 'None'];
+    protected $attributes = ['name' => 'None' , 'email' => 'None' , 'google_id' => 'None'];
 
     public function panel_messages()
     {

@@ -149,6 +149,9 @@ a{
        -moz-user-select: none!important;
             user-select: none!important;
 }
+.my-pos-abs{
+    position: absolute;
+}
 .my-outline-none{
     outline: none;
 }

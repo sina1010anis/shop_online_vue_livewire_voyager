@@ -2,7 +2,7 @@
      <div id="loading" class="page-loading">
         <img src="{{ url("storage/front/load.gif") }}" alt="load">
     </div>
-    <div class="container-fluid box d-none d-sm-block">
+    <div class="container-fluid d-none d-sm-block">
         <div class="row bg-white">
             <div class="col-3 py-2">
                 <a href="/">

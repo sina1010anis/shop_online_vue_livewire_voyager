@@ -1,0 +1,5 @@
+help front image location
+1 = slider
+
+
+------------------------------------------
