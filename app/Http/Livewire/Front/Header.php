@@ -11,14 +11,14 @@ use TCG\Voyager\Models\MenuItem;
 class Header extends Component
 {
     use getterData;
-    public $menus;
-    public $name;
-    public $sub_menu ;
+    public $menus , $name , $sub_menu;
     public function mount($menus)
     {
         $this->menus = $menus;
     }
-
+    public function setName($name){
+        $this->name = $name;
+    }
     public function changeMenu()
     {
         //$this->fill($this->sub_menu , 'test');

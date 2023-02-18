@@ -143,6 +143,10 @@ a{
     background-color: rgb(255 202 202);
     border-radius: 3px;
 }
+.box-item{
+    height: 200px;
+    width: 70%;
+}
 /* My Style --------------------------------------------------------------- */
 .my-select-none{
     user-select: none!important;

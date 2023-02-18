@@ -1,7 +1,13 @@
 <div>
+    {{$name}}
      <div id="loading" class="page-loading">
         <img src="{{ url("storage/front/load.gif") }}" alt="load">
     </div>
+    <script>
+        setTimeout(()=>{
+            document.getElementById("loading").remove();
+        } , "2000")
+    </script>
     <div class="container-fluid d-none d-sm-block">
         <div class="row bg-white">
             <div class="col-3 py-2">
@@ -23,7 +29,7 @@
                     </a>
                 </button>
                 <button class=" my-sc-0-9  btn-header border-0 text-white my-pos-rel">
-                    <i class="bi bi-cart-fill my-f-13"></i>
+                    <i wire:click="setName('sina')" class="bi bi-cart-fill my-f-13"></i>
                 </button>
                 <button class=" my-sc-0-9  btn-header border-0 text-white my-pos-rel ms-2">
                     <a href="{{route('login')}}" class="my-color-b">
@@ -125,8 +131,4 @@
         </div>
     </div>
 </div>
-<script>
-    setTimeout(()=>{
-        document.getElementById("loading").remove();
-    } , "2000")
-</script>
+

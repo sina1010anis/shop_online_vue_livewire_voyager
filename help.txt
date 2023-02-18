@@ -1,5 +1,5 @@
 help front image location
 1 = slider
-
+2 = vitrin
 
 ------------------------------------------

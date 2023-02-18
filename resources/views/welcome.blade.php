@@ -14,6 +14,7 @@
         <div id="app" class="box ">
             @livewire('front.header' , ['menus' => $menus])
             @livewire('front.slider' , ['images' => $images])
+            @livewire('front.item-front' , ['cards' => $cards , 'images' => $images])
         </div>
     </body>
     @livewireScripts
