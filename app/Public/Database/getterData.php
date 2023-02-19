@@ -11,7 +11,10 @@ trait  getterData
     {
         return $namespaceModel::where($where)->get();
     }
-    // public function getData(){}
+    public function getDataFind(String $namespaceModel , $id)
+    {
+        return $namespaceModel::find($id);
+    }
     // public function getData(){}
     // public function getData(){}
 }

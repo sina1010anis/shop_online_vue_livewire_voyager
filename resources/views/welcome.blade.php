@@ -15,6 +15,7 @@
             @livewire('front.header' , ['menus' => $menus])
             @livewire('front.slider' , ['images' => $images])
             @livewire('front.item-front' , ['cards' => $cards , 'images' => $images])
+            @livewire('front.product-list')
         </div>
     </body>
     @livewireScripts
