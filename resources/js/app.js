@@ -24,6 +24,10 @@ const app = createApp({
         $("#icon-menu-header").click(()=>{
             $(".box-menu-mobile-a").stop().slideToggle('fast');
         })
+        // $(".box-view-product").hover(()=>{
+        //     var id =$(this).attr('id');
+        //     alert(id)
+        // })
     },methods:{
         show_sub_menu(id , image){
             axios.post('/get/item/sub/menu' , {'id':id}).then((res)=>{

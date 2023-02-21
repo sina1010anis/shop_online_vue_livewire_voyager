@@ -147,6 +147,19 @@ a{
     height: 200px;
     width: 70%;
 }
+.box-view-product{
+    width: 230px!important;min-width: 230px!important;border: 1px solid #50C0A2;height: 316px!important;max-height: 316px!important;
+}
+.box-view-product:hover .image-front-product{
+    transform: scale(1.2);
+}
+.image-front-product{
+    transition: 0.3s;
+}
+.image-brand-menu{
+    width: 50px;
+    object-fit: contain;
+}
 /* My Style --------------------------------------------------------------- */
 .my-select-none{
     user-select: none!important;

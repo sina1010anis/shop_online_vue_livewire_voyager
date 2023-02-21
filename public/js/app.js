@@ -22743,6 +22743,10 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({
     jquery__WEBPACK_IMPORTED_MODULE_5___default()("#icon-menu-header").click(function () {
       jquery__WEBPACK_IMPORTED_MODULE_5___default()(".box-menu-mobile-a").stop().slideToggle('fast');
     });
+    // $(".box-view-product").hover(()=>{
+    //     var id =$(this).attr('id');
+    //     alert(id)
+    // })
   },
   methods: {
     show_sub_menu: function show_sub_menu(id, image) {

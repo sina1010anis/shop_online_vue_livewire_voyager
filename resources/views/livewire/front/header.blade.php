@@ -85,7 +85,7 @@
                 <div v-if="dataSubMenu != null" class="col-4 p-1 box-menu-item h-100">
                     <div v-for="(subMenu , index) in dataSubMenu.data" :key="index" @mouseover="set_image_menu(subMenu.image)" class="sub-menu-laptop my-select-none w-100 p-2 rounded-1 mt-2 my-pointer menu-item d-flex justify-content-between align-items-center">
                         <span>
-                            <img height="50" :src="subMenu.brand.image" alt="name">
+                            <img class="image-brand-menu" :src="subMenu.brand.image" alt="name">
                         </span>
                         <a href="/" dir="rtl" class="my-font-IYM my-color-b-500 my-f-10" >@{{subMenu.name}}</a>
                     </div>
