@@ -7,10 +7,8 @@ use Livewire\Component;
 class Banner extends Component
 {
     public $images;
-    public $id;
-    public function mount($images , $id){
+    public function mount($images){
         $this->images = $images;
-        $this->id = $id;
     }
     public function render()
     {
