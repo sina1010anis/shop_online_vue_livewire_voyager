@@ -78,9 +78,6 @@ a{
 .menu-item:hover{
     background-color: #fcfcfc;
 }
-.index-menu-item-index{
-
-}
 a{
     text-decoration: none!important;
 }
@@ -159,6 +156,25 @@ a{
 .image-brand-menu{
     width: 50px;
     object-fit: contain;
+}
+.image-berand{
+    width: 50%;
+    filter: grayscale(100%);
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    transition: 0.2s;
+}
+.image-berand:hover{
+    filter: none;
+}
+.box-view-berand::-webkit-scrollbar {
+    width: 0!important;
+    height: 0!important;
+}
+
+.box-view-berand::-webkit-scrollbar-thumb {
+    background-color: none!important;
+    border-radius: none!important;
 }
 /* My Style --------------------------------------------------------------- */
 .my-select-none{

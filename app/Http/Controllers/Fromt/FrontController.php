@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Fromt;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\SubMenuResours;
+use App\Models\Berand;
 use App\Models\Card;
 use App\Models\FrontImage;
 use App\Models\MenuIndex;
@@ -16,13 +17,15 @@ use Illuminate\Http\Request;
 class FrontController extends Controller
 {
     use getterData;
-    public function frontPage(MenuIndex $menuIndex , FrontImage $frontImage , Card $card , Product $product){
+    public function frontPage(MenuIndex $menuIndex , FrontImage $frontImage , Card $card , Product $product , Berand $berand){
         return view('welcome' ,
          [
             'menus'=>$menuIndex->all() ,
             'images' => $this->getDataWhere('App\Models\FrontImage' , ['status' => 1]),
             'cards' => $card->all(),
             'products' => $product::all(),
+            'berands' => $berand::all(),
+
         ]);
     }
     public function getSubMenu(Request $request)

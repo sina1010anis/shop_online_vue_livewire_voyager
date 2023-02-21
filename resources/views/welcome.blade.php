@@ -17,6 +17,7 @@
             @livewire('front.item-front' , ['cards' => $cards , 'images' => $images])
             @livewire('front.product-list' , ['title' => 'جدیدترین محصولات' , 'subject' => 'جدیترین حصولاتی که اضافه شده' , 'products' => $products])
             @livewire('front.banner', ['images' => $images->find(6)] )
+            @livewire('front.berand-list' , ['berands' => $berands])
             @livewire('front.product-list' , ['title' => 'جدیدترین محصولات' , 'subject' => 'جدیترین حصولاتی که اضافه شده' , 'products' => $products])
             @livewire('front.banner', ['images' => $images->find(7)] )
             <br>

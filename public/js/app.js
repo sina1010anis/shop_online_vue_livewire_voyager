@@ -22747,6 +22747,17 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({
     //     var id =$(this).attr('id');
     //     alert(id)
     // })
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()("#box-view-berand-id").animate({
+      scrollLeft: 100000
+    }, 105000);
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()("#box-view-berand-id").hover(function () {
+      jquery__WEBPACK_IMPORTED_MODULE_5___default()("#box-view-berand-id").stop();
+    }, function () {
+      jquery__WEBPACK_IMPORTED_MODULE_5___default()("#box-view-berand-id").animate({
+        scrollLeft: 100000
+      }, 105000);
+    });
+    //document.getElementById('box-view-berand-id').scrollTo(10000000 , 0);
   },
   methods: {
     show_sub_menu: function show_sub_menu(id, image) {
