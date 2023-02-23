@@ -20,8 +20,10 @@
             @livewire('front.berand-list' , ['berands' => $berands])
             @livewire('front.product-list' , ['title' => 'جدیدترین محصولات' , 'subject' => 'جدیترین حصولاتی که اضافه شده' , 'products' => $products])
             @livewire('front.banner', ['images' => $images->find(7)] )
-            <br>
+            @livewire('front.slider-product' , ['images' => $products])
             @livewire('front.banner', ['images' => $images->find(8)] )
+            @livewire('front.text-back')
+            @livewire('front.footer' , ['footer_title' => $footer_title , 'footer_item' => $footer_item])
 
         </div>
     </body>

@@ -28,11 +28,11 @@ const app = createApp({
         //     var id =$(this).attr('id');
         //     alert(id)
         // })
-        $("#box-view-berand-id").animate({ scrollLeft: 100000 }, 105000);
-        $("#box-view-berand-id").hover(()=>{
-            $("#box-view-berand-id").stop()
+        $("#box-view-berand-id , #box-view-product-id").animate({ scrollLeft: 100000 }, 105000);
+        $("#box-view-berand-id , #box-view-product-id").hover(()=>{
+            $("#box-view-berand-id , #box-view-product-id").stop()
         } , ()=>{
-            $("#box-view-berand-id").animate({ scrollLeft: 100000 }, 105000);
+            $("#box-view-berand-id , #box-view-product-id").animate({ scrollLeft: 100000 }, 105000);
 
         })
         //document.getElementById('box-view-berand-id').scrollTo(10000000 , 0);

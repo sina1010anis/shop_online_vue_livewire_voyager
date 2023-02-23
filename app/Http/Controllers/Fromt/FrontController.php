@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\SubMenuResours;
 use App\Models\Berand;
 use App\Models\Card;
+use App\Models\FooterItem;
 use App\Models\FrontImage;
+use App\Models\FooterTitel;
 use App\Models\MenuIndex;
 use App\Models\MenuSub;
 use App\Models\Product;
@@ -17,7 +19,7 @@ use Illuminate\Http\Request;
 class FrontController extends Controller
 {
     use getterData;
-    public function frontPage(MenuIndex $menuIndex , FrontImage $frontImage , Card $card , Product $product , Berand $berand){
+    public function frontPage(FooterTitel $footerTitel , FooterItem $footerItem,MenuIndex $menuIndex , FrontImage $frontImage , Card $card , Product $product , Berand $berand){
         return view('welcome' ,
          [
             'menus'=>$menuIndex->all() ,
@@ -25,6 +27,8 @@ class FrontController extends Controller
             'cards' => $card->all(),
             'products' => $product::all(),
             'berands' => $berand::all(),
+            'footer_title' => $footerTitel->all(),
+            'footer_item' => $footerItem->all(),
 
         ]);
     }

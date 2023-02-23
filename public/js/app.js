@@ -22747,13 +22747,13 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({
     //     var id =$(this).attr('id');
     //     alert(id)
     // })
-    jquery__WEBPACK_IMPORTED_MODULE_5___default()("#box-view-berand-id").animate({
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()("#box-view-berand-id , #box-view-product-id").animate({
       scrollLeft: 100000
     }, 105000);
-    jquery__WEBPACK_IMPORTED_MODULE_5___default()("#box-view-berand-id").hover(function () {
-      jquery__WEBPACK_IMPORTED_MODULE_5___default()("#box-view-berand-id").stop();
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()("#box-view-berand-id , #box-view-product-id").hover(function () {
+      jquery__WEBPACK_IMPORTED_MODULE_5___default()("#box-view-berand-id , #box-view-product-id").stop();
     }, function () {
-      jquery__WEBPACK_IMPORTED_MODULE_5___default()("#box-view-berand-id").animate({
+      jquery__WEBPACK_IMPORTED_MODULE_5___default()("#box-view-berand-id , #box-view-product-id").animate({
         scrollLeft: 100000
       }, 105000);
     });
