@@ -42,4 +42,9 @@ class Product extends Model
     }
 
     protected $attributes = ['number_view' => 0 , 'number_payment'=>0];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

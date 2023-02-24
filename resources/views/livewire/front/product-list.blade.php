@@ -13,7 +13,7 @@
                         </div>
                         <div class="card-body" dir="rtl">
                             <a href="/" class="card-title my-select-none text-center d-block pb-2 my-f-11 my-color-b-600 my-font-IYL">{{$product->menu_sub->name}}</a>
-                            <a href="/" class="d-block card-text text-center pb-2 my-f-11 my-color-b-800 my-font-IYL">{{$product->name}}</a>
+                            <a href="{{route('product.view.product' , ['product' => $product->slug])}}" class="d-block card-text text-center pb-2 my-f-11 my-color-b-800 my-font-IYL">{{$product->name}}</a>
                             <p class="card-text text-center pb-2 my-f-11 my-font-IYM" style="color:#50C0A2">
                                 <span style="color:rgb(255, 115, 115)">50 % تخفیف</span>
                                 <br>

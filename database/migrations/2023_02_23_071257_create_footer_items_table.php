@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('footer_items', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('url')->nullable();
-            $table->timestamps();
-        });
-        Schema::table('footer_items', function (Blueprint $table) {
-            $table->foreignId('footer_title_id')->constrained()->after('name');
-        });
+        // Schema::create('footer_items', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('name');
+        //     $table->string('url')->nullable();
+        //     $table->timestamps();
+        // });
+        // Schema::table('footer_items', function (Blueprint $table) {
+        //     $table->foreignId('footer_title_id')->constrained()->after('name');
+        // });
     }
 
     /**

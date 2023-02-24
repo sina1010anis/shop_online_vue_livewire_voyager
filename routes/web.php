@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Fromt\FrontController;
+use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::controller(FrontController::class)->as('front.')->prefix('/')->group(function(){
     Route::get('' , 'frontPage')->name('index');
     Route::post('get/item/sub/menu' , 'getSubMenu')->name('get.SubMenu');
+});
+
+Route::controller(ProductController::class)->as('product.')->prefix('/product')->group(function(){
+    Route::get('/view/product/{product}' , 'viewProduct')->name('view.product');
 });
 
 

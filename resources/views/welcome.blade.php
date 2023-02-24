@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Online Shop</title>
+        <title>{{$title}}</title>
         @livewireStyles
         <link rel="stylesheet" href="{{ mix("css/app.css") }}">
         <script src="{{ mix("js/app.js") }}" defer></script>
@@ -13,18 +13,8 @@
     <body class="antialiased">
         <div id="app" class="box ">
             @livewire('front.header' , ['menus' => $menus])
-            @livewire('front.slider' , ['images' => $images])
-            @livewire('front.item-front' , ['cards' => $cards , 'images' => $images])
-            @livewire('front.product-list' , ['title' => 'جدیدترین محصولات' , 'subject' => 'جدیترین حصولاتی که اضافه شده' , 'products' => $products])
-            @livewire('front.banner', ['images' => $images->find(6)] )
-            @livewire('front.berand-list' , ['berands' => $berands])
-            @livewire('front.product-list' , ['title' => 'جدیدترین محصولات' , 'subject' => 'جدیترین حصولاتی که اضافه شده' , 'products' => $products])
-            @livewire('front.banner', ['images' => $images->find(7)] )
-            @livewire('front.slider-product' , ['images' => $products])
-            @livewire('front.banner', ['images' => $images->find(8)] )
-            @livewire('front.text-back')
+            @yield('index')
             @livewire('front.footer' , ['footer_title' => $footer_title , 'footer_item' => $footer_item])
-
         </div>
     </body>
     @livewireScripts

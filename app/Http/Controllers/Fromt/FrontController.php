@@ -20,15 +20,12 @@ class FrontController extends Controller
 {
     use getterData;
     public function frontPage(FooterTitel $footerTitel , FooterItem $footerItem,MenuIndex $menuIndex , FrontImage $frontImage , Card $card , Product $product , Berand $berand){
-        return view('welcome' ,
+        return view('layouts.front-page' ,
          [
-            'menus'=>$menuIndex->all() ,
             'images' => $this->getDataWhere('App\Models\FrontImage' , ['status' => 1]),
             'cards' => $card->all(),
-            'products' => $product::all(),
+            'products' => $product::query(),
             'berands' => $berand::all(),
-            'footer_title' => $footerTitel->all(),
-            'footer_item' => $footerItem->all(),
 
         ]);
     }
