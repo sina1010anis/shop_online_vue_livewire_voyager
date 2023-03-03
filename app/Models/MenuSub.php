@@ -19,7 +19,7 @@ class MenuSub extends Model
 
     public function menu()
     {
-        return $this->belongsTo(Menu::class , 'menu_index_id' , 'id');
+        return $this->belongsTo(MenuIndex::class , 'menu_index_id' , 'id');
     }
 
     public function berand()

@@ -38,7 +38,7 @@ class Product extends Model
 
     public function product_colors()
     {
-        return $this->hasMany(Cart::class , 'product_id' , 'id');
+        return $this->hasMany(ProductColor::class , 'product_id' , 'id');
     }
 
     protected $attributes = ['number_view' => 0 , 'number_payment'=>0];

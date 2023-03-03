@@ -8,9 +8,15 @@ class ViewProduct extends Component
 {
 
     public $data;
+    public $test;
+
     public function mount($data)
     {
         $this->data = $data;
+    }
+    public function test($id)
+    {
+        $this->test = $id;
     }
     public function render()
     {

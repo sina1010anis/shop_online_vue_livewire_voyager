@@ -185,6 +185,10 @@ a{
     background-color: none!important;
     border-radius: none!important;
 }
+.btn-send-to-carts{
+    border: none;
+    background-color: rgb(255, 128, 128);
+}
 /* My Style --------------------------------------------------------------- */
 .my-select-none{
     -webkit-user-select: none!important;
