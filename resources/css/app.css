@@ -186,6 +186,15 @@ a{
     border: none;
     background-color: rgb(255, 128, 128);
 }
+.item-des-product{
+    border-bottom: 2px solid rgb(255, 153, 153);
+}
+.view-des-2{
+    border-left: 1px solid rgb(222, 222, 222);
+}
+.view-des-2 p{
+    line-height: 25px;
+}
 /* My Style --------------------------------------------------------------- */
 .my-select-none{
     user-select: none!important;

@@ -26,9 +26,9 @@
                                 </span>
                             </div>
                             <div class="col-12 my-4 text-center text-sm-end" dir="rtl">
-                                <p class="my-f-20 my-color-b-800 my-font-IYM">
+                                <h2 class="my-f-20 my-color-b-800 my-font-IYM">
                                     {{$data->name}}
-                                </p>
+                                </h2>
                                 <p class="card-text text-end pb-2 my-f-13 my-font-IYM" style="color:#50C0A2">
                                     @if($data->off > 0)
                                         <span style="color:rgb(255, 115, 115)">{{$data->off}} % تخفیف</span><br>
@@ -94,15 +94,31 @@
                                 @endif
 
                                 @endif
-{{$test}}
-
 
                             </div>
                         </div>
-
                     </div>
+                </div>
+                <div class="col-12 bg-white shadow p-2 rounded-2 mb-2 row">
+                    <div class="col-12 d-flex" dir="rtl">
+                        <a href='/' class="my-font-IYM mx-2 my-select-none my-pointer my-f-13 my-color-b-900 p-2 item-des-product"> توضیحات </a>
+                        <a href='/' class="my-font-IYM mx-2 my-select-none my-pointer my-f-13 my-color-b-900 p-2 item-des-product"> نظرات </a>
+                        <a href='/' class="my-font-IYM mx-2 my-select-none my-pointer my-f-13 my-color-b-900 p-2 item-des-product"> محصولات مشابه </a>
+                    </div>
+                    <div class="col-12 col-sm-3 text-center" dir="rtl">
+                        <h2 class="my-f-16 my-font-IYM my-color-b-800 mt-2 mb-3">مشخصات کلی :</h2>
+                        @foreach ($data->product_attributes as $attr)
+                            <p dir="rtl" class="my-font-IYL my-color-b-700 my-f-12 my-1 py-1"><b> {{$attr->title}} </b>: {{$attr->body}}</p>
+                        @endforeach
+                    </div>
+                    <div class="col-12 col-sm-9 view-des-2 text-center text-sm-end mt-3" dir="rtl">
+                        <h2 class="my-f-16 my-font-IYM my-color-b-800">توضیحات کلی :</h2>
+                        <p class="mt-2 my-f-13 my-font-IYL my-color-b-700 me-1">
+                            {{$data->des_2}}
+                        </p>
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
-
 </div>

@@ -1,6 +1,5 @@
 <?php
 namespace App\Public\Database;
-
 trait  getterData
 {
     public function getDataAll(String $namespaceModel)
