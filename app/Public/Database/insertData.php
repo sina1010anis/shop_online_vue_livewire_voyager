@@ -13,7 +13,7 @@ trait  insertData
          ($where) ? $namespaceModel::update($valus) : $namespaceModel::where($where)->update($valus);
          return $this;
     }
-    public function incrementData(String $namespaceModel , Array $valus , Array $where)
+    public function incrementData(String $namespaceModel , Array $valus , mixed $where)
     {
          $namespaceModel::where($where)->increment($valus[0] , $valus[1]);
          return $this;

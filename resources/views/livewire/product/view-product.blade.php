@@ -81,6 +81,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    {{$test}}
 
                                     @if ($dataIdColor->number <= 5)
                                         <p class="my-f-13 my-font-IYM text-end" style="color:rgb(255, 143, 143);" dir="rtl ">
@@ -117,7 +118,14 @@
                             {{$data->des_2}}
                         </p>
                     </div>
-
+                </div>
+                <div class="col-12 row bg-white mb-2 rounded-2 shadow" dir="rtl">
+                    <div class="col-12">
+                        <h2 class="my-f-16 my-font-IYM my-color-b-800">برسی محصول :</h2>
+                        <div class="mt-4">
+                            {!! $data->des_3 !!}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

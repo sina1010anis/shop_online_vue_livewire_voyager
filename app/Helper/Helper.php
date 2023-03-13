@@ -6,3 +6,4 @@ function apply_off($value , $price)
     $price_back = $price_tow * ($value / 100);
     return $price - $price_back;
 }
+function userIdentity(){}

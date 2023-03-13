@@ -6,7 +6,7 @@ trait  getterData
     {
         return $namespaceModel::all();
     }
-    public function getDataWhere(String $namespaceModel , Array $where , String $whereGet = Null)
+    public function getDataWhere(String $namespaceModel , mixed $where , String $whereGet = Null)
     {
         return $namespaceModel::where($where)->get();
     }
