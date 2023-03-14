@@ -3,25 +3,33 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\Cart;
+use App\Models\Product;
+use Livewire\Component;
+use App\Public\User\User;
+use Illuminate\Support\Str;
+use App\Models\ProductComment;
 use App\Public\Database\getterData;
 use App\Public\Database\insertData;
-use App\Public\User\User;
-use Livewire\Component;
 
 class ViewProduct extends Component
 {
     use getterData , insertData;
-    public $data , $src , $idColor , $dataIdColor , $test , $status;
+    public $data , $src , $idColor , $dataIdColor , $test , $status , $dataComment , $SimilarProduct;
 
     public function mount($data)
     {
         $this->data = $data;
+        $this->dataComment = ProductComment::latest('id')->whereProduct_id($data->id)->take(8)->get();
+        $this->SimilarProduct = Product::whereMenu_sub_id($data->menu_sub_id)->where('id' , '!=' , $data->id)->take(10)->get();
     }
     public function setColor($id)
     {
         $this->fill(['idColor' => $id , 'dataIdColor' => $this->getDataFind('App\Models\ProductColor' , $id)]);
     }
-
+    public function viewAllComment()
+    {
+        $this->dataComment = ProductComment::latest('id')->whereProduct_id($this->data->id)->get();
+    }
     public function productNewInCart(User $user)
     {
         // User class adds a series of data to the presentation and finally gives a presentation according to the values we need

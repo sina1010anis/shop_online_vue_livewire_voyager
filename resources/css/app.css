@@ -195,6 +195,30 @@ a{
 .view-des-2 p{
     line-height: 25px;
 }
+.box-comment-product{
+    width: 250px;
+    max-width: 250px;
+    min-width: 250px;
+    height: 250px;
+    max-height: 250px;
+    min-height: 250px;
+    background-color: #f8f8f8;
+    border: 1px solid #dcdcdc;
+}
+.time-box-comment-product{
+    width: 100%;
+    height: 50px;
+    background-color: #eeeeee;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.time-box-comment-product i{
+    color: rgb(112, 112, 255);
+}
+.item-other-comment span{
+    color: rgb(108 213 228)!important;
+}
 /* My Style --------------------------------------------------------------- */
 .my-select-none{
     user-select: none!important;

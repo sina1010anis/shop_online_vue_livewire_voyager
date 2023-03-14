@@ -3,6 +3,7 @@
 use App\Http\Controllers\Fromt\FrontController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\ProfileController;
+use Database\Factories\ProductCommentFactory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::controller(FrontController::class)->as('front.')->prefix('/')->group(function(){
     Route::get('' , 'frontPage')->name('index');
     Route::post('get/item/sub/menu' , 'getSubMenu')->name('get.SubMenu');
