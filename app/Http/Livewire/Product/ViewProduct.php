@@ -10,63 +10,75 @@ use Illuminate\Support\Str;
 use App\Models\ProductComment;
 use App\Public\Database\getterData;
 use App\Public\Database\insertData;
+use App\Public\Product\CartProduct;
+use Illuminate\Support\Facades\Auth;
+use App\Public\product\CommentProduct;
 
 class ViewProduct extends Component
 {
-    use getterData , insertData;
-    public $data , $src , $idColor , $dataIdColor , $test , $status , $dataComment , $SimilarProduct;
+    // trait " CommentProduct " => updatedCommentTitle() , updatedCommentBody() , viewAllComment()
+    // trait " CartProduct " => setColor() , productNewInCart() , viewAllComment()
+    use getterData , insertData , CartProduct;
 
-    public function mount($data)
+    public $data  ,$src , $test , $status , $dataComment , $SimilarProduct ,$commentTitle , $commentBody, $error = ['status_comment_title' => false , 'status_comment_body' => false];
+    public function updatedCommentTitle()
     {
-        $this->data = $data;
-        $this->dataComment = ProductComment::latest('id')->whereProduct_id($data->id)->take(8)->get();
-        $this->SimilarProduct = Product::whereMenu_sub_id($data->menu_sub_id)->where('id' , '!=' , $data->id)->take(10)->get();
+        if(Str::length($this->commentTitle) > 20 || Str::length($this->commentTitle) <= 5){
+            $this->error['min_and_max_title_error'] = 'تعداد حروف موضوع باید بین 5 الی 20 کلمه باشد';
+            $this->error['status_comment_title'] = false;
+        }else{
+            unset($this->error['min_and_max_title_error']);
+            $this->error['status_comment_title'] = true;
+        }
     }
-    public function setColor($id)
+    public function updatedCommentBody()
     {
-        $this->fill(['idColor' => $id , 'dataIdColor' => $this->getDataFind('App\Models\ProductColor' , $id)]);
+        if(Str::length($this->commentBody) > 2048 || Str::length($this->commentBody) <= 10){
+            $this->error['min_and_max_body_error'] = 'تعداد حروف متن باید بین 10 الی 2048 باشد';
+            $this->error['status_comment_body'] = false;
+        }else{
+            unset($this->error['min_and_max_body_error']);
+            $this->error['status_comment_body'] = true;
+        }
     }
     public function viewAllComment()
     {
         $this->dataComment = ProductComment::latest('id')->whereProduct_id($this->data->id)->get();
     }
-    public function productNewInCart(User $user)
+    public function newCommentProduct()
     {
-        // User class adds a series of data to the presentation and finally gives a presentation according to the values we need
-        // The function user_ckech_product() executes the opposite value For example, the above code gives an array with user_id and product_id values : $user->userCheck()->productCheck($this->dataIdColor->id)->getCollect()
-        if(auth()->check()){
-            $dataCart = $this->getDataWhere('App\Models\Cart' , $user->user_ckech_product($this->dataIdColor->id));
-            $price = ($this->dataIdColor->product->off > 0) ?  apply_off($this->dataIdColor->product->off , $this->dataIdColor->price)  :  $this->dataIdColor->price;
-            if($dataCart->count() > 0){
-                $firstCart = $this->getDataFind('App\Models\Cart' , $dataCart[0]->id);
-                if($this->dataIdColor->product->max_order > 0)
-                {
-                    if($firstCart->number >= $this->dataIdColor->number || $firstCart->number >= $this->dataIdColor->product->max_order  ){
-                        $this->fill(['status' => 'Error:Number']);
-                    }else{
-                        $this->incrementData('App\Models\Cart' , ['number' , 1] , $user->user_ckech_product($this->dataIdColor->id))
-                        ->incrementData('App\Models\Cart' , ['total_price' , $price] , $user->user_ckech_product($this->dataIdColor->id) );
-                        $this->fill(['status' => 'OK:Number']);
-                    }
-                }else{
-                    if($firstCart->number >= $this->dataIdColor->number){
-                        $this->fill(['status' => 'Error:Number']);
-                    }else{
-                        $this->incrementData('App\Models\Cart' , ['number' , 1] , $user->user_ckech_product($this->dataIdColor->id) )
-                        ->incrementData('App\Models\Cart' , ['total_price' , $price] , $user->user_ckech_product($this->dataIdColor->id) );
-                        $this->fill(['status' => 'OK:Number']);
-                    }
-                }
+        if(!$this->error['status_comment_body'] || !$this->error['status_comment_title']){
+            $this->error['error_all_new_comment'] = 'با دقت بیشتری متن را پر کنید';
+            unset($this->error["ok_send_comment"]);
+        }else{
+            unset($this->error["error_all_new_comment"]);
+            ProductComment::create([
+                'body' => $this->commentBody,
+                'title' => $this->commentTitle,
+                'product_id' => $this->data->id,
+                'user_id' => Auth::user()->id,
+            ]);
+            $this->reset(['commentBody' , 'commentTitle']);
+            $this->error['status_comment_title'] = false;
+            $this->error['status_comment_body'] = false;
+            $this->error['ok_send_comment'] = 'بازخورد با موفقیت ارسال شد بعد از تایید متشر میشود با تشکر.';
 
-            }else{
-                $this->insertData('App\Models\Cart' ,['number' => 1,'status' => 1,
-                'total_price' => $price,
-                'product_color_id' => $this->dataIdColor->id,
-                'user_id' => auth()->user()->id]);
-                $this->fill(['status' => 'OK:Number']);
-            }
         }
     }
+
+    public function mount($data)
+    {
+        // ProductComment::create([
+        //     'title' => 'wwwwwwwwww',
+        //     'body' =>'wwwwwwwwwwwwwwwwwwwwww',
+        //     'user_id' => 1,
+        //     'product_id' => 17,
+        // ]);
+        $this->data = $data;
+        $this->dataComment = ProductComment::latest('id')->whereProduct_id($data->id)->take(8)->get();
+        $this->SimilarProduct = Product::whereMenu_sub_id($data->menu_sub_id)->where('id' , '!=' , $data->id)->take(10)->get();
+    }
+
 
     public function setImage($image)
     {

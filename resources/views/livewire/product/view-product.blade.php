@@ -62,6 +62,11 @@
                                 @foreach ($data->product_colors as $product)
                                     <div wire:click='setColor({{$product->id}})' class="my-pointer py-2" style="width: 25px ;height: 25px;background-color: {{$product->color->color_code}};border-radius: 50%;border: 1.5px solid rgb(221, 221, 221)" ></div>
                                 @endforeach
+                                <div class=" m-0 p-0 my-sc-0-7" wire:loading wire:target='setColor'>
+                                    <div  class="spinner-border text-danger" role="status">
+                                        <span class="sr-only"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-12 d-flex justify-content-between align-content-center">
@@ -129,13 +134,18 @@
                 </div>
                 <div class="col-12 row bg-white mb-2 rounded-2 p-3 shadow" dir="rtl">
                     <div class="col-12">
-                        <h2 class="my-f-16 my-font-IYM my-color-b-800 mt-2">نظرات  :</h2>
+                        <h2 class="my-f-16 my-font-IYM my-color-b-800 mt-2">نظرات  :
+
+                        </h2>
                         <div class="d-flex flex-nowrap overflow-scroll p-2">
                             @foreach ($dataComment as $comment)
                                 <div class="box-comment-product rounded-2 p-2 mx-3 mt-3 my-pos-rel overflow-hidden">
-                                    <p class="my-font-IYM my-f-13 my-color-b-800" dir="rtl">{{$comment->title}}</p>
+                                    <div class="my-3 text-center">
+                                        <i class="bi bi-chat-dots my-color-b-400" style="font-size: 35px"></i>
+                                    </div>
+                                    <p class="my-font-IYM my-f-13 text-center my-color-b-800" dir="rtl">{{$comment->title}}</p>
                                     <p class="my-font-IYL my-f-11 my-color-b-700" dir="rtl" style="line-height:21px ">
-                                        {{Str::limit($comment->body , 250 , '...')}}
+                                        {{Str::limit($comment->body , 100 , '...')}}
                                     </p>
                                     <div class="time-box-comment-product d-flex justify-content-between align-items-center p-2">
                                         <div>
@@ -164,6 +174,46 @@
                                 </div>
                             @endif
                         </div>
+                        @if (auth()->check())
+                            <div class="view-input-new-comment text-center d-flex justify-content-center my-3">
+                                <div class="bd-example w-50">
+                                    <form wire:submit.prevent="newCommentProduct">
+                                        <div class="mb-3">
+                                        <label for="title_comment" class="form-label my-f-13 my-color-b-800 my-font-IYL">موضوع کامنت</label>
+                                        <input name="title" wire:model="commentTitle" class="form-control my-f-12-i my-font-ISL my-color-b-600-i" id="title_comment">
+                                        </div>
+                                            @if(isset($error['min_and_max_title_error']))
+                                            <div class="alert alert-danger" role="alert">
+                                                <p class="my-f-11 my-font-ISL">{{$error['min_and_max_title_error']}}</p>
+                                            </div>
+                                            @endif
+                                        <div class="mb-3">
+                                        <label for="body_comment" class="form-label my-f-13 my-color-b-800 my-font-IYL"> متن کامنت</label>
+                                        <textarea name="body" wire:model="commentBody" class="form-control my-f-12-i my-font-ISL my-color-b-600-i" id="body_comment" rows="3"></textarea>
+                                        </div>
+                                            @if(isset($error['min_and_max_body_error']))
+                                                <div class="alert alert-danger" role="alert">
+                                                    <p class="my-f-11 my-font-ISL">{{$error['min_and_max_body_error']}}</p>
+                                                </div>
+                                            @endif
+                                        <button type="submit"  class=" w-100 border-0 mt-2 d-flex justify-content-center text-center align-items-center my-pointer btn-new-comment py-2 my-color-b my-f-13 my-font-IYL px-4 rounded">
+                                            ثبت بازخورد
+                                        </button>
+                                    </form>
+                                    {{$test}}
+                                    @if(isset($error['error_all_new_comment']))
+                                        <div class="alert alert-danger mt-2" role="alert">
+                                            <p class="my-f-11 my-font-ISL">{{$error['error_all_new_comment']}}</p>
+                                        </div>
+                                    @endif
+                                    @if(isset($error['ok_send_comment']))
+                                        <div class="alert alert-success mt-2" role="alert">
+                                            <p class="my-f-11 my-font-ISL">{{$error['ok_send_comment']}}</p>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <div class="my-4">

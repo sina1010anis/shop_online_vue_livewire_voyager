@@ -47,7 +47,7 @@ const app = createApp({
         set_image_menu(src){
             this.imageMenu = src;
         },
-        test(){alert('test')}
+        test(){alert('test')},
     }
 
 })

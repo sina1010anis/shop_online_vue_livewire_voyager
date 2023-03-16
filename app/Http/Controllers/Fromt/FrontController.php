@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers\Fromt;
 
-use App\Http\Controllers\Controller;
-use App\Http\Resources\SubMenuResours;
-use App\Models\Berand;
 use App\Models\Card;
+use App\Models\Berand;
+use App\Models\MenuSub;
+use App\Models\Product;
+use App\Models\MenuIndex;
 use App\Models\FooterItem;
 use App\Models\FrontImage;
 use App\Models\FooterTitel;
-use App\Models\MenuIndex;
-use App\Models\MenuSub;
-use App\Models\Product;
-use App\Public\Database\getterData;
 use Illuminate\Http\Request;
-
+use App\Public\Database\getterData;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\SubMenuResours;
+use App\Models\ProductComment;
 
 class FrontController extends Controller
 {

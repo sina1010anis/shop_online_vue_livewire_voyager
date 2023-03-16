@@ -189,6 +189,9 @@ a{
     border: none;
     background-color: rgb(255, 128, 128);
 }
+.btn-new-comment{
+    background-color: rgb(111, 118, 255);
+}
 .item-des-product{
     border-bottom: 2px solid rgb(255, 153, 153);
 }
@@ -221,6 +224,9 @@ a{
 }
 .item-other-comment span{
     color: rgb(108 213 228)!important;
+}
+.view-input-new-comment{
+    display: none;
 }
 /* My Style --------------------------------------------------------------- */
 .my-select-none{
@@ -266,6 +272,9 @@ a{
     font-family: IYM;
 }
 
+.my-font-IYM-i {
+    font-family: IYM!important;
+}
 @font-face {
     font-family: IS;
     src: url(/fonts/IRANSansWeb.ttf?84fda3e85b2ec3885be12fd7d550129a);
@@ -275,6 +284,9 @@ a{
     font-family: IS;
 }
 
+.my-font-IS-i {
+    font-family: IS!important;
+}
 @font-face {
     font-family: ISL;
     src: url(/fonts/IRANSansWeb_Light.ttf?00ee5b29c5221d5e5f902aa222b882a1);
@@ -284,6 +296,9 @@ a{
     font-family: ISL;
 }
 
+.my-font-ISL-i {
+    font-family: ISL!important;
+}
 @font-face {
     font-family: IYL;
     src: url(/fonts/IRANYekanLight.ttf?b206776de8f325cfc3e2a867b72920b6);
@@ -293,6 +308,9 @@ a{
     font-family: IYL;
 }
 
+.my-font-IYL-i {
+    font-family: IYL!important;
+}
 @font-face {
     font-family: IYB;
     src: url(/fonts/IRANYekanBold.ttf?8d30b4f4ff85a40484fdce72cae4cbf3);
@@ -302,6 +320,9 @@ a{
     font-family: IYB;
 }
 
+.my-font-IYB-i {
+    font-family: IYB!important;
+}
 .my-obj-center {
     position: absolute;
     top: 50%;
@@ -329,74 +350,128 @@ a{
     font-size: 5px;
 }
 
+.my-f-5-i {
+    font-size: 5px!important;
+}
 .my-f-6 {
     font-size: 6px;
 }
 
+.my-f-6-i {
+    font-size: 6px!important;
+}
 .my-f-7 {
     font-size: 7px;
 }
 
+.my-f-7-i {
+    font-size: 7px!important;
+}
 .my-f-8 {
     font-size: 8px;
 }
 
+.my-f-8-i {
+    font-size: 8px!important;
+}
 .my-f-9 {
     font-size: 9px;
 }
 
+.my-f-9-i {
+    font-size: 9px!important;
+}
 .my-f-10 {
     font-size: 10px;
 }
 
+.my-f-10-i {
+    font-size: 10px!important;
+}
 .my-f-11 {
     font-size: 11px;
 }
 
+.my-f-11-i {
+    font-size: 11px!important;
+}
 .my-f-12 {
     font-size: 12px;
 }
 
+.my-f-12-i {
+    font-size: 12px!important;
+}
 .my-f-13 {
     font-size: 13px;
 }
 
+.my-f-13-i {
+    font-size: 13px!important;
+}
 .my-f-14 {
     font-size: 14px;
 }
 
+.my-f-14-i {
+    font-size: 14px!important;
+}
 .my-f-15 {
     font-size: 15px;
 }
 
+.my-f-15-i {
+    font-size: 15px!important;
+}
 .my-f-16 {
     font-size: 16px;
 }
 
+.my-f-16-i {
+    font-size: 16px!important;
+}
 .my-f-17 {
     font-size: 17px;
 }
 
+.my-f-17-i {
+    font-size: 17px!important;
+}
 .my-f-18 {
     font-size: 18px;
 }
 
+.my-f-18-i {
+    font-size: 18px!important;
+}
 .my-f-19 {
     font-size: 19px;
 }
 
+.my-f-19-i {
+    font-size: 19px!important;
+}
 .my-f-20 {
     font-size: 20px;
 }
 
+.my-f-20-i {
+    font-size: 20px!important;
+}
 .my-f-21 {
     font-size: 21px;
 }
 
+.my-f-21-i {
+    font-size: 21px!important;
+}
 .my-f-22 {
     font-size: 22px;
 }
 
+.my-f-22-i {
+    font-size: 22px!important;
+}
 .my-pointer {
     cursor: pointer;
 }
@@ -410,51 +485,77 @@ a{
 .my-color-b {
     color: white;
 }
-
+.my-color-b-i {
+    color: white!important;
+}
 .my-color-b-100 {
     color: #ececec;
 }
-
+.my-color-b-100-i {
+    color: #ececec!important;
+}
 .my-color-b-200 {
     color: #cbcbcb;
 }
-
+.my-color-b-200-i {
+    color: #cbcbcb!important;
+}
 .my-color-b-300 {
     color: #cecece;
 }
-
+.my-color-b-300-i {
+    color: #cecece!important;
+}
 .my-color-b-400 {
     color: #adadad;
 }
-
+.my-color-b-400-i {
+    color: #adadad!important;
+}
 .my-color-b-500 {
     color: #909090;
 }
-
+.my-color-b-500-i {
+    color: #909090!important;
+}
 .my-color-b-600 {
     color: #5a5a5a;
 }
-
+.my-color-b-600-i {
+    color: #5a5a5a!important;
+}
 .my-color-b-700 {
     color: #494949;
 }
-
+.my-color-b-700-i {
+    color: #494949!important;
+}
 .my-color-b-800 {
     color: #2a2a2a;
 }
-
+.my-color-b-800-i {
+    color: #2a2a2a!important;
+}
 .my-color-b-900 {
     color: #101010;
 }
-
+.my-color-b-900-i {
+    color: #101010!important;
+}
 .my-flot-r {
     float: right;
 }
 
+.my-flot-r-i {
+    float: right!important;
+}
 .my-flot-l {
     float: left;
 }
 
+.my-flot-l-i {
+    float: left!important;
+}
 .border-box {
     box-sizing: border-box;
 }

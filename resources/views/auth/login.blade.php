@@ -21,7 +21,7 @@
                 @enderror
                 <div class="w-100 mb-3">
                     <label for="paswwordId" class="form-label my-f-11 my-color-b-500 my-font-IYM text-end d-block" dir="rtl">رمز عبور</label>
-                    <input type="text" class="my-outline-none form-control text-end my-f-9 py-2 px-3 my-color-b-300 my-font-IYL" id="paswwordId" placeholder="**********" name="password" dir="rtl">
+                    <input type="password" class="my-outline-none form-control text-end my-f-9 py-2 px-3 my-color-b-300 my-font-IYL" id="paswwordId" placeholder="**********" name="password" dir="rtl">
                 </div>
                 @error('password')
                     <div class="error-input text-danger my-f-11 my-font-IYM my-select-none p-1 my-2 text-end d-flex back-error-input align-items-center" dir="rtl">

@@ -1,10 +1,14 @@
 <?php
 
-use App\Http\Controllers\Fromt\FrontController;
-use App\Http\Controllers\Product\ProductController;
+use Illuminate\Http\Request;
+use App\Models\ProductComment;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use Database\Factories\ProductCommentFactory;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Fromt\FrontController;
+use App\Http\Controllers\Product\ProductController;
+use Illuminate\Foundation\Auth\User;
 
 /*
 |--------------------------------------------------------------------------
