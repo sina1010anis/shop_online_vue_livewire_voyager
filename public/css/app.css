@@ -228,6 +228,9 @@ a{
 .view-input-new-comment{
     display: none;
 }
+.item-menu-win{
+    border: 1px solid rgb(184, 184, 184);
+}
 /* My Style --------------------------------------------------------------- */
 .my-select-none{
     -webkit-user-select: none!important;

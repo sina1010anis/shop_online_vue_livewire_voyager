@@ -87,7 +87,7 @@
                         <span>
                             <img class="image-brand-menu" :src="subMenu.brand.image" alt="name">
                         </span>
-                        <a href="/" dir="rtl" class="my-font-IYM my-color-b-500 my-f-10" >@{{subMenu.name}}</a>
+                        <a :href="'/menu/'+subMenu.slug" dir="rtl" class="my-font-IYM my-color-b-500 my-f-10" >@{{subMenu.name}}</a>
                     </div>
                 </div>
             </div>

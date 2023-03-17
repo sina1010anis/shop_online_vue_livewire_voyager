@@ -22,6 +22,7 @@ use Illuminate\Foundation\Auth\User;
 */
 Route::controller(FrontController::class)->as('front.')->prefix('/')->group(function(){
     Route::get('' , 'frontPage')->name('index');
+    Route::get('menu/{subMenu}' , 'showMenu')->name('menu');
     Route::post('get/item/sub/menu' , 'getSubMenu')->name('get.SubMenu');
 });
 

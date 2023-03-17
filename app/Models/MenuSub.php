@@ -27,4 +27,14 @@ class MenuSub extends Model
         return $this->belongsTo(Berand::class , 'berand_id' , 'id');
     }
 
+    public function win()
+    {
+        return $this->hasMany(Window::class , 'menu_sub_id' , 'id');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 }

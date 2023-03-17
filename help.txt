@@ -4,3 +4,12 @@ help front image location
 3 = baner center
 
 ------------------------------------------
+
+help image location for menu
+1 = banner
+2 = items 2box
+3 = biig image gallry
+4 = smal image gallry
+
+
+------------------------------------------

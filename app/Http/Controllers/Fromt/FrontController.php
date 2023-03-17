@@ -34,4 +34,7 @@ class FrontController extends Controller
     {
         return new SubMenuResours($this->getDataWhere('App\Models\MenuSub' , ['menu_index_id' => $request->id]));
     }
+    public function showMenu(MenuSub $subMenu){
+        return view('layouts.view-menu' , ['menu' => $subMenu , 'products' => Product::whereMenu_sub_id($subMenu->id)->latest('id')->take(5)->get()]);
+    }
 }

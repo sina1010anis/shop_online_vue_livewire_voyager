@@ -21,6 +21,7 @@ class SubMenuResours extends ResourceCollection
                     'name' => $item->name,
                     'image' => $item->image,
                     'brand' => $item->berand,
+                    'slug' => $item->slug,
                 ];
             })
         ];
