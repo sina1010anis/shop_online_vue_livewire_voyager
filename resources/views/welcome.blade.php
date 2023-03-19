@@ -14,7 +14,10 @@
         <div id="app" class="box ">
             @livewire('front.header' , ['menus' => $menus])
             @yield('index')
-            @livewire('front.footer' , ['footer_title' => $footer_title , 'footer_item' => $footer_item])
+            @if (!isset($model))
+                @livewire('front.footer' , ['footer_title' => $footer_title , 'footer_item' => $footer_item])
+            @endif
+
         </div>
     </body>
     @livewireScripts

@@ -29,7 +29,6 @@
                         </div>
                     @endif
                 @endforeach
-
                 <div class="col-12 my-4">
                     <div class="lightbox">
                         <div class="row">
@@ -52,7 +51,7 @@
                 </div>
                 @livewire('front.product-list' , ['title' => $menu->name , 'subject' => 'محصولات این دسته' , 'products' => $products])
                 <div class="text-center">
-                    <a href="/" class="mt-3 mb-4 w-100 d-block border-0 text-center my-f-13 my-color-b my-font-IYM w-50 py-4 rounded-2 btn-send-validation">نمایش همه محصولات این دسته</a>
+                    <a href="{{route('front.view.itemMenu' , ['data' => $menu->slug])}}" class="mt-3 mb-4 w-100 d-block border-0 text-center my-f-13 my-color-b my-font-IYM w-50 py-4 rounded-2 btn-send-validation">نمایش همه محصولات این دسته</a>
                 </div>
             </div>
         </div>

@@ -22775,6 +22775,9 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({
     },
     test: function test() {
       alert('test');
+    },
+    show_filter: function show_filter(id) {
+      jquery__WEBPACK_IMPORTED_MODULE_5___default()('#menu_filter_' + id).stop().slideToggle();
     }
   }
 });

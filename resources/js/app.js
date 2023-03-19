@@ -48,6 +48,10 @@ const app = createApp({
             this.imageMenu = src;
         },
         test(){alert('test')},
+        show_filter(id)
+        {
+            $('#menu_filter_'+id).stop().slideToggle()
+        }
     }
 
 })

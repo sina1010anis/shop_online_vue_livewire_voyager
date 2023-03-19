@@ -37,4 +37,8 @@ class FrontController extends Controller
     public function showMenu(MenuSub $subMenu){
         return view('layouts.view-menu' , ['menu' => $subMenu , 'products' => Product::whereMenu_sub_id($subMenu->id)->latest('id')->take(5)->get()]);
     }
+    public function viewItemMenu(MenuSub $data)
+    {
+        return view('layouts.view-menu-a' , ['data' => $data , 'products' => $data->products]);
+    }
 }
