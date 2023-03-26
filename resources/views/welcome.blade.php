@@ -16,7 +16,8 @@
             @yield('index')
             @if (!isset($model))
                 @livewire('front.footer' , ['footer_title' => $footer_title , 'footer_item' => $footer_item])
-            @endif
+            @endif\
+
 
         </div>
     </body>

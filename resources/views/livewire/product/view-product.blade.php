@@ -16,11 +16,11 @@
                     <div class="row">
                         <div class="col-12 text-end" dir="rtl">
                             <span>
-                                <a class="my-color-b-400 my-f-11 my-font-ISL" href="/">
+                                <a class="my-color-b-600 my-f-11 my-font-ISL">
                                     {{$data->menu_sub->menu->name}}
                                 </a>
                                 /
-                                <a class="my-color-b-400 my-f-11 my-font-ISL" href="/">
+                                <a class="my-color-b-400 my-f-11 my-font-ISL" href="{{route('front.menu' , ['subMenu' => $data->menu_sub->slug])}}">
                                     {{$data->menu_sub->name}}
                                 </a>
                             </span>

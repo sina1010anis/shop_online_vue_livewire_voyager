@@ -1,6 +1,7 @@
 import './bootstrap';
 import {createApp} from 'vue'
 import TestComponent from "./components/TestComponent";
+import ProductsVue from "./components/ProductsVue";
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import $ from 'jquery'
@@ -14,7 +15,8 @@ const app = createApp({
         dataSubMenu:null,
         imageMenu:''
     }),components:{
-        TestComponent
+        TestComponent,
+        ProductsVue
     },mounted(){
         $("#btn_show_menu").click(()=>{
             $(".index-menu-item-index").stop().slideToggle('fast');

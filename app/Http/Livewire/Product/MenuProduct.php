@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Product;
 
+use App\Models\Product;
 use Livewire\Component;
 
 class MenuProduct extends Component

@@ -2,36 +2,18 @@
     <div class="container-fluid">
         <div class="row bg-white my-4">
             <div class="my-2 col-12  row p-0 ">
-                <div class="col-12 col-md-8 row order-2 m-0 my-pos-rel">
+                <div class="col-12 col-md-9 row order-2 m-0 my-pos-rel">
                     <div class="col-12 bg-white border-bottom border-1 d-flex align-items-start align-items-start" style="height: 35px;" dir="rtl">
-                        <div class="mx-2 my-font-IYL my-f-12 p-2 my-pointer my-color-b-800 my-select-none">جدیدترین</div>
-                        <div class="mx-2 my-font-IYL my-f-12 p-2 my-pointer my-color-b-800 my-select-none">بیشترین سفارش</div>
-                        <div class="mx-2 my-font-IYL my-f-12 p-2 my-pointer my-color-b-800 my-select-none">گرانترین</div>
-                        <div class="mx-2 my-font-IYL my-f-12 p-2 my-pointer my-color-b-800 my-select-none">ارزان ترین</div>
+                        <div class="mx-2 my-font-IYL my-f-12 p-2 my-pointer my-color-b-800 my-select-none" wire:click='sortBy_id()'>جدیدترین</div>
+                        <div class="mx-2 my-font-IYL my-f-12 p-2 my-pointer my-color-b-800 my-select-none" wire:click='sortBy_max_order()'>بیشترین سفارش</div>
+                        <div class="mx-2 my-font-IYL my-f-12 p-2 my-pointer my-color-b-800 my-select-none" wire:click='sortBy_avg_up()'>گرانترین</div>
+                        <div class="mx-2 my-font-IYL my-f-12 p-2 my-pointer my-color-b-800 my-select-none" wire:click='sortBy_avg_down()'>ارزان ترین</div>
                     </div>
                     <div class="col-12 d-flex overflow-hidden flex-wrap m-0 justify-content-center align-items-start my-pos-abs" style="top:35px" dir="rtl">
-                        @foreach ($products as $product)
-                            <div class="card mx-2 p-1 text-center mt-3 box-view-product  {{($product->off > 0) ? 'border-danger' : 'shadow'}}" id="{{$product->id}}">
-                                <div class="my-pos-rel">
-                                    <img loading="lazy" src="{{url($product->image_front)}}" style="width: 75%" class="mt-3 card-img-top text-center image-front-product" alt="{{$product->name}}">
-                                </div>
-                                <div class="card-body" dir="rtl">
-                                    <a href="/" class="card-title my-select-none text-center d-block pb-2 my-f-11 my-color-b-600 my-font-IYL">{{$product->menu_sub->name}}</a>
-                                    <a href="{{route('product.view.product' , ['product' => $product->slug])}}" class="d-block card-text text-center pb-2 my-f-11 my-color-b-800 my-font-IYL">{{$product->name}}</a>
-                                    <p class="card-text text-center pb-2 my-f-11 my-font-IYM" style="color:#50C0A2">
-                                        @if($product->off > 0)
-                                            <span style="color:rgb(255, 115, 115)">{{$product->off}} % تخفیف</span><br>
-                                            {{apply_off($product->off  , $product->avg_price)}}
-                                        @else
-                                            {{$product->avg_price}} تومان
-                                        @endif
-                                    </p>
-                                </div>
-                            </div>
-                        @endforeach
+                        <products-vue :data="{{$products}}"></products-vue>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 m-0 p-0 bg-white order-1 p-3 " >
+                <div class="col-12 col-md-3 m-0 p-0 bg-white order-1 p-3 " >
                     <div class="d-flex align-self-start justify-content-between align-items-center p-3 rounded-3 title-filter">
                         <i class="bi bi-funnel my-color-b-500 my-f-20"></i>
                         <b><span class="my-font-IYM my-f-16 text-end my-color-b-500">فیلتر</span></b>
@@ -58,6 +40,7 @@
                         </div>
                     @endfor
                 </div>
+
             </div>
         </div>
     </div>
