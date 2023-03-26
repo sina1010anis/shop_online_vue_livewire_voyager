@@ -2,17 +2,7 @@
     <div class="container-fluid">
         <div class="row bg-white my-4">
             <div class="my-2 col-12  row p-0 ">
-                <div class="col-12 col-md-9 row order-2 m-0 my-pos-rel">
-                    <div class="col-12 bg-white border-bottom border-1 d-flex align-items-start align-items-start" style="height: 35px;" dir="rtl">
-                        <div class="mx-2 my-font-IYL my-f-12 p-2 my-pointer my-color-b-800 my-select-none" wire:click='sortBy_id()'>جدیدترین</div>
-                        <div class="mx-2 my-font-IYL my-f-12 p-2 my-pointer my-color-b-800 my-select-none" wire:click='sortBy_max_order()'>بیشترین سفارش</div>
-                        <div class="mx-2 my-font-IYL my-f-12 p-2 my-pointer my-color-b-800 my-select-none" wire:click='sortBy_avg_up()'>گرانترین</div>
-                        <div class="mx-2 my-font-IYL my-f-12 p-2 my-pointer my-color-b-800 my-select-none" wire:click='sortBy_avg_down()'>ارزان ترین</div>
-                    </div>
-                    <div class="col-12 d-flex overflow-hidden flex-wrap m-0 justify-content-center align-items-start my-pos-abs" style="top:35px" dir="rtl">
-                        <products-vue :data="{{$products}}"></products-vue>
-                    </div>
-                </div>
+                <products-vue :data="{{$products}}"></products-vue>
                 <div class="col-12 col-md-3 m-0 p-0 bg-white order-1 p-3 " >
                     <div class="d-flex align-self-start justify-content-between align-items-center p-3 rounded-3 title-filter">
                         <i class="bi bi-funnel my-color-b-500 my-f-20"></i>
