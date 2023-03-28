@@ -15,4 +15,9 @@ class MenuIndex extends Model
     {
         return $this->hasMany(MenuSub::class , 'menu_index_id' , 'id');
     }
+
+    public function filter_title()
+    {
+        return $this->hasMany(FilterTitle::class , 'menu_index_id' , 'id');
+    }
 }

@@ -22744,52 +22744,61 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "col-12 col-md-9 row order-2 m-0 my-pos-rel"
+  "class": "container-fluid"
 };
 var _hoisted_2 = {
+  "class": "row bg-white my-4"
+};
+var _hoisted_3 = {
+  "class": "my-2 col-12 row p-0"
+};
+var _hoisted_4 = {
+  "class": "col-12 col-md-9 row order-2 m-0 my-pos-rel"
+};
+var _hoisted_5 = {
   "class": "col-12 bg-white border-bottom border-1 d-flex align-items-start align-items-start",
   style: {
     "height": "35px"
   },
   dir: "rtl"
 };
-var _hoisted_3 = {
+var _hoisted_6 = {
   "class": "col-12 d-flex overflow-hidden flex-wrap m-0 justify-content-center align-items-start my-pos-abs",
   style: {
     "top": "35px"
   },
   dir: "rtl"
 };
-var _hoisted_4 = ["id"];
-var _hoisted_5 = {
+var _hoisted_7 = ["id"];
+var _hoisted_8 = {
   "class": "my-pos-rel"
 };
-var _hoisted_6 = ["src", "alt"];
-var _hoisted_7 = {
+var _hoisted_9 = ["src", "alt"];
+var _hoisted_10 = {
   "class": "card-body",
   dir: "rtl"
 };
-var _hoisted_8 = ["href"];
-var _hoisted_9 = {
+var _hoisted_11 = ["href"];
+var _hoisted_12 = {
   "class": "card-text text-center pb-2 my-f-11 my-font-IYM",
   style: {
     "color": "#50C0A2"
   }
 };
-var _hoisted_10 = {
+var _hoisted_13 = {
   key: 0
 };
-var _hoisted_11 = {
+var _hoisted_14 = {
   style: {
     "color": "rgb(255, 115, 115)"
   }
 };
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_13 = {
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_16 = {
   key: 1
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "mx-2 my-font-IYL my-f-12 p-2 my-pointer my-color-b-800 my-select-none",
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $options.sortBy_id();
@@ -22809,12 +22818,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[3] || (_cache[3] = function ($event) {
       return $options.sortBy_avg("down");
     })
-  }, "ارزان ترین")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.products, function (product) {
+  }, "ارزان ترین")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.products, function (product) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       loding: "lazy",
       "class": "card mx-2 p-1 text-center mt-3 box-view-product",
       id: product.id
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       loading: "lazy",
       src: '/' + product.image_front,
       style: {
@@ -22822,11 +22831,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       },
       "class": "mt-3 card-img-top text-center image-front-product",
       alt: product.name
-    }, null, 8 /* PROPS */, _hoisted_6)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    }, null, 8 /* PROPS */, _hoisted_9)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
       href: '/product/view/product/' + product.slug,
       "class": "d-block card-text text-center pb-2 my-f-11 my-color-b-800 my-font-IYL"
-    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.name), 9 /* TEXT, PROPS */, _hoisted_8), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, [product.off > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.off) + " % تخفیف", 1 /* TEXT */), _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.setOff(product.avg_price, product.off)), 1 /* TEXT */)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.avg_price) + " تومان ", 1 /* TEXT */))])])], 8 /* PROPS */, _hoisted_4);
-  }), 256 /* UNKEYED_FRAGMENT */))])]);
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.name), 9 /* TEXT, PROPS */, _hoisted_11), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, [product.off > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.off) + " % تخفیف", 1 /* TEXT */), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.setOff(product.avg_price, product.off)), 1 /* TEXT */)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.avg_price) + " تومان ", 1 /* TEXT */))])])], 8 /* PROPS */, _hoisted_7);
+  }), 256 /* UNKEYED_FRAGMENT */))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "filter")])])]);
 }
 
 /***/ }),

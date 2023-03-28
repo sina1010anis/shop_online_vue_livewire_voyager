@@ -14,4 +14,9 @@ class FooterTitel extends Model
     {
         return $this->hasMany(FooterItem::class , 'footer_title_id' , 'id');
     }
+
+    public function menu_index()
+    {
+        return $this->belongsTo(MenuIndex::class , 'menu_index_id' , 'id');
+    }
 }
