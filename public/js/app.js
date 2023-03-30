@@ -22669,7 +22669,8 @@ __webpack_require__.r(__webpack_exports__);
   name: "ProductsVue",
   data: function data() {
     return {
-      products: null
+      products: null,
+      filter_products: ''
     };
   },
   methods: {
@@ -22677,27 +22678,56 @@ __webpack_require__.r(__webpack_exports__);
       return price - price * (val / 100);
     },
     sortBy_id: function sortBy_id() {
-      this.products = this.products.reverse();
+      if (this.data_filter == null) {
+        this.products = this.products.reverse();
+      } else {
+        this.filter_products = this.data_filter;
+        this.filter_products = this.filter_products.reverse();
+      }
     },
     sortBy_max_order: function sortBy_max_order() {
-      this.products = this.products.sort(function (a, b) {
-        return b.max_order - a.max_order;
-      });
-    },
-    sortBy_avg: function sortBy_avg(model) {
-      if (model == 'up') {
+      if (this.data_filter == null) {
         this.products = this.products.sort(function (a, b) {
-          return b.avg_price - a.avg_price;
+          return b.max_order - a.max_order;
         });
       } else {
-        this.products = this.products.sort(function (a, b) {
-          return a.avg_price - b.avg_price;
+        this.filter_products = this.data_filter;
+        this.filter_products = this.filter_products.sort(function (a, b) {
+          return b.max_order - a.max_order;
         });
+      }
+    },
+    sortBy_avg: function sortBy_avg(model) {
+      if (this.data_filter == null) {
+        if (model == 'up') {
+          this.products = this.products.sort(function (a, b) {
+            return b.avg_price - a.avg_price;
+          });
+        } else {
+          this.products = this.products.sort(function (a, b) {
+            return a.avg_price - b.avg_price;
+          });
+        }
+      } else {
+        if (model == 'up') {
+          this.filter_products = this.data_filter;
+          this.filter_products = this.filter_products.sort(function (a, b) {
+            return b.avg_price - a.avg_price;
+          });
+        } else {
+          this.filter_products = this.data_filter;
+          this.filter_products = this.filter_products.sort(function (a, b) {
+            return a.avg_price - b.avg_price;
+          });
+        }
       }
     }
   },
   props: {
     data: {
+      type: Object
+    },
+    data_filter: {
       type: Object
     }
   },
@@ -22758,14 +22788,15 @@ var _hoisted_4 = {
 var _hoisted_5 = {
   "class": "col-12 bg-white border-bottom border-1 d-flex align-items-start align-items-start",
   style: {
-    "height": "35px"
+    "height": "55px"
   },
   dir: "rtl"
 };
 var _hoisted_6 = {
+  key: 0,
   "class": "col-12 d-flex overflow-hidden flex-wrap m-0 justify-content-center align-items-start my-pos-abs",
   style: {
-    "top": "35px"
+    "top": "55px"
   },
   dir: "rtl"
 };
@@ -22797,13 +22828,49 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_16 = {
   key: 1
 };
+var _hoisted_17 = {
+  key: 1,
+  "class": "col-12 d-flex overflow-hidden flex-wrap m-0 justify-content-center align-items-start my-pos-abs",
+  style: {
+    "top": "35px"
+  },
+  dir: "rtl"
+};
+var _hoisted_18 = ["id"];
+var _hoisted_19 = {
+  "class": "my-pos-rel"
+};
+var _hoisted_20 = ["src", "alt"];
+var _hoisted_21 = {
+  "class": "card-body",
+  dir: "rtl"
+};
+var _hoisted_22 = ["href"];
+var _hoisted_23 = {
+  "class": "card-text text-center pb-2 my-f-11 my-font-IYM",
+  style: {
+    "color": "#50C0A2"
+  }
+};
+var _hoisted_24 = {
+  key: 0
+};
+var _hoisted_25 = {
+  style: {
+    "color": "rgb(255, 115, 115)"
+  }
+};
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_27 = {
+  key: 1
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "mx-2 my-font-IYL my-f-12 p-2 my-pointer my-color-b-800 my-select-none",
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $options.sortBy_id();
     })
-  }, "جدیدترین"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  }, "جدید / قدیم"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "mx-2 my-font-IYL my-f-12 p-2 my-pointer my-color-b-800 my-select-none",
     onClick: _cache[1] || (_cache[1] = function ($event) {
       return $options.sortBy_max_order();
@@ -22818,7 +22885,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[3] || (_cache[3] = function ($event) {
       return $options.sortBy_avg("down");
     })
-  }, "ارزان ترین")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.products, function (product) {
+  }, "ارزان ترین")]), $props.data_filter == null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.products, function (product) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       loding: "lazy",
       "class": "card mx-2 p-1 text-center mt-3 box-view-product",
@@ -22835,7 +22902,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       href: '/product/view/product/' + product.slug,
       "class": "d-block card-text text-center pb-2 my-f-11 my-color-b-800 my-font-IYL"
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.name), 9 /* TEXT, PROPS */, _hoisted_11), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, [product.off > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.off) + " % تخفیف", 1 /* TEXT */), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.setOff(product.avg_price, product.off)), 1 /* TEXT */)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.avg_price) + " تومان ", 1 /* TEXT */))])])], 8 /* PROPS */, _hoisted_7);
-  }), 256 /* UNKEYED_FRAGMENT */))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "filter")])])]);
+  }), 256 /* UNKEYED_FRAGMENT */))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.data_filter != null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_17, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.data_filter, function (product) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      loding: "lazy",
+      "class": "card mx-2 p-1 text-center mt-3 box-view-product",
+      id: product.id
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      loading: "lazy",
+      src: '/' + product.image_front,
+      style: {
+        "width": "75%"
+      },
+      "class": "mt-3 card-img-top text-center image-front-product",
+      alt: product.name
+    }, null, 8 /* PROPS */, _hoisted_20)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+      href: '/product/view/product/' + product.slug,
+      "class": "d-block card-text text-center pb-2 my-f-11 my-color-b-800 my-font-IYL"
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.name), 9 /* TEXT, PROPS */, _hoisted_22), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_23, [product.off > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.off) + " % تخفیف", 1 /* TEXT */), _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.setOff(product.avg_price, product.off)), 1 /* TEXT */)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.avg_price) + " تومان ", 1 /* TEXT */))])])], 8 /* PROPS */, _hoisted_18);
+  }), 256 /* UNKEYED_FRAGMENT */))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "filter")])])]);
 }
 
 /***/ }),
@@ -22894,7 +22978,9 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({
     return {
       text: 'sina',
       dataSubMenu: null,
-      imageMenu: ''
+      imageMenu: '',
+      filter_id: [],
+      filter_products: null
     };
   },
   components: {
@@ -22927,13 +23013,27 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({
     //document.getElementById('box-view-berand-id').scrollTo(10000000 , 0);
   },
   methods: {
-    show_sub_menu: function show_sub_menu(id, image) {
+    get_item_filter: function get_item_filter(id) {
       var _this = this;
+      if (this.filter_id.length != 0) {
+        axios__WEBPACK_IMPORTED_MODULE_8__["default"].post('/send/filter', {
+          'menu_id': id,
+          'filter': this.filter_id
+        }).then(function (res) {
+          //return console.log(res.data);
+          _this.filter_products = res.data;
+        })["catch"](function (res) {
+          console.error(res);
+        });
+      }
+    },
+    show_sub_menu: function show_sub_menu(id, image) {
+      var _this2 = this;
       axios__WEBPACK_IMPORTED_MODULE_8__["default"].post('/get/item/sub/menu', {
         'id': id
       }).then(function (res) {
-        _this.dataSubMenu = res.data;
-        _this.imageMenu = image;
+        _this2.dataSubMenu = res.data;
+        _this2.imageMenu = image;
         jquery__WEBPACK_IMPORTED_MODULE_6___default()(".row-index-box-menu").stop().slideDown('fast');
       });
     },

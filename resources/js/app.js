@@ -13,7 +13,9 @@ const app = createApp({
     data: () => ({
         text: 'sina',
         dataSubMenu:null,
-        imageMenu:''
+        imageMenu:'',
+        filter_id:[],
+        filter_products:null
     }),components:{
         TestComponent,
         ProductsVue
@@ -39,6 +41,16 @@ const app = createApp({
         })
         //document.getElementById('box-view-berand-id').scrollTo(10000000 , 0);
     },methods:{
+        get_item_filter(id){
+            if(this.filter_id.length != 0){
+                axios.post('/send/filter' , {'menu_id' : id , 'filter' : this.filter_id}).then((res)=>{
+                    //return console.log(res.data);
+                    this.filter_products = res.data
+                }).catch((res)=>{
+                    console.error(res);
+                })
+            }
+        },
         show_sub_menu(id , image){
             axios.post('/get/item/sub/menu' , {'id':id}).then((res)=>{
                 this.dataSubMenu = res.data

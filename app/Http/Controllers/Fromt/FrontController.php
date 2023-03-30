@@ -15,6 +15,7 @@ use App\Public\Database\getterData;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\SubMenuResours;
+use App\Models\FilterProduct;
 use App\Models\ProductComment;
 
 class FrontController extends Controller
@@ -40,5 +41,9 @@ class FrontController extends Controller
     public function viewItemMenu(MenuSub $data)
     {
         return view('layouts.view-menu-a' , ['data' => $data , 'products' => $data->products]);
+    }
+    public function sendFilter(Request $request){
+        $product_id = collect(FilterProduct::whereIn('filter_attribute_id',$request->filter)->get('product_id'))->unique('product_id')->values();
+        return Product::whereIn('id' , $product_id)->get();
     }
 }

@@ -25,6 +25,7 @@ Route::controller(FrontController::class)->as('front.')->prefix('/')->group(func
     Route::get('menu/{subMenu}' , 'showMenu')->name('menu');
     Route::post('get/item/sub/menu' , 'getSubMenu')->name('get.SubMenu');
     Route::get('/category/{data}' , 'viewItemMenu')->name('view.itemMenu');
+    Route::post('/send/filter' , 'sendFilter')->name('send.filter');
 });
 
 Route::controller(ProductController::class)->as('product.')->prefix('/product')->group(function(){
