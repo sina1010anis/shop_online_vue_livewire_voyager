@@ -6,12 +6,13 @@ use App\Models\MenuIndex;
 use App\Models\MenuSub;
 use Livewire\Component;
 use App\Public\Database\getterData;
+use App\Public\User\User;
 use TCG\Voyager\Models\MenuItem;
 
 class Header extends Component
 {
     use getterData;
-    public $menus , $name , $sub_menu;
+    public $menus , $name , $sub_menu , $test;
     public function mount($menus)
     {
         $this->menus = $menus;

@@ -22980,7 +22980,8 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({
       dataSubMenu: null,
       imageMenu: '',
       filter_id: [],
-      filter_products: null
+      filter_products: null,
+      data_pm: ''
     };
   },
   components: {
@@ -23013,27 +23014,61 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({
     //document.getElementById('box-view-berand-id').scrollTo(10000000 , 0);
   },
   methods: {
-    get_item_filter: function get_item_filter(id) {
+    view_cart: function view_cart() {
+      jquery__WEBPACK_IMPORTED_MODULE_6___default()(".bax-cart").stop().slideToggle();
+    },
+    refrsh: function refrsh() {
+      location.reload();
+    },
+    cls_box_pm: function cls_box_pm() {
+      jquery__WEBPACK_IMPORTED_MODULE_6___default()('.box-pm').animate({
+        right: '-300px'
+      });
+    },
+    delete_item_cart: function delete_item_cart(idUser, idCart) {
       var _this = this;
+      axios__WEBPACK_IMPORTED_MODULE_8__["default"].post('/product/delete/cart', {
+        'id_user': idUser,
+        'id_cart': idCart
+      }).then(function (res) {
+        if (res.data == 'delete ok') {
+          _this.data_pm = 'محصول از سبد خرید با موفقیت حذف شد .';
+          jquery__WEBPACK_IMPORTED_MODULE_6___default()('.box-pm').animate({
+            right: '5px'
+          });
+          setTimeout(function () {
+            jquery__WEBPACK_IMPORTED_MODULE_6___default()('.box-pm').animate({
+              right: '-300px'
+            });
+          }, 5000);
+        } else {
+          _this.data_pm = 'خطای در حذف محصول پیش امده است لطفا در صورت پابرجا بودن مشکل با پشتیبانی تماس بگیرید ';
+        }
+      })["catch"](function (res) {
+        console.error(res);
+      });
+    },
+    get_item_filter: function get_item_filter(id) {
+      var _this2 = this;
       if (this.filter_id.length != 0) {
         axios__WEBPACK_IMPORTED_MODULE_8__["default"].post('/send/filter', {
           'menu_id': id,
           'filter': this.filter_id
         }).then(function (res) {
           //return console.log(res.data);
-          _this.filter_products = res.data;
+          _this2.filter_products = res.data;
         })["catch"](function (res) {
           console.error(res);
         });
       }
     },
     show_sub_menu: function show_sub_menu(id, image) {
-      var _this2 = this;
+      var _this3 = this;
       axios__WEBPACK_IMPORTED_MODULE_8__["default"].post('/get/item/sub/menu', {
         'id': id
       }).then(function (res) {
-        _this2.dataSubMenu = res.data;
-        _this2.imageMenu = image;
+        _this3.dataSubMenu = res.data;
+        _this3.imageMenu = image;
         jquery__WEBPACK_IMPORTED_MODULE_6___default()(".row-index-box-menu").stop().slideDown('fast');
       });
     },

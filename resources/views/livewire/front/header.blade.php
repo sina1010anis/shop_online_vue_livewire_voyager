@@ -1,5 +1,4 @@
 <div>
-    {{$name}}
      <div id="loading" class="page-loading">
         <img src="{{ url("storage/front/load.gif") }}" alt="load">
     </div>
@@ -28,8 +27,8 @@
                         صفحه فروشگاه
                     </a>
                 </button>
-                <button class=" my-sc-0-9  btn-header border-0 text-white my-pos-rel">
-                    <i wire:click="setName('sina')" class="bi bi-cart-fill my-f-13"></i>
+                <button @click="view_cart" class=" my-sc-0-9  btn-header border-0 text-white my-pos-rel">
+                    <i  class="bi bi-cart-fill my-f-13"></i>
                 </button>
                 <button class=" my-sc-0-9  btn-header border-0 text-white my-pos-rel ms-2">
                     <a href="{{route('login')}}" class="my-color-b">
@@ -128,6 +127,45 @@
                     <a href="/" class="my-font-IYM my-color-b-800 my-f-12">@{{subMenu.name}}</a>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="bax-cart shadow">
+        @if(auth()->check())
+                @if (Illuminate\Support\Facades\Auth::user()->cart->sum('number') == 0)
+                <p class="text-center my-font-IYL my-color-b-700 my-f-12">محصولی در سبد خرید نمی باشد</p>
+                @else
+                    @foreach (Illuminate\Support\Facades\Auth::user()->cart as $cart)
+                    <div class="d-flex justify-content-between align-items-center item-cart p-2 my-pointer">
+                        <p class="my-font-IYL my-color-b-700 my-f-12">تعداد : <b>{{$cart->number}}</b></p>
+                        <p class="my-font-IYL my-color-b-700 my-f-12">قیمت کل : <b>{{$cart->total_price}}</b></p>
+                        <p class="my-font-IYL my-color-b-700 my-f-12"><b>{{$cart->product->product->name}}</b></p>
+                        <img src="/{{$cart->product->product->image_front}}" alt="{{$cart->product->product->name}}">
+                        <span class="delete-item-cart d-flex justify-content-center align-items-center" title="حذف از سبد خرید" @click="delete_item_cart('{{$cart->user_id}}' , '{{$cart->id}}')">
+                            <i class="bi bi-x-lg my-f-22 my-color-b"></i>
+                        </span>
+                        <p>{{$test}}</p>
+                    </div>
+                    @endforeach
+                @endif
+
+        @endif
+        <div class="d-flex justify-content-between align-items-center item-cart p-2 my-pointer">
+            @if (Illuminate\Support\Facades\Auth::user()->cart->sum('number') != 0)
+                <p class="my-font-IYL my-color-b-700 my-f-12">تعداد کل : <b>{{Illuminate\Support\Facades\Auth::user()->cart->sum('number')}}</b></p>
+                <p class="my-font-IYL my-color-b-700 my-f-12">جمع قیمت کل : <b>{{Illuminate\Support\Facades\Auth::user()->cart->sum('total_price')}}</b></p>
+                <div class="d-flex justify-content-between align-items-center my-pointer btn-send-to-carts py-2 my-color-b my-f-13 my-font-IYL px-4 rounded">
+                    <a class="my-color-b-i" href="/">
+                        پرداخت نهایی
+                    </a>
+                </div>
+            @endif
+        </div>
+    </div>
+    <div class="box-pm" dir="rtl">
+        <i style="color:#2da585;" class="bi bi-x-lg my-f-15 my-pointer" @click="cls_box_pm"></i>
+        <p class="my-font-IYM my-f-12 my-select-none">@{{data_pm}}</p>
+        <div @click="refrsh" class="d-flex  justify-content-center align-items-center my-pointer btn-send-to-carts py-2 my-color-b my-f-11 my-font-IYL px-4 rounded">
+                بارگذاری مجدد صفحه
         </div>
     </div>
 </div>

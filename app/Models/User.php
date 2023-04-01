@@ -64,4 +64,8 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->hasMany(Factor::class , 'user_id' , 'id');
     }
+    public function cart()
+    {
+        return $this->hasMany(Cart::class , 'user_id' , 'id');
+    }
 }

@@ -15,7 +15,8 @@ const app = createApp({
         dataSubMenu:null,
         imageMenu:'',
         filter_id:[],
-        filter_products:null
+        filter_products:null,
+        data_pm:''
     }),components:{
         TestComponent,
         ProductsVue
@@ -41,6 +42,30 @@ const app = createApp({
         })
         //document.getElementById('box-view-berand-id').scrollTo(10000000 , 0);
     },methods:{
+        view_cart(){
+            $(".bax-cart").stop().slideToggle();
+        },
+        refrsh(){
+            location.reload()
+        },
+        cls_box_pm(){
+            $('.box-pm').animate({right: '-300px'})
+        },
+        delete_item_cart(idUser , idCart){
+            axios.post('/product/delete/cart' , {'id_user' : idUser , 'id_cart' : idCart}).then((res)=>{
+                if(res.data == 'delete ok'){
+                    this.data_pm = 'محصول از سبد خرید با موفقیت حذف شد .'
+                    $('.box-pm').animate({right: '5px'})
+                    setTimeout(()=>{
+                        $('.box-pm').animate({right: '-300px'})
+                    } , 5000)
+                }else{
+                    this.data_pm = 'خطای در حذف محصول پیش امده است لطفا در صورت پابرجا بودن مشکل با پشتیبانی تماس بگیرید ';
+                }
+            }).catch((res)=>{
+                console.error(res);
+            })
+        },
         get_item_filter(id){
             if(this.filter_id.length != 0){
                 axios.post('/send/filter' , {'menu_id' : id , 'filter' : this.filter_id}).then((res)=>{

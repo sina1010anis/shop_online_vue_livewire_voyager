@@ -30,6 +30,7 @@ Route::controller(FrontController::class)->as('front.')->prefix('/')->group(func
 
 Route::controller(ProductController::class)->as('product.')->prefix('/product')->group(function(){
     Route::get('/view/product/{product}' , 'viewProduct')->name('view.product');
+    Route::post('/delete/cart' , 'deleteCart')->name('delete.cart');
 });
 
 

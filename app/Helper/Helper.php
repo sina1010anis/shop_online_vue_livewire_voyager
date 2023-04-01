@@ -7,3 +7,6 @@ function apply_off($value , $price)
     return $price - $price_back;
 }
 function userIdentity(){}
+function authGet($query){
+    Illuminate\Support\Facades\Auth::user()->id;
+}
