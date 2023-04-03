@@ -292,6 +292,24 @@ a{
 .box-pm div{
     background-color: #2da585!important;
 }
+.box-search{
+    width: 450px;
+    height: auto;
+    background-color: #fff;
+    position: absolute;
+    top: 37px;
+    z-index: 19;
+    right: 12px;
+}
+.item-box-search{
+    max-width: 150px;
+    min-width: 150px;
+    width: 150px;
+    height: 150px;
+    max-height: 150px;
+    min-height: 150px;
+
+}
 /* My Style --------------------------------------------------------------- */
 .my-select-none{
     user-select: none!important;

@@ -22981,7 +22981,9 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({
       imageMenu: '',
       filter_id: [],
       filter_products: null,
-      data_pm: ''
+      data_pm: '',
+      input_search: '',
+      data_search: null
     };
   },
   components: {
@@ -23014,6 +23016,21 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({
     //document.getElementById('box-view-berand-id').scrollTo(10000000 , 0);
   },
   methods: {
+    search_for_product: function search_for_product() {
+      var _this = this;
+      if (this.input_search != null || this.input_search != '') {
+        axios__WEBPACK_IMPORTED_MODULE_8__["default"].post('/product/search', {
+          'text': this.input_search
+        }).then(function (res) {
+          //console.log(res.data);
+          _this.data_search = res.data;
+        })["catch"](function (res) {
+          console.error(res);
+        });
+      } else {
+        this.data_search = null;
+      }
+    },
     view_cart: function view_cart() {
       jquery__WEBPACK_IMPORTED_MODULE_6___default()(".bax-cart").stop().slideToggle();
     },
@@ -23026,13 +23043,13 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({
       });
     },
     delete_item_cart: function delete_item_cart(idUser, idCart) {
-      var _this = this;
+      var _this2 = this;
       axios__WEBPACK_IMPORTED_MODULE_8__["default"].post('/product/delete/cart', {
         'id_user': idUser,
         'id_cart': idCart
       }).then(function (res) {
         if (res.data == 'delete ok') {
-          _this.data_pm = 'محصول از سبد خرید با موفقیت حذف شد .';
+          _this2.data_pm = 'محصول از سبد خرید با موفقیت حذف شد .';
           jquery__WEBPACK_IMPORTED_MODULE_6___default()('.box-pm').animate({
             right: '5px'
           });
@@ -23042,33 +23059,33 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({
             });
           }, 5000);
         } else {
-          _this.data_pm = 'خطای در حذف محصول پیش امده است لطفا در صورت پابرجا بودن مشکل با پشتیبانی تماس بگیرید ';
+          _this2.data_pm = 'خطای در حذف محصول پیش امده است لطفا در صورت پابرجا بودن مشکل با پشتیبانی تماس بگیرید ';
         }
       })["catch"](function (res) {
         console.error(res);
       });
     },
     get_item_filter: function get_item_filter(id) {
-      var _this2 = this;
+      var _this3 = this;
       if (this.filter_id.length != 0) {
         axios__WEBPACK_IMPORTED_MODULE_8__["default"].post('/send/filter', {
           'menu_id': id,
           'filter': this.filter_id
         }).then(function (res) {
           //return console.log(res.data);
-          _this2.filter_products = res.data;
+          _this3.filter_products = res.data;
         })["catch"](function (res) {
           console.error(res);
         });
       }
     },
     show_sub_menu: function show_sub_menu(id, image) {
-      var _this3 = this;
+      var _this4 = this;
       axios__WEBPACK_IMPORTED_MODULE_8__["default"].post('/get/item/sub/menu', {
         'id': id
       }).then(function (res) {
-        _this3.dataSubMenu = res.data;
-        _this3.imageMenu = image;
+        _this4.dataSubMenu = res.data;
+        _this4.imageMenu = image;
         jquery__WEBPACK_IMPORTED_MODULE_6___default()(".row-index-box-menu").stop().slideDown('fast');
       });
     },

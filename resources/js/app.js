@@ -4,7 +4,7 @@ import TestComponent from "./components/TestComponent";
 import ProductsVue from "./components/ProductsVue";
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import $ from 'jquery'
+import $, { error } from 'jquery'
 import axios from 'axios';
 
 import Alpine from 'alpinejs';
@@ -16,7 +16,9 @@ const app = createApp({
         imageMenu:'',
         filter_id:[],
         filter_products:null,
-        data_pm:''
+        data_pm:'',
+        input_search:'',
+        data_search:null
     }),components:{
         TestComponent,
         ProductsVue
@@ -42,6 +44,19 @@ const app = createApp({
         })
         //document.getElementById('box-view-berand-id').scrollTo(10000000 , 0);
     },methods:{
+        search_for_product(){
+            if(this.input_search != null || this.input_search != ''){
+                axios.post('/product/search' , {'text' : this.input_search}).then((res)=>{
+                    //console.log(res.data);
+                    this.data_search = res.data
+                }).catch((res)=>{
+                    console.error(res);
+                })
+            }else{
+                this.data_search = null
+            }
+
+        },
         view_cart(){
             $(".bax-cart").stop().slideToggle();
         },

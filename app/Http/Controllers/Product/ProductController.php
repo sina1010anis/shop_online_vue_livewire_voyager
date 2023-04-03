@@ -23,6 +23,9 @@ class ProductController extends Controller
             return 'delete ok';
         }
         return 'delete no';
-
+    }
+    public function searchProduct(Request $request){
+        $data = Product::where('name' ,'Like', '%'.$request->text.'%')->get();
+        return $data;
     }
 }
