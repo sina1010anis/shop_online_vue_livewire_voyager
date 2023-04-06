@@ -31,7 +31,7 @@
                     <i  class="bi bi-cart-fill my-f-13"></i>
                 </button>
                 <button class=" my-sc-0-9  btn-header border-0 text-white my-pos-rel ms-2">
-                    <a href="{{route('login')}}" class="my-color-b">
+                    <a href="{{(auth()->check()) ? route('user.dashboard') : route('login')}}" class="my-color-b">
                         <i class="bi bi-person-fill my-f-13"></i>
                     </a>
                 </button>

@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use Database\Factories\ProductCommentFactory;
 use App\Http\Controllers\Fromt\FrontController;
 use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\User\UserContoller;
 use Illuminate\Foundation\Auth\User;
 
 /*
@@ -34,6 +35,10 @@ Route::controller(ProductController::class)->as('product.')->prefix('/product')-
     Route::post('/search' , 'searchProduct')->name('search');
 });
 
+Route::controller(UserContoller::class)->as('user.')->middleware(['auth' , 'verified'])->prefix('/user')->group(function(){
+    Route::get('/dashboard', 'index')->name('dashboard');
+    Route::get('/message', 'messagePanel')->name('message');
+});
 
 
 
@@ -45,9 +50,6 @@ Route::controller(ProductController::class)->as('product.')->prefix('/product')-
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
