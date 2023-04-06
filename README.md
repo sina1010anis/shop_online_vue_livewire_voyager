@@ -1,1 +1,1 @@
-<img src="/storage/front/1.jpeg" alt="">
+<img src="storage/front/5.png" alt="banner">
