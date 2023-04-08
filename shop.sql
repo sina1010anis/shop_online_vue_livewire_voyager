@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2023 at 08:17 AM
+-- Generation Time: Apr 06, 2023 at 03:21 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -108,6 +108,14 @@ CREATE TABLE `carts` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `carts`
+--
+
+INSERT INTO `carts` (`id`, `number`, `total_price`, `status`, `product_color_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(56, 1, 388000000, 1, 1, 1, '2023-04-03 01:42:03', '2023-04-03 01:42:03'),
+(57, 1, 392000000, 1, 2, 1, '2023-04-03 01:42:12', '2023-04-03 01:42:12');
+
 -- --------------------------------------------------------
 
 --
@@ -147,6 +155,14 @@ CREATE TABLE `colors` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `colors`
+--
+
+INSERT INTO `colors` (`id`, `name`, `image`, `color_code`, `created_at`, `updated_at`) VALUES
+(1, '50C0A2', 'Null', '#50C0A2', '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(2, '9e4fff', 'Null', '#9e4fff', '2020-10-03 20:30:00', '2020-10-03 20:30:00');
+
 -- --------------------------------------------------------
 
 --
@@ -174,61 +190,13 @@ CREATE TABLE `data_rows` (
 --
 
 INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
-(1, 1, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
-(2, 1, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
-(3, 1, 'email', 'text', 'Email', 1, 1, 1, 1, 1, 1, NULL, 3),
-(4, 1, 'password', 'password', 'Password', 1, 0, 0, 1, 1, 0, NULL, 4),
-(5, 1, 'remember_token', 'text', 'Remember Token', 0, 0, 0, 0, 0, 0, NULL, 5),
-(6, 1, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, NULL, 6),
-(7, 1, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 7),
-(8, 1, 'avatar', 'image', 'Avatar', 0, 1, 1, 1, 1, 1, NULL, 8),
-(9, 1, 'user_belongsto_role_relationship', 'relationship', 'Role', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":0}', 10),
-(10, 1, 'user_belongstomany_role_relationship', 'relationship', 'Roles', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"user_roles\",\"pivot\":\"1\",\"taggable\":\"0\"}', 11),
-(11, 1, 'settings', 'hidden', 'Settings', 0, 0, 0, 0, 0, 0, NULL, 12),
-(12, 2, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
-(13, 2, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
-(14, 2, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 3),
-(15, 2, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 4),
-(16, 3, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
-(17, 3, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
-(18, 3, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 3),
-(19, 3, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 4),
-(20, 3, 'display_name', 'text', 'Display Name', 1, 1, 1, 1, 1, 1, NULL, 5),
-(21, 1, 'role_id', 'text', 'Role', 1, 1, 1, 1, 1, 1, NULL, 9),
-(22, 4, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
-(23, 4, 'parent_id', 'select_dropdown', 'Parent', 0, 0, 1, 1, 1, 1, '{\"default\":\"\",\"null\":\"\",\"options\":{\"\":\"-- None --\"},\"relationship\":{\"key\":\"id\",\"label\":\"name\"}}', 2),
-(24, 4, 'order', 'text', 'Order', 1, 1, 1, 1, 1, 1, '{\"default\":1}', 3),
-(25, 4, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 4),
-(26, 4, 'slug', 'text', 'Slug', 1, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"name\"}}', 5),
-(27, 4, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 0, 0, 0, NULL, 6),
-(28, 4, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 7),
-(29, 5, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
-(30, 5, 'author_id', 'text', 'Author', 1, 0, 1, 1, 0, 1, NULL, 2),
-(31, 5, 'category_id', 'text', 'Category', 1, 0, 1, 1, 1, 0, NULL, 3),
-(32, 5, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, NULL, 4),
-(33, 5, 'excerpt', 'text_area', 'Excerpt', 1, 0, 1, 1, 1, 1, NULL, 5),
-(34, 5, 'body', 'rich_text_box', 'Body', 1, 0, 1, 1, 1, 1, NULL, 6),
-(35, 5, 'image', 'image', 'Post Image', 0, 1, 1, 1, 1, 1, '{\"resize\":{\"width\":\"1000\",\"height\":\"null\"},\"quality\":\"70%\",\"upsize\":true,\"thumbnails\":[{\"name\":\"medium\",\"scale\":\"50%\"},{\"name\":\"small\",\"scale\":\"25%\"},{\"name\":\"cropped\",\"crop\":{\"width\":\"300\",\"height\":\"250\"}}]}', 7),
-(36, 5, 'slug', 'text', 'Slug', 1, 0, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:posts,slug\"}}', 8),
-(37, 5, 'meta_description', 'text_area', 'Meta Description', 1, 0, 1, 1, 1, 1, NULL, 9),
-(38, 5, 'meta_keywords', 'text_area', 'Meta Keywords', 1, 0, 1, 1, 1, 1, NULL, 10),
-(39, 5, 'status', 'select_dropdown', 'Status', 1, 1, 1, 1, 1, 1, '{\"default\":\"DRAFT\",\"options\":{\"PUBLISHED\":\"published\",\"DRAFT\":\"draft\",\"PENDING\":\"pending\"}}', 11),
-(40, 5, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, NULL, 12),
-(41, 5, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 13),
-(42, 5, 'seo_title', 'text', 'SEO Title', 0, 1, 1, 1, 1, 1, NULL, 14),
-(43, 5, 'featured', 'checkbox', 'Featured', 1, 1, 1, 1, 1, 1, NULL, 15),
-(44, 6, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
-(45, 6, 'author_id', 'text', 'Author', 1, 0, 0, 0, 0, 0, NULL, 2),
-(46, 6, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, NULL, 3),
-(47, 6, 'excerpt', 'text_area', 'Excerpt', 1, 0, 1, 1, 1, 1, NULL, 4),
-(48, 6, 'body', 'rich_text_box', 'Body', 1, 0, 1, 1, 1, 1, NULL, 5),
-(49, 6, 'slug', 'text', 'Slug', 1, 0, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\"},\"validation\":{\"rule\":\"unique:pages,slug\"}}', 6),
-(50, 6, 'meta_description', 'text', 'Meta Description', 1, 0, 1, 1, 1, 1, NULL, 7),
-(51, 6, 'meta_keywords', 'text', 'Meta Keywords', 1, 0, 1, 1, 1, 1, NULL, 8),
-(52, 6, 'status', 'select_dropdown', 'Status', 1, 1, 1, 1, 1, 1, '{\"default\":\"INACTIVE\",\"options\":{\"INACTIVE\":\"INACTIVE\",\"ACTIVE\":\"ACTIVE\"}}', 9),
-(53, 6, 'created_at', 'timestamp', 'Created At', 1, 1, 1, 0, 0, 0, NULL, 10),
-(54, 6, 'updated_at', 'timestamp', 'Updated At', 1, 0, 0, 0, 0, 0, NULL, 11),
-(55, 6, 'image', 'image', 'Page Image', 0, 1, 1, 1, 1, 1, NULL, 12);
+(2, 8, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(3, 8, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{}', 2),
+(4, 8, 'image', 'text', 'Image', 1, 1, 1, 1, 1, 1, '{}', 3),
+(5, 8, 'state', 'text', 'State', 1, 1, 1, 1, 1, 1, '{}', 4),
+(6, 8, 'body', 'text', 'Body', 1, 1, 1, 1, 1, 1, '{}', 5),
+(7, 8, 'created_at', 'timestamp', 'Created At', 0, 1, 0, 0, 0, 0, '{}', 6),
+(8, 8, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7);
 
 -- --------------------------------------------------------
 
@@ -264,7 +232,8 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', '', 1, 0, NULL, '2023-02-11 03:38:00', '2023-02-11 03:38:00'),
 (4, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, '', '', 1, 0, NULL, '2023-02-11 03:38:00', '2023-02-11 03:38:00'),
 (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', '', '', 1, 0, NULL, '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2023-02-11 03:38:01', '2023-02-11 03:38:01');
+(6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
+(8, 'berands', 'berands', 'Berand', 'Berands', NULL, 'App\\Models\\Berand', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2023-04-06 04:10:33', '2023-04-06 04:10:33');
 
 -- --------------------------------------------------------
 
@@ -330,6 +299,30 @@ CREATE TABLE `filter_attributes` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `filter_attributes`
+--
+
+INSERT INTO `filter_attributes` (`id`, `name`, `status`, `filter_title_id`, `created_at`, `updated_at`) VALUES
+(1, '16', 1, 1, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(2, '32', 1, 1, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(3, '64', 1, 1, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(4, '2k', 1, 1, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(5, '64', 1, 2, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(6, '128', 1, 2, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(7, '256', 1, 2, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(8, 'Mail', 1, 3, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(9, 'ExP', 1, 3, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(10, 'Snap', 1, 3, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(11, 'TFT', 1, 4, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(12, 'AMOLD', 1, 4, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(13, 'Soper AMOLD', 1, 4, '2023-03-07 06:37:04', '2023-03-22 05:37:04'),
+(14, 'OLED', 1, 4, '2023-03-22 05:37:04', '2023-03-23 05:37:04'),
+(15, 'IOS', 1, 5, '2023-03-24 05:37:04', '2023-03-24 05:37:04'),
+(16, 'Android', 1, 5, '2023-03-02 06:37:04', '2023-03-30 05:37:04'),
+(17, 'Windows Phone', 1, 5, '2023-03-30 05:37:04', '2023-03-30 05:37:04'),
+(18, 'BlackBrey', 1, 5, '2023-03-30 05:37:04', '2023-03-30 05:37:04');
+
 -- --------------------------------------------------------
 
 --
@@ -345,6 +338,47 @@ CREATE TABLE `filter_products` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `filter_products`
+--
+
+INSERT INTO `filter_products` (`id`, `product_id`, `filter_title_id`, `filter_attribute_id`, `created_at`, `updated_at`) VALUES
+(1, 17, 1, 1, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(2, 17, 2, 7, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(3, 17, 3, 10, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(4, 17, 4, 14, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(5, 17, 5, 17, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(6, 18, 1, 2, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(7, 18, 2, 6, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(8, 18, 3, 8, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(9, 18, 4, 13, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(10, 18, 5, 16, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(11, 33, 1, 1, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(12, 33, 2, 7, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(13, 33, 3, 10, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(14, 33, 4, 14, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(15, 33, 5, 17, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(16, 34, 1, 2, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(17, 34, 2, 6, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(18, 34, 3, 8, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(19, 34, 4, 13, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(20, 34, 5, 16, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(21, 35, 1, 1, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(22, 35, 2, 7, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(23, 35, 3, 10, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(24, 35, 4, 14, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(25, 35, 5, 17, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(26, 36, 1, 2, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(27, 36, 2, 6, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(28, 36, 3, 8, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(29, 36, 4, 13, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(30, 36, 5, 16, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(31, 37, 1, 1, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(32, 37, 2, 7, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(33, 37, 3, 10, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(34, 37, 4, 14, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(35, 37, 5, 17, '2020-10-03 20:30:00', '2020-10-03 20:30:00');
+
 -- --------------------------------------------------------
 
 --
@@ -355,9 +389,21 @@ CREATE TABLE `filter_titles` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(191) NOT NULL,
   `status` int(11) NOT NULL,
+  `menu_index_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `filter_titles`
+--
+
+INSERT INTO `filter_titles` (`id`, `title`, `status`, `menu_index_id`, `created_at`, `updated_at`) VALUES
+(1, 'دوربین', 1, 2, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(2, 'حافظه داخلی', 1, 2, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(3, 'پردازنده', 1, 2, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(4, 'صفحه نمایش', 1, 2, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(5, 'سیستم عامل', 1, 2, '2020-10-03 20:30:00', '2020-10-03 20:30:00');
 
 -- --------------------------------------------------------
 
@@ -373,6 +419,41 @@ CREATE TABLE `footer_items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `footer_items`
+--
+
+INSERT INTO `footer_items` (`id`, `name`, `footer_title_id`, `url`, `created_at`, `updated_at`) VALUES
+(1, 'تماس با ما', 1, '/register', '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(2, '093333333', 1, NULL, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(3, 'ثبت نام', 2, '/register', '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(4, 'ورود به پنل کاربری', 2, '/login', '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(5, 'محصولات ما', 3, NULL, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(6, 'محصولات عالی', 3, NULL, '2020-10-03 20:30:00', '2020-10-03 20:30:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `footer_titels`
+--
+
+CREATE TABLE `footer_titels` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) NOT NULL,
+  `location` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `footer_titels`
+--
+
+INSERT INTO `footer_titels` (`id`, `name`, `location`, `created_at`, `updated_at`) VALUES
+(1, 'راه های ارتباطی', 1, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(2, 'لینک ها مفید', 1, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(3, 'بیشتر بدانید', 1, '2020-10-03 20:30:00', '2020-10-03 20:30:00');
 
 -- --------------------------------------------------------
 
@@ -490,7 +571,8 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 14, '2023-02-11 03:38:00', '2023-02-11 03:38:00', 'voyager.settings.index', NULL),
 (11, 1, 'Categories', '', '_self', 'voyager-categories', NULL, NULL, 8, '2023-02-11 03:38:01', '2023-02-11 03:38:01', 'voyager.categories.index', NULL),
 (12, 1, 'Posts', '', '_self', 'voyager-news', NULL, NULL, 6, '2023-02-11 03:38:01', '2023-02-11 03:38:01', 'voyager.posts.index', NULL),
-(13, 1, 'Pages', '', '_self', 'voyager-file-text', NULL, NULL, 7, '2023-02-11 03:38:01', '2023-02-11 03:38:01', 'voyager.pages.index', NULL);
+(13, 1, 'Pages', '', '_self', 'voyager-file-text', NULL, NULL, 7, '2023-02-11 03:38:01', '2023-02-11 03:38:01', 'voyager.pages.index', NULL),
+(14, 1, 'Berands', '', '_self', NULL, NULL, NULL, 15, '2023-04-06 04:10:33', '2023-04-06 04:10:33', 'voyager.berands.index', NULL);
 
 -- --------------------------------------------------------
 
@@ -501,6 +583,7 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 CREATE TABLE `menu_subs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(191) NOT NULL,
+  `slug` varchar(191) NOT NULL,
   `image` text NOT NULL,
   `menu_index_id` bigint(20) UNSIGNED NOT NULL,
   `berand_id` bigint(20) UNSIGNED NOT NULL,
@@ -512,22 +595,22 @@ CREATE TABLE `menu_subs` (
 -- Dumping data for table `menu_subs`
 --
 
-INSERT INTO `menu_subs` (`id`, `name`, `image`, `menu_index_id`, `berand_id`, `created_at`, `updated_at`) VALUES
-(3, 'موبایل سامسونگ', 'storage\\front\\Samsung-Galaxy-S22-Ultra-Snapdragon_Yoast-image-packshot-review-Recovered-1-1024x538.jpg', 1, 1, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(4, 'موبایل اپل', 'storage\\front\\app.jpg', 1, 2, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(5, 'موبایل ایسوس', 'storage\\front\\asus.png', 1, 3, '2021-01-04 20:30:00', '2021-01-25 20:30:00'),
-(6, 'لپ تاپ ماکروسافت', 'storage\\front\\surface-laptop-5.jpg', 2, 6, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(7, 'لپ تاپ اچ پی', 'storage\\front\\hp.jpg', 2, 4, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(8, 'لپ تاپ ایسوس', 'storage\\front\\asus1.jpg', 2, 3, '2020-10-03 20:30:00', '2021-01-25 20:30:00'),
-(9, 'مانیتور ایسوس', 'storage\\front\\asus2.jpg', 3, 3, '2021-01-04 20:30:00', '2021-01-25 20:30:00'),
-(10, 'مانیتور اچ پی', 'storage\\front\\hp1.jpg', 3, 4, '2021-01-04 20:30:00', '2021-01-25 20:30:00'),
-(11, 'مانیتور سامسونگ', 'storage\\front\\sumsung1.jpg', 3, 1, '2023-02-20 14:30:56', '2023-02-14 14:30:56'),
-(12, 'پردازنده اینتل', 'storage\\front\\intel1.jpg', 4, 9, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(13, 'پردازنده ای ام دی', 'storage\\front\\amd1.jpg', 4, 10, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(14, 'پردازنده ای ار ام', 'storage\\front\\arm1.jpg', 4, 12, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(15, 'کارت گرافیک ایسوس', 'storage\\front\\banner_menu_gpu.jpg', 5, 3, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(16, 'کارت گرافیک ای اس ای', 'storage\\front\\msi11.jpg', 5, 7, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(17, 'کارت گرافیک انویدیا', 'storage\\front\\nv11.jpg', 5, 11, '2020-10-03 20:30:00', '2020-10-03 20:30:00');
+INSERT INTO `menu_subs` (`id`, `name`, `slug`, `image`, `menu_index_id`, `berand_id`, `created_at`, `updated_at`) VALUES
+(3, 'موبایل سامسونگ', 'موبای-سامسونگ', '\\storage\\front\\Samsung-Galaxy-S22-Ultra-Snapdragon_Yoast-image-packshot-review-Recovered-1-1024x538.jpg', 1, 1, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(4, 'موبایل اپل', 'موبایل-اپل', '\\storage\\front\\app.jpg', 1, 2, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(5, 'موبایل ایسوس', 'موبایل-ایسوس', '\\storage\\front\\asus.png', 1, 3, '2021-01-04 20:30:00', '2021-01-25 20:30:00'),
+(6, 'لپ تاپ ماکروسافت', 'لپ-تاپ-ماکروسافت', '\\storage\\front\\surface-laptop-5.jpg', 2, 6, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(7, 'لپ تاپ اچ پی', 'لپ-تاپ-اچ-پی', '\\storage\\front\\hp.jpg', 2, 4, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(8, 'لپ تاپ ایسوس', 'لپ-تاپ-ایسوس', '\\storage\\front\\asus1.jpg', 2, 3, '2020-10-03 20:30:00', '2021-01-25 20:30:00'),
+(9, 'مانیتور ایسوس', 'مانیتور-ایسوس', '\\storage\\front\\asus2.jpg', 3, 3, '2021-01-04 20:30:00', '2021-01-25 20:30:00'),
+(10, 'مانیتور اچ پی', 'مانیتور-اچ-پی', '\\storage\\front\\hp1.jpg', 3, 4, '2021-01-04 20:30:00', '2021-01-25 20:30:00'),
+(11, 'مانیتور سامسونگ', 'مانیتور-سامسونگ', '\\storage\\front\\sumsung1.jpg', 3, 1, '2023-02-20 14:30:56', '2023-02-14 14:30:56'),
+(12, 'پردازنده اینتل', 'پردازنده-اینتل', '\\storage\\front\\intel1.jpg', 4, 9, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(13, 'پردازنده ای ام دی', 'پردازنده-ای-ام-دی', '\\storage\\front\\amd1.jpg', 4, 10, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(14, 'پردازنده ای ار ام', 'پردازنده-ای-ار-ام', '\\storage\\front\\arm1.jpg', 4, 12, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(15, 'کارت گرافیک ایسوس', 'کارت-گرافیک-ایسوس', '\\storage\\front\\banner_menu_gpu.jpg', 5, 3, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(16, 'کارت گرافیک ای اس ای', 'کارت-گرافیک-ای-اس-ای', '\\storage\\front\\msi11.jpg', 5, 7, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(17, 'کارت گرافیک انویدیا', 'کارت-گرافیک-انویدیا', '\\storage\\front\\nv11.jpg', 5, 11, '2020-10-03 20:30:00', '2020-10-03 20:30:00');
 
 -- --------------------------------------------------------
 
@@ -593,16 +676,16 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (45, '2023_01_27_154457_create_factor_products_table', 1),
 (46, '2023_01_27_154600_create_front_images_table', 1),
 (47, '2023_01_27_154617_create_cards_table', 1),
-(48, '2023_02_16_132648_add_mobile_to_users', 2),
-(49, '2023_02_16_142124_add_google_id_to_users', 3),
-(50, '2020_02_23_164406_create_footer_titels_table', 4),
-(51, '2023_02_23_065435_create_footers_table', 5),
-(52, '2023_02_23_065835_create_footer_title_table', 6),
-(53, '2023_02_23_065848_create_footers_table', 6),
-(54, '2023_02_23_070053_create_footer_title_table', 7),
-(55, '2023_02_23_070401_create_footer_title_table', 8),
-(56, '2023_02_23_070718_create_footer_titels_table', 9),
-(57, '2023_02_23_071239_create_footer_titels_table', 10);
+(48, '2023_02_16_132648_add_mobile_to_users', 1),
+(49, '2023_02_16_142124_add_google_id_to_users', 1),
+(50, '2023_02_23_071239_create_footer_titels_table', 1),
+(51, '2023_02_23_071257_create_footer_items_table', 2),
+(52, '2023_02_24_140824_add_slug_to_products', 2),
+(53, '2023_03_06_070037_add_price_to_products', 3),
+(54, '2023_03_07_070708_add_max_order_to_products', 4),
+(55, '2023_03_14_140533_add_title_to_product_comments', 5),
+(56, '2023_03_16_081528_add_slug_to_menu_subs', 6),
+(57, '2023_03_28_071941_add_menu_index_id_to_filter_titles', 7);
 
 -- --------------------------------------------------------
 
@@ -646,6 +729,13 @@ CREATE TABLE `panel_messgaes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `panel_messgaes`
+--
+
+INSERT INTO `panel_messgaes` (`id`, `title`, `body`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'کد تخفیف', 'به مناسبت تحویل سال 1042 کد تخفیف برای شما در نظر گرفته شده است', 1, '2020-10-03 20:30:00', '2020-10-03 20:30:00');
 
 -- --------------------------------------------------------
 
@@ -717,7 +807,12 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (37, 'read_pages', 'pages', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
 (38, 'edit_pages', 'pages', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
 (39, 'add_pages', 'pages', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(40, 'delete_pages', 'pages', '2023-02-11 03:38:01', '2023-02-11 03:38:01');
+(40, 'delete_pages', 'pages', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
+(41, 'browse_berands', 'berands', '2023-04-06 04:10:33', '2023-04-06 04:10:33'),
+(42, 'read_berands', 'berands', '2023-04-06 04:10:33', '2023-04-06 04:10:33'),
+(43, 'edit_berands', 'berands', '2023-04-06 04:10:33', '2023-04-06 04:10:33'),
+(44, 'add_berands', 'berands', '2023-04-06 04:10:33', '2023-04-06 04:10:33'),
+(45, 'delete_berands', 'berands', '2023-04-06 04:10:33', '2023-04-06 04:10:33');
 
 -- --------------------------------------------------------
 
@@ -774,7 +869,12 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (37, 1),
 (38, 1),
 (39, 1),
-(40, 1);
+(40, 1),
+(41, 1),
+(42, 1),
+(43, 1),
+(44, 1),
+(45, 1);
 
 -- --------------------------------------------------------
 
@@ -838,6 +938,7 @@ INSERT INTO `posts` (`id`, `author_id`, `category_id`, `title`, `seo_title`, `ex
 CREATE TABLE `products` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(191) NOT NULL,
+  `slug` varchar(191) NOT NULL,
   `menu_sub_id` bigint(20) UNSIGNED NOT NULL,
   `image_front` text NOT NULL,
   `image_back` text NOT NULL,
@@ -847,6 +948,8 @@ CREATE TABLE `products` (
   `number_view` bigint(20) NOT NULL,
   `number_payment` bigint(20) NOT NULL,
   `avg_price` bigint(20) NOT NULL,
+  `max_order` int(11) NOT NULL,
+  `off` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -855,23 +958,23 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `menu_sub_id`, `image_front`, `image_back`, `des_1`, `des_2`, `des_3`, `number_view`, `number_payment`, `avg_price`, `created_at`, `updated_at`) VALUES
-(1, 'لپ تاپ surface laptop 4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 480000000, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(2, 'لپ تاپ surface pro 8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 35000000, NULL, NULL),
-(3, 'لپ تاپ surface laptop 4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 480000000, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(4, 'لپ تاپ surface pro 8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 35000000, NULL, NULL),
-(5, 'لپ تاپ surface laptop 4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 480000000, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(6, 'لپ تاپ surface pro 8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 35000000, NULL, NULL),
-(7, 'لپ تاپ surface laptop 4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 480000000, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(8, 'لپ تاپ surface pro 8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 35000000, NULL, NULL),
-(9, 'لپ تاپ surface laptop 4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 480000000, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(10, 'لپ تاپ surface pro 8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 35000000, NULL, NULL),
-(11, 'لپ تاپ surface laptop 4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 480000000, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(12, 'لپ تاپ surface pro 8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 35000000, NULL, NULL),
-(13, 'لپ تاپ surface laptop 4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 480000000, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(14, 'لپ تاپ surface pro 8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 35000000, NULL, NULL),
-(15, 'لپ تاپ surface laptop 4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 480000000, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
-(16, 'لپ تاپ surface pro 8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 35000000, NULL, NULL);
+INSERT INTO `products` (`id`, `name`, `slug`, `menu_sub_id`, `image_front`, `image_back`, `des_1`, `des_2`, `des_3`, `number_view`, `number_payment`, `avg_price`, `max_order`, `off`, `created_at`, `updated_at`) VALUES
+(17, 'لپ تاپ surface laptop 4', 'لپ-تاپ-surface-laptop-4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'شرکت مایکروسافت طی چند سال گذشته از لپ تاپ‌های سری سرفیس خود رونمایی کرد و تا امروز تعداد زیادی از این سری لپ تاپ‌ها روانه‌ی بازار شده‌اند. شرکت مایکروسافت با تولید این لپ تاپ‌ها به وضوح به دنبال ارائه‌ی یک محصول شیک و بسیار جذاب از نظر ظاهری بوده و علاوه بر آن، کیفیت بدنه‌ی این لپ تاپ‌ها هم زبان‌زد هستند و آن‌ها را از بسیاری از لپ تاپ‌های موجود در بازار متمایز می‌کند. لپ تاپ مایکروسافت مدل Surface Laptop 4 - R از جمله محصولات پرطرفدار از این سری است و از مشخصات سخت‌افزاری جالب توجه‌ای بهره می‌برد. این لپ تاپ به پردازنده‌ی مرکزی شرکت AMD مدل Ryzen 5 4680U مجهز شده و در کنار این پردازنده 8 گیگابایت رم از نوع LPDDR4X برای آن در نظر گرفته شده است. این لپ تاپ فاقد حافظه‌ی گرافیکی مجزا بوده و تنها 128 گیگابایت حافظه‌ی داخلی SSD در آن تعبیه شده است. نمایشگر این لپ تاپ به عنوان یکی از نقاط قوت اساسی آن در نظر گرفته می‌شود. این نمایشگر از نسبت تصویر 3:2 و وضوح 2256x1504 بهره می‌برد و شاهد کیفیت تصویر فوق‌العاده بالایی در نمایشگر این لپ تاپ 13.5 اینچی هستیم.', 'سری لپ تاپ های Surface از سال 2017 روانه بازار شده‌اند و از همان زمان محبوبیت خاصی پیدا کرده‌اند. این لپ تاپ ها بسیار سبک هستند و می‌توانند جایگزین مناسبی برای تبلت‌های سرفیس باشند. در اواخر ماه ژوئن محصول دیگر کمپانی سرفیس یعنی Surface Book 3 به‌روز رسانی شد و حالا لپ تاپ Surface Laptop 4 رونمایی و عرضه شده است. با پلازا همراه باشید و راجع به این محصول جدید، اطلاعات بیشتری کسب کنید.', '<p class=\"mt-2 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                شب گذشته، مایکروسافت تیزری با محوریت دستگاه جدیدی از خانواده‌ی سرفیس منتشر و ساعاتی پیش، جدیدترین دستگاه سری سرفیس لپ تاپ را رونمایی کرد. به‌نوشته‌ی ورج، مدل جدید سرفیس لپ تاپ کانفیگ‌هایی مجهز به پردازنده‌ی اینتل و AMD دارد و با صفحه‌نمایش ۱۳٫۵ یا ۱۵ اینچی همراه می‌شود.\r\n\r\n                                هر دو اندازه از سرفیس لپ تاپ ۴ مایکروسافت (Microsoft Surface Laptop 4) از پردازنده‌ی نسل‌یازدهمی تایگر لیک اینتل یا پردازنده‌ی سری رایزن ۴۰۰۰ ای ام دی بهره می‌برند. مایکروسافت می‌گوید سرفیس لپ تاپ 4 را ۱۵ آوریل ۲۰۲۱ (۲۶ فروردین ۱۴۰۰) روانه‌ی بازار ایالات متحده‌ی آمریکا کانادا و ژاپن می‌کند. کانفیگ پایه‌ی مدل AMD سرفیس لپ تاپ 4 با قیمت ۹۹۹ دلار و کانفیگ پایه‌ی مدل اینتل با قیمت ۱۲۹۹ دلار عرضه می‌شود. این یعنی بین کانفیگ پایه‌ی دو مدل تفاوت قیمت ۳۰۰ دلاری به‌چشم می‌خورد.\r\n\r\n                                تفاوت محسوس بین قیمت مدل AMD و مدل اینتل سرفیس لپ تاپ 4 احتمالا به این دلیل است که مایکروسافت در لپ تاپ جدیدش از جدیدترین نسل پردازنده‌های AMD، یعنی خانواده‌ی رایزن ۵۰۰۰ استفاده نکرده و تصمیم گرفته است لپ تاپ پریمیوم جدیدش را به پردازنده‌های اختصاصی AMD Ryzen Surface Edition مبتنی‌بر هسته‌ی قدیمی ذن 2 مجهز کند. بااین‌حال، قدرت پردازشی دو مدل اینتل و AMD سرفیس لپ تاپ 4 احتمالا بسیار مشابه خواهد بود؛ البته برای دادن نظر قطعی در این زمینه، باید سرفیس لپ تاپ 4 به دفتر زومیت برسد تا کارشناسانمان آن را دقیق بررسی کنند.\r\n                            </p>\r\n                            <div class=\"text-center\">\r\n                                <img src=\"http://localhost:8000/storage/product/R.jfif\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <p class=\"my-4 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                به‌دلیل استفاده از پردازنده‌ی اینتل و AMD، کانفیگ‌های مختلف سرفیس لپ تاپ 4 بسیار متنوع هستند و ممکن است باعث سردرگمی کاربر شوند. کانفیگ پایه‌ی ۱۳٫۵ اینچی AMD و ۹۹۹ دلاری سرفیس لپ تاپ 4 با پردازنده‌ی Ryzen 5 4680U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی و کانفیگ پایه‌ی اینتل پردازنده‌ی نسل‌یازدهمی Core i5 1135G7 با هشت گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی همراه می‌شود.\r\n\r\nکانفیگ‌های اینتل بسیار متنوع هستند و قیمت قوی‌ترین آن‌ها قیمت ۲،۲۹۹ دلار است که از پردازنده‌ی Core i7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی بهره می‌برد. یکی از کانفیگ‌های AMD سرفیس لپ تاپ 4 به ۱۶ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی مجهز است و حدودا هشت هفته پس از عرضه‌ی اولیه، با قیمت ۱،۱۹۹ دلار به دست مشتریان می‌رسد.\r\n\r\nدر مدل ۱۵ اینچی سرفیس لپ تاپ 4، تنوع بیشتری برای کانفیگ‌های AMD را شاهد هستیم. کانفیگ پایه‌ی ۱۵ اینچی و ۱،۲۹۹ دلاری با AMD Ryzen 7 4980U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی روانه‌ی بازار می‌شود. گفتنی است این مدل را می‌توانید در قوی‌ترین کانفیگ با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی به قیمت ۱،۶۹۹ دلار تهیه کنید.\r\n\r\nقیمت مدل مدل پایه‌ی ۱۵ اینچی اینتل ۱،۷۹۹ دلار است و از پردازنده‌ی Core i7 1185G7 با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی استفاده می‌کند. کانفیگ دیگر ۲،۳۹۹ دلار قیمت دارد و از پردازنده‌ی Core i7 1185G7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی برخوردار است.\r\n                            </p>\r\n                            <div class=\"text-center mt-4\">\r\n                                <img src=\"http://localhost:8000/storage/product/M.jpg\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <br>\r\n', 0, 0, 480000000, 9, 20, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(18, 'لپ تاپ surface pro 8', 'لپ-تاپ-surface-pro-8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 35000000, 0, 0, NULL, NULL),
+(33, 'لپ تاپ surface laptop 4', 'لپ-تاپ-surface-laptop-4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'شرکت مایکروسافت طی چند سال گذشته از لپ تاپ‌های سری سرفیس خود رونمایی کرد و تا امروز تعداد زیادی از این سری لپ تاپ‌ها روانه‌ی بازار شده‌اند. شرکت مایکروسافت با تولید این لپ تاپ‌ها به وضوح به دنبال ارائه‌ی یک محصول شیک و بسیار جذاب از نظر ظاهری بوده و علاوه بر آن، کیفیت بدنه‌ی این لپ تاپ‌ها هم زبان‌زد هستند و آن‌ها را از بسیاری از لپ تاپ‌های موجود در بازار متمایز می‌کند. لپ تاپ مایکروسافت مدل Surface Laptop 4 - R از جمله محصولات پرطرفدار از این سری است و از مشخصات سخت‌افزاری جالب توجه‌ای بهره می‌برد. این لپ تاپ به پردازنده‌ی مرکزی شرکت AMD مدل Ryzen 5 4680U مجهز شده و در کنار این پردازنده 8 گیگابایت رم از نوع LPDDR4X برای آن در نظر گرفته شده است. این لپ تاپ فاقد حافظه‌ی گرافیکی مجزا بوده و تنها 128 گیگابایت حافظه‌ی داخلی SSD در آن تعبیه شده است. نمایشگر این لپ تاپ به عنوان یکی از نقاط قوت اساسی آن در نظر گرفته می‌شود. این نمایشگر از نسبت تصویر 3:2 و وضوح 2256x1504 بهره می‌برد و شاهد کیفیت تصویر فوق‌العاده بالایی در نمایشگر این لپ تاپ 13.5 اینچی هستیم.', 'سری لپ تاپ های Surface از سال 2017 روانه بازار شده‌اند و از همان زمان محبوبیت خاصی پیدا کرده‌اند. این لپ تاپ ها بسیار سبک هستند و می‌توانند جایگزین مناسبی برای تبلت‌های سرفیس باشند. در اواخر ماه ژوئن محصول دیگر کمپانی سرفیس یعنی Surface Book 3 به‌روز رسانی شد و حالا لپ تاپ Surface Laptop 4 رونمایی و عرضه شده است. با پلازا همراه باشید و راجع به این محصول جدید، اطلاعات بیشتری کسب کنید.', '<p class=\"mt-2 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                شب گذشته، مایکروسافت تیزری با محوریت دستگاه جدیدی از خانواده‌ی سرفیس منتشر و ساعاتی پیش، جدیدترین دستگاه سری سرفیس لپ تاپ را رونمایی کرد. به‌نوشته‌ی ورج، مدل جدید سرفیس لپ تاپ کانفیگ‌هایی مجهز به پردازنده‌ی اینتل و AMD دارد و با صفحه‌نمایش ۱۳٫۵ یا ۱۵ اینچی همراه می‌شود.\r\n\r\n                                هر دو اندازه از سرفیس لپ تاپ ۴ مایکروسافت (Microsoft Surface Laptop 4) از پردازنده‌ی نسل‌یازدهمی تایگر لیک اینتل یا پردازنده‌ی سری رایزن ۴۰۰۰ ای ام دی بهره می‌برند. مایکروسافت می‌گوید سرفیس لپ تاپ 4 را ۱۵ آوریل ۲۰۲۱ (۲۶ فروردین ۱۴۰۰) روانه‌ی بازار ایالات متحده‌ی آمریکا کانادا و ژاپن می‌کند. کانفیگ پایه‌ی مدل AMD سرفیس لپ تاپ 4 با قیمت ۹۹۹ دلار و کانفیگ پایه‌ی مدل اینتل با قیمت ۱۲۹۹ دلار عرضه می‌شود. این یعنی بین کانفیگ پایه‌ی دو مدل تفاوت قیمت ۳۰۰ دلاری به‌چشم می‌خورد.\r\n\r\n                                تفاوت محسوس بین قیمت مدل AMD و مدل اینتل سرفیس لپ تاپ 4 احتمالا به این دلیل است که مایکروسافت در لپ تاپ جدیدش از جدیدترین نسل پردازنده‌های AMD، یعنی خانواده‌ی رایزن ۵۰۰۰ استفاده نکرده و تصمیم گرفته است لپ تاپ پریمیوم جدیدش را به پردازنده‌های اختصاصی AMD Ryzen Surface Edition مبتنی‌بر هسته‌ی قدیمی ذن 2 مجهز کند. بااین‌حال، قدرت پردازشی دو مدل اینتل و AMD سرفیس لپ تاپ 4 احتمالا بسیار مشابه خواهد بود؛ البته برای دادن نظر قطعی در این زمینه، باید سرفیس لپ تاپ 4 به دفتر زومیت برسد تا کارشناسانمان آن را دقیق بررسی کنند.\r\n                            </p>\r\n                            <div class=\"text-center\">\r\n                                <img src=\"http://localhost:8000/storage/product/R.jfif\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <p class=\"my-4 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                به‌دلیل استفاده از پردازنده‌ی اینتل و AMD، کانفیگ‌های مختلف سرفیس لپ تاپ 4 بسیار متنوع هستند و ممکن است باعث سردرگمی کاربر شوند. کانفیگ پایه‌ی ۱۳٫۵ اینچی AMD و ۹۹۹ دلاری سرفیس لپ تاپ 4 با پردازنده‌ی Ryzen 5 4680U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی و کانفیگ پایه‌ی اینتل پردازنده‌ی نسل‌یازدهمی Core i5 1135G7 با هشت گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی همراه می‌شود.\r\n\r\nکانفیگ‌های اینتل بسیار متنوع هستند و قیمت قوی‌ترین آن‌ها قیمت ۲،۲۹۹ دلار است که از پردازنده‌ی Core i7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی بهره می‌برد. یکی از کانفیگ‌های AMD سرفیس لپ تاپ 4 به ۱۶ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی مجهز است و حدودا هشت هفته پس از عرضه‌ی اولیه، با قیمت ۱،۱۹۹ دلار به دست مشتریان می‌رسد.\r\n\r\nدر مدل ۱۵ اینچی سرفیس لپ تاپ 4، تنوع بیشتری برای کانفیگ‌های AMD را شاهد هستیم. کانفیگ پایه‌ی ۱۵ اینچی و ۱،۲۹۹ دلاری با AMD Ryzen 7 4980U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی روانه‌ی بازار می‌شود. گفتنی است این مدل را می‌توانید در قوی‌ترین کانفیگ با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی به قیمت ۱،۶۹۹ دلار تهیه کنید.\r\n\r\nقیمت مدل مدل پایه‌ی ۱۵ اینچی اینتل ۱،۷۹۹ دلار است و از پردازنده‌ی Core i7 1185G7 با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی استفاده می‌کند. کانفیگ دیگر ۲،۳۹۹ دلار قیمت دارد و از پردازنده‌ی Core i7 1185G7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی برخوردار است.\r\n                            </p>\r\n                            <div class=\"text-center mt-4\">\r\n                                <img src=\"http://localhost:8000/storage/product/M.jpg\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <br>\r\n', 0, 0, 97000000, 8, 20, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(34, 'لپ تاپ surface pro 8', 'لپ-تاپ-surface-pro-8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 11200000, 0, 0, NULL, NULL),
+(35, 'لپ تاپ surface laptop 4', 'لپ-تاپ-surface-laptop-4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'شرکت مایکروسافت طی چند سال گذشته از لپ تاپ‌های سری سرفیس خود رونمایی کرد و تا امروز تعداد زیادی از این سری لپ تاپ‌ها روانه‌ی بازار شده‌اند. شرکت مایکروسافت با تولید این لپ تاپ‌ها به وضوح به دنبال ارائه‌ی یک محصول شیک و بسیار جذاب از نظر ظاهری بوده و علاوه بر آن، کیفیت بدنه‌ی این لپ تاپ‌ها هم زبان‌زد هستند و آن‌ها را از بسیاری از لپ تاپ‌های موجود در بازار متمایز می‌کند. لپ تاپ مایکروسافت مدل Surface Laptop 4 - R از جمله محصولات پرطرفدار از این سری است و از مشخصات سخت‌افزاری جالب توجه‌ای بهره می‌برد. این لپ تاپ به پردازنده‌ی مرکزی شرکت AMD مدل Ryzen 5 4680U مجهز شده و در کنار این پردازنده 8 گیگابایت رم از نوع LPDDR4X برای آن در نظر گرفته شده است. این لپ تاپ فاقد حافظه‌ی گرافیکی مجزا بوده و تنها 128 گیگابایت حافظه‌ی داخلی SSD در آن تعبیه شده است. نمایشگر این لپ تاپ به عنوان یکی از نقاط قوت اساسی آن در نظر گرفته می‌شود. این نمایشگر از نسبت تصویر 3:2 و وضوح 2256x1504 بهره می‌برد و شاهد کیفیت تصویر فوق‌العاده بالایی در نمایشگر این لپ تاپ 13.5 اینچی هستیم.', 'سری لپ تاپ های Surface از سال 2017 روانه بازار شده‌اند و از همان زمان محبوبیت خاصی پیدا کرده‌اند. این لپ تاپ ها بسیار سبک هستند و می‌توانند جایگزین مناسبی برای تبلت‌های سرفیس باشند. در اواخر ماه ژوئن محصول دیگر کمپانی سرفیس یعنی Surface Book 3 به‌روز رسانی شد و حالا لپ تاپ Surface Laptop 4 رونمایی و عرضه شده است. با پلازا همراه باشید و راجع به این محصول جدید، اطلاعات بیشتری کسب کنید.', '<p class=\"mt-2 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                شب گذشته، مایکروسافت تیزری با محوریت دستگاه جدیدی از خانواده‌ی سرفیس منتشر و ساعاتی پیش، جدیدترین دستگاه سری سرفیس لپ تاپ را رونمایی کرد. به‌نوشته‌ی ورج، مدل جدید سرفیس لپ تاپ کانفیگ‌هایی مجهز به پردازنده‌ی اینتل و AMD دارد و با صفحه‌نمایش ۱۳٫۵ یا ۱۵ اینچی همراه می‌شود.\r\n\r\n                                هر دو اندازه از سرفیس لپ تاپ ۴ مایکروسافت (Microsoft Surface Laptop 4) از پردازنده‌ی نسل‌یازدهمی تایگر لیک اینتل یا پردازنده‌ی سری رایزن ۴۰۰۰ ای ام دی بهره می‌برند. مایکروسافت می‌گوید سرفیس لپ تاپ 4 را ۱۵ آوریل ۲۰۲۱ (۲۶ فروردین ۱۴۰۰) روانه‌ی بازار ایالات متحده‌ی آمریکا کانادا و ژاپن می‌کند. کانفیگ پایه‌ی مدل AMD سرفیس لپ تاپ 4 با قیمت ۹۹۹ دلار و کانفیگ پایه‌ی مدل اینتل با قیمت ۱۲۹۹ دلار عرضه می‌شود. این یعنی بین کانفیگ پایه‌ی دو مدل تفاوت قیمت ۳۰۰ دلاری به‌چشم می‌خورد.\r\n\r\n                                تفاوت محسوس بین قیمت مدل AMD و مدل اینتل سرفیس لپ تاپ 4 احتمالا به این دلیل است که مایکروسافت در لپ تاپ جدیدش از جدیدترین نسل پردازنده‌های AMD، یعنی خانواده‌ی رایزن ۵۰۰۰ استفاده نکرده و تصمیم گرفته است لپ تاپ پریمیوم جدیدش را به پردازنده‌های اختصاصی AMD Ryzen Surface Edition مبتنی‌بر هسته‌ی قدیمی ذن 2 مجهز کند. بااین‌حال، قدرت پردازشی دو مدل اینتل و AMD سرفیس لپ تاپ 4 احتمالا بسیار مشابه خواهد بود؛ البته برای دادن نظر قطعی در این زمینه، باید سرفیس لپ تاپ 4 به دفتر زومیت برسد تا کارشناسانمان آن را دقیق بررسی کنند.\r\n                            </p>\r\n                            <div class=\"text-center\">\r\n                                <img src=\"http://localhost:8000/storage/product/R.jfif\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <p class=\"my-4 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                به‌دلیل استفاده از پردازنده‌ی اینتل و AMD، کانفیگ‌های مختلف سرفیس لپ تاپ 4 بسیار متنوع هستند و ممکن است باعث سردرگمی کاربر شوند. کانفیگ پایه‌ی ۱۳٫۵ اینچی AMD و ۹۹۹ دلاری سرفیس لپ تاپ 4 با پردازنده‌ی Ryzen 5 4680U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی و کانفیگ پایه‌ی اینتل پردازنده‌ی نسل‌یازدهمی Core i5 1135G7 با هشت گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی همراه می‌شود.\r\n\r\nکانفیگ‌های اینتل بسیار متنوع هستند و قیمت قوی‌ترین آن‌ها قیمت ۲،۲۹۹ دلار است که از پردازنده‌ی Core i7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی بهره می‌برد. یکی از کانفیگ‌های AMD سرفیس لپ تاپ 4 به ۱۶ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی مجهز است و حدودا هشت هفته پس از عرضه‌ی اولیه، با قیمت ۱،۱۹۹ دلار به دست مشتریان می‌رسد.\r\n\r\nدر مدل ۱۵ اینچی سرفیس لپ تاپ 4، تنوع بیشتری برای کانفیگ‌های AMD را شاهد هستیم. کانفیگ پایه‌ی ۱۵ اینچی و ۱،۲۹۹ دلاری با AMD Ryzen 7 4980U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی روانه‌ی بازار می‌شود. گفتنی است این مدل را می‌توانید در قوی‌ترین کانفیگ با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی به قیمت ۱،۶۹۹ دلار تهیه کنید.\r\n\r\nقیمت مدل مدل پایه‌ی ۱۵ اینچی اینتل ۱،۷۹۹ دلار است و از پردازنده‌ی Core i7 1185G7 با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی استفاده می‌کند. کانفیگ دیگر ۲،۳۹۹ دلار قیمت دارد و از پردازنده‌ی Core i7 1185G7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی برخوردار است.\r\n                            </p>\r\n                            <div class=\"text-center mt-4\">\r\n                                <img src=\"http://localhost:8000/storage/product/M.jpg\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <br>\r\n', 0, 0, 165000000, 0, 20, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(36, 'لپ تاپ surface pro 8', 'لپ-تاپ-surface-pro-8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 45600000, 0, 0, NULL, NULL),
+(37, 'لپ تاپ surface laptop 4', 'لپ-تاپ-surface-laptop-4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'شرکت مایکروسافت طی چند سال گذشته از لپ تاپ‌های سری سرفیس خود رونمایی کرد و تا امروز تعداد زیادی از این سری لپ تاپ‌ها روانه‌ی بازار شده‌اند. شرکت مایکروسافت با تولید این لپ تاپ‌ها به وضوح به دنبال ارائه‌ی یک محصول شیک و بسیار جذاب از نظر ظاهری بوده و علاوه بر آن، کیفیت بدنه‌ی این لپ تاپ‌ها هم زبان‌زد هستند و آن‌ها را از بسیاری از لپ تاپ‌های موجود در بازار متمایز می‌کند. لپ تاپ مایکروسافت مدل Surface Laptop 4 - R از جمله محصولات پرطرفدار از این سری است و از مشخصات سخت‌افزاری جالب توجه‌ای بهره می‌برد. این لپ تاپ به پردازنده‌ی مرکزی شرکت AMD مدل Ryzen 5 4680U مجهز شده و در کنار این پردازنده 8 گیگابایت رم از نوع LPDDR4X برای آن در نظر گرفته شده است. این لپ تاپ فاقد حافظه‌ی گرافیکی مجزا بوده و تنها 128 گیگابایت حافظه‌ی داخلی SSD در آن تعبیه شده است. نمایشگر این لپ تاپ به عنوان یکی از نقاط قوت اساسی آن در نظر گرفته می‌شود. این نمایشگر از نسبت تصویر 3:2 و وضوح 2256x1504 بهره می‌برد و شاهد کیفیت تصویر فوق‌العاده بالایی در نمایشگر این لپ تاپ 13.5 اینچی هستیم.', 'سری لپ تاپ های Surface از سال 2017 روانه بازار شده‌اند و از همان زمان محبوبیت خاصی پیدا کرده‌اند. این لپ تاپ ها بسیار سبک هستند و می‌توانند جایگزین مناسبی برای تبلت‌های سرفیس باشند. در اواخر ماه ژوئن محصول دیگر کمپانی سرفیس یعنی Surface Book 3 به‌روز رسانی شد و حالا لپ تاپ Surface Laptop 4 رونمایی و عرضه شده است. با پلازا همراه باشید و راجع به این محصول جدید، اطلاعات بیشتری کسب کنید.', '<p class=\"mt-2 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                شب گذشته، مایکروسافت تیزری با محوریت دستگاه جدیدی از خانواده‌ی سرفیس منتشر و ساعاتی پیش، جدیدترین دستگاه سری سرفیس لپ تاپ را رونمایی کرد. به‌نوشته‌ی ورج، مدل جدید سرفیس لپ تاپ کانفیگ‌هایی مجهز به پردازنده‌ی اینتل و AMD دارد و با صفحه‌نمایش ۱۳٫۵ یا ۱۵ اینچی همراه می‌شود.\r\n\r\n                                هر دو اندازه از سرفیس لپ تاپ ۴ مایکروسافت (Microsoft Surface Laptop 4) از پردازنده‌ی نسل‌یازدهمی تایگر لیک اینتل یا پردازنده‌ی سری رایزن ۴۰۰۰ ای ام دی بهره می‌برند. مایکروسافت می‌گوید سرفیس لپ تاپ 4 را ۱۵ آوریل ۲۰۲۱ (۲۶ فروردین ۱۴۰۰) روانه‌ی بازار ایالات متحده‌ی آمریکا کانادا و ژاپن می‌کند. کانفیگ پایه‌ی مدل AMD سرفیس لپ تاپ 4 با قیمت ۹۹۹ دلار و کانفیگ پایه‌ی مدل اینتل با قیمت ۱۲۹۹ دلار عرضه می‌شود. این یعنی بین کانفیگ پایه‌ی دو مدل تفاوت قیمت ۳۰۰ دلاری به‌چشم می‌خورد.\r\n\r\n                                تفاوت محسوس بین قیمت مدل AMD و مدل اینتل سرفیس لپ تاپ 4 احتمالا به این دلیل است که مایکروسافت در لپ تاپ جدیدش از جدیدترین نسل پردازنده‌های AMD، یعنی خانواده‌ی رایزن ۵۰۰۰ استفاده نکرده و تصمیم گرفته است لپ تاپ پریمیوم جدیدش را به پردازنده‌های اختصاصی AMD Ryzen Surface Edition مبتنی‌بر هسته‌ی قدیمی ذن 2 مجهز کند. بااین‌حال، قدرت پردازشی دو مدل اینتل و AMD سرفیس لپ تاپ 4 احتمالا بسیار مشابه خواهد بود؛ البته برای دادن نظر قطعی در این زمینه، باید سرفیس لپ تاپ 4 به دفتر زومیت برسد تا کارشناسانمان آن را دقیق بررسی کنند.\r\n                            </p>\r\n                            <div class=\"text-center\">\r\n                                <img src=\"http://localhost:8000/storage/product/R.jfif\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <p class=\"my-4 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                به‌دلیل استفاده از پردازنده‌ی اینتل و AMD، کانفیگ‌های مختلف سرفیس لپ تاپ 4 بسیار متنوع هستند و ممکن است باعث سردرگمی کاربر شوند. کانفیگ پایه‌ی ۱۳٫۵ اینچی AMD و ۹۹۹ دلاری سرفیس لپ تاپ 4 با پردازنده‌ی Ryzen 5 4680U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی و کانفیگ پایه‌ی اینتل پردازنده‌ی نسل‌یازدهمی Core i5 1135G7 با هشت گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی همراه می‌شود.\r\n\r\nکانفیگ‌های اینتل بسیار متنوع هستند و قیمت قوی‌ترین آن‌ها قیمت ۲،۲۹۹ دلار است که از پردازنده‌ی Core i7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی بهره می‌برد. یکی از کانفیگ‌های AMD سرفیس لپ تاپ 4 به ۱۶ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی مجهز است و حدودا هشت هفته پس از عرضه‌ی اولیه، با قیمت ۱،۱۹۹ دلار به دست مشتریان می‌رسد.\r\n\r\nدر مدل ۱۵ اینچی سرفیس لپ تاپ 4، تنوع بیشتری برای کانفیگ‌های AMD را شاهد هستیم. کانفیگ پایه‌ی ۱۵ اینچی و ۱،۲۹۹ دلاری با AMD Ryzen 7 4980U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی روانه‌ی بازار می‌شود. گفتنی است این مدل را می‌توانید در قوی‌ترین کانفیگ با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی به قیمت ۱،۶۹۹ دلار تهیه کنید.\r\n\r\nقیمت مدل مدل پایه‌ی ۱۵ اینچی اینتل ۱،۷۹۹ دلار است و از پردازنده‌ی Core i7 1185G7 با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی استفاده می‌کند. کانفیگ دیگر ۲،۳۹۹ دلار قیمت دارد و از پردازنده‌ی Core i7 1185G7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی برخوردار است.\r\n                            </p>\r\n                            <div class=\"text-center mt-4\">\r\n                                <img src=\"http://localhost:8000/storage/product/M.jpg\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <br>\r\n', 0, 0, 652000000, 0, 20, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(38, 'لپ تاپ surface pro 8', 'لپ-تاپ-surface-pro-8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 77000000, 0, 0, NULL, NULL),
+(39, 'لپ تاپ surface laptop 4', 'لپ-تاپ-surface-laptop-4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'شرکت مایکروسافت طی چند سال گذشته از لپ تاپ‌های سری سرفیس خود رونمایی کرد و تا امروز تعداد زیادی از این سری لپ تاپ‌ها روانه‌ی بازار شده‌اند. شرکت مایکروسافت با تولید این لپ تاپ‌ها به وضوح به دنبال ارائه‌ی یک محصول شیک و بسیار جذاب از نظر ظاهری بوده و علاوه بر آن، کیفیت بدنه‌ی این لپ تاپ‌ها هم زبان‌زد هستند و آن‌ها را از بسیاری از لپ تاپ‌های موجود در بازار متمایز می‌کند. لپ تاپ مایکروسافت مدل Surface Laptop 4 - R از جمله محصولات پرطرفدار از این سری است و از مشخصات سخت‌افزاری جالب توجه‌ای بهره می‌برد. این لپ تاپ به پردازنده‌ی مرکزی شرکت AMD مدل Ryzen 5 4680U مجهز شده و در کنار این پردازنده 8 گیگابایت رم از نوع LPDDR4X برای آن در نظر گرفته شده است. این لپ تاپ فاقد حافظه‌ی گرافیکی مجزا بوده و تنها 128 گیگابایت حافظه‌ی داخلی SSD در آن تعبیه شده است. نمایشگر این لپ تاپ به عنوان یکی از نقاط قوت اساسی آن در نظر گرفته می‌شود. این نمایشگر از نسبت تصویر 3:2 و وضوح 2256x1504 بهره می‌برد و شاهد کیفیت تصویر فوق‌العاده بالایی در نمایشگر این لپ تاپ 13.5 اینچی هستیم.', 'سری لپ تاپ های Surface از سال 2017 روانه بازار شده‌اند و از همان زمان محبوبیت خاصی پیدا کرده‌اند. این لپ تاپ ها بسیار سبک هستند و می‌توانند جایگزین مناسبی برای تبلت‌های سرفیس باشند. در اواخر ماه ژوئن محصول دیگر کمپانی سرفیس یعنی Surface Book 3 به‌روز رسانی شد و حالا لپ تاپ Surface Laptop 4 رونمایی و عرضه شده است. با پلازا همراه باشید و راجع به این محصول جدید، اطلاعات بیشتری کسب کنید.', '<p class=\"mt-2 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                شب گذشته، مایکروسافت تیزری با محوریت دستگاه جدیدی از خانواده‌ی سرفیس منتشر و ساعاتی پیش، جدیدترین دستگاه سری سرفیس لپ تاپ را رونمایی کرد. به‌نوشته‌ی ورج، مدل جدید سرفیس لپ تاپ کانفیگ‌هایی مجهز به پردازنده‌ی اینتل و AMD دارد و با صفحه‌نمایش ۱۳٫۵ یا ۱۵ اینچی همراه می‌شود.\r\n\r\n                                هر دو اندازه از سرفیس لپ تاپ ۴ مایکروسافت (Microsoft Surface Laptop 4) از پردازنده‌ی نسل‌یازدهمی تایگر لیک اینتل یا پردازنده‌ی سری رایزن ۴۰۰۰ ای ام دی بهره می‌برند. مایکروسافت می‌گوید سرفیس لپ تاپ 4 را ۱۵ آوریل ۲۰۲۱ (۲۶ فروردین ۱۴۰۰) روانه‌ی بازار ایالات متحده‌ی آمریکا کانادا و ژاپن می‌کند. کانفیگ پایه‌ی مدل AMD سرفیس لپ تاپ 4 با قیمت ۹۹۹ دلار و کانفیگ پایه‌ی مدل اینتل با قیمت ۱۲۹۹ دلار عرضه می‌شود. این یعنی بین کانفیگ پایه‌ی دو مدل تفاوت قیمت ۳۰۰ دلاری به‌چشم می‌خورد.\r\n\r\n                                تفاوت محسوس بین قیمت مدل AMD و مدل اینتل سرفیس لپ تاپ 4 احتمالا به این دلیل است که مایکروسافت در لپ تاپ جدیدش از جدیدترین نسل پردازنده‌های AMD، یعنی خانواده‌ی رایزن ۵۰۰۰ استفاده نکرده و تصمیم گرفته است لپ تاپ پریمیوم جدیدش را به پردازنده‌های اختصاصی AMD Ryzen Surface Edition مبتنی‌بر هسته‌ی قدیمی ذن 2 مجهز کند. بااین‌حال، قدرت پردازشی دو مدل اینتل و AMD سرفیس لپ تاپ 4 احتمالا بسیار مشابه خواهد بود؛ البته برای دادن نظر قطعی در این زمینه، باید سرفیس لپ تاپ 4 به دفتر زومیت برسد تا کارشناسانمان آن را دقیق بررسی کنند.\r\n                            </p>\r\n                            <div class=\"text-center\">\r\n                                <img src=\"http://localhost:8000/storage/product/R.jfif\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <p class=\"my-4 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                به‌دلیل استفاده از پردازنده‌ی اینتل و AMD، کانفیگ‌های مختلف سرفیس لپ تاپ 4 بسیار متنوع هستند و ممکن است باعث سردرگمی کاربر شوند. کانفیگ پایه‌ی ۱۳٫۵ اینچی AMD و ۹۹۹ دلاری سرفیس لپ تاپ 4 با پردازنده‌ی Ryzen 5 4680U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی و کانفیگ پایه‌ی اینتل پردازنده‌ی نسل‌یازدهمی Core i5 1135G7 با هشت گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی همراه می‌شود.\r\n\r\nکانفیگ‌های اینتل بسیار متنوع هستند و قیمت قوی‌ترین آن‌ها قیمت ۲،۲۹۹ دلار است که از پردازنده‌ی Core i7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی بهره می‌برد. یکی از کانفیگ‌های AMD سرفیس لپ تاپ 4 به ۱۶ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی مجهز است و حدودا هشت هفته پس از عرضه‌ی اولیه، با قیمت ۱،۱۹۹ دلار به دست مشتریان می‌رسد.\r\n\r\nدر مدل ۱۵ اینچی سرفیس لپ تاپ 4، تنوع بیشتری برای کانفیگ‌های AMD را شاهد هستیم. کانفیگ پایه‌ی ۱۵ اینچی و ۱،۲۹۹ دلاری با AMD Ryzen 7 4980U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی روانه‌ی بازار می‌شود. گفتنی است این مدل را می‌توانید در قوی‌ترین کانفیگ با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی به قیمت ۱،۶۹۹ دلار تهیه کنید.\r\n\r\nقیمت مدل مدل پایه‌ی ۱۵ اینچی اینتل ۱،۷۹۹ دلار است و از پردازنده‌ی Core i7 1185G7 با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی استفاده می‌کند. کانفیگ دیگر ۲،۳۹۹ دلار قیمت دارد و از پردازنده‌ی Core i7 1185G7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی برخوردار است.\r\n                            </p>\r\n                            <div class=\"text-center mt-4\">\r\n                                <img src=\"http://localhost:8000/storage/product/M.jpg\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <br>\r\n', 0, 0, 480000000, 0, 20, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(40, 'لپ تاپ surface pro 8', 'لپ-تاپ-surface-pro-8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 35000000, 0, 0, NULL, NULL),
+(41, 'لپ تاپ surface laptop 4', 'لپ-تاپ-surface-laptop-4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'شرکت مایکروسافت طی چند سال گذشته از لپ تاپ‌های سری سرفیس خود رونمایی کرد و تا امروز تعداد زیادی از این سری لپ تاپ‌ها روانه‌ی بازار شده‌اند. شرکت مایکروسافت با تولید این لپ تاپ‌ها به وضوح به دنبال ارائه‌ی یک محصول شیک و بسیار جذاب از نظر ظاهری بوده و علاوه بر آن، کیفیت بدنه‌ی این لپ تاپ‌ها هم زبان‌زد هستند و آن‌ها را از بسیاری از لپ تاپ‌های موجود در بازار متمایز می‌کند. لپ تاپ مایکروسافت مدل Surface Laptop 4 - R از جمله محصولات پرطرفدار از این سری است و از مشخصات سخت‌افزاری جالب توجه‌ای بهره می‌برد. این لپ تاپ به پردازنده‌ی مرکزی شرکت AMD مدل Ryzen 5 4680U مجهز شده و در کنار این پردازنده 8 گیگابایت رم از نوع LPDDR4X برای آن در نظر گرفته شده است. این لپ تاپ فاقد حافظه‌ی گرافیکی مجزا بوده و تنها 128 گیگابایت حافظه‌ی داخلی SSD در آن تعبیه شده است. نمایشگر این لپ تاپ به عنوان یکی از نقاط قوت اساسی آن در نظر گرفته می‌شود. این نمایشگر از نسبت تصویر 3:2 و وضوح 2256x1504 بهره می‌برد و شاهد کیفیت تصویر فوق‌العاده بالایی در نمایشگر این لپ تاپ 13.5 اینچی هستیم.', 'سری لپ تاپ های Surface از سال 2017 روانه بازار شده‌اند و از همان زمان محبوبیت خاصی پیدا کرده‌اند. این لپ تاپ ها بسیار سبک هستند و می‌توانند جایگزین مناسبی برای تبلت‌های سرفیس باشند. در اواخر ماه ژوئن محصول دیگر کمپانی سرفیس یعنی Surface Book 3 به‌روز رسانی شد و حالا لپ تاپ Surface Laptop 4 رونمایی و عرضه شده است. با پلازا همراه باشید و راجع به این محصول جدید، اطلاعات بیشتری کسب کنید.', '<p class=\"mt-2 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                شب گذشته، مایکروسافت تیزری با محوریت دستگاه جدیدی از خانواده‌ی سرفیس منتشر و ساعاتی پیش، جدیدترین دستگاه سری سرفیس لپ تاپ را رونمایی کرد. به‌نوشته‌ی ورج، مدل جدید سرفیس لپ تاپ کانفیگ‌هایی مجهز به پردازنده‌ی اینتل و AMD دارد و با صفحه‌نمایش ۱۳٫۵ یا ۱۵ اینچی همراه می‌شود.\r\n\r\n                                هر دو اندازه از سرفیس لپ تاپ ۴ مایکروسافت (Microsoft Surface Laptop 4) از پردازنده‌ی نسل‌یازدهمی تایگر لیک اینتل یا پردازنده‌ی سری رایزن ۴۰۰۰ ای ام دی بهره می‌برند. مایکروسافت می‌گوید سرفیس لپ تاپ 4 را ۱۵ آوریل ۲۰۲۱ (۲۶ فروردین ۱۴۰۰) روانه‌ی بازار ایالات متحده‌ی آمریکا کانادا و ژاپن می‌کند. کانفیگ پایه‌ی مدل AMD سرفیس لپ تاپ 4 با قیمت ۹۹۹ دلار و کانفیگ پایه‌ی مدل اینتل با قیمت ۱۲۹۹ دلار عرضه می‌شود. این یعنی بین کانفیگ پایه‌ی دو مدل تفاوت قیمت ۳۰۰ دلاری به‌چشم می‌خورد.\r\n\r\n                                تفاوت محسوس بین قیمت مدل AMD و مدل اینتل سرفیس لپ تاپ 4 احتمالا به این دلیل است که مایکروسافت در لپ تاپ جدیدش از جدیدترین نسل پردازنده‌های AMD، یعنی خانواده‌ی رایزن ۵۰۰۰ استفاده نکرده و تصمیم گرفته است لپ تاپ پریمیوم جدیدش را به پردازنده‌های اختصاصی AMD Ryzen Surface Edition مبتنی‌بر هسته‌ی قدیمی ذن 2 مجهز کند. بااین‌حال، قدرت پردازشی دو مدل اینتل و AMD سرفیس لپ تاپ 4 احتمالا بسیار مشابه خواهد بود؛ البته برای دادن نظر قطعی در این زمینه، باید سرفیس لپ تاپ 4 به دفتر زومیت برسد تا کارشناسانمان آن را دقیق بررسی کنند.\r\n                            </p>\r\n                            <div class=\"text-center\">\r\n                                <img src=\"http://localhost:8000/storage/product/R.jfif\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <p class=\"my-4 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                به‌دلیل استفاده از پردازنده‌ی اینتل و AMD، کانفیگ‌های مختلف سرفیس لپ تاپ 4 بسیار متنوع هستند و ممکن است باعث سردرگمی کاربر شوند. کانفیگ پایه‌ی ۱۳٫۵ اینچی AMD و ۹۹۹ دلاری سرفیس لپ تاپ 4 با پردازنده‌ی Ryzen 5 4680U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی و کانفیگ پایه‌ی اینتل پردازنده‌ی نسل‌یازدهمی Core i5 1135G7 با هشت گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی همراه می‌شود.\r\n\r\nکانفیگ‌های اینتل بسیار متنوع هستند و قیمت قوی‌ترین آن‌ها قیمت ۲،۲۹۹ دلار است که از پردازنده‌ی Core i7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی بهره می‌برد. یکی از کانفیگ‌های AMD سرفیس لپ تاپ 4 به ۱۶ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی مجهز است و حدودا هشت هفته پس از عرضه‌ی اولیه، با قیمت ۱،۱۹۹ دلار به دست مشتریان می‌رسد.\r\n\r\nدر مدل ۱۵ اینچی سرفیس لپ تاپ 4، تنوع بیشتری برای کانفیگ‌های AMD را شاهد هستیم. کانفیگ پایه‌ی ۱۵ اینچی و ۱،۲۹۹ دلاری با AMD Ryzen 7 4980U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی روانه‌ی بازار می‌شود. گفتنی است این مدل را می‌توانید در قوی‌ترین کانفیگ با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی به قیمت ۱،۶۹۹ دلار تهیه کنید.\r\n\r\nقیمت مدل مدل پایه‌ی ۱۵ اینچی اینتل ۱،۷۹۹ دلار است و از پردازنده‌ی Core i7 1185G7 با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی استفاده می‌کند. کانفیگ دیگر ۲،۳۹۹ دلار قیمت دارد و از پردازنده‌ی Core i7 1185G7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی برخوردار است.\r\n                            </p>\r\n                            <div class=\"text-center mt-4\">\r\n                                <img src=\"http://localhost:8000/storage/product/M.jpg\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <br>\r\n', 0, 0, 480000000, 0, 20, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(42, 'لپ تاپ surface pro 8', 'لپ-تاپ-surface-pro-8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 35000000, 0, 0, NULL, NULL),
+(43, 'لپ تاپ surface laptop 4', 'لپ-تاپ-surface-laptop-4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'شرکت مایکروسافت طی چند سال گذشته از لپ تاپ‌های سری سرفیس خود رونمایی کرد و تا امروز تعداد زیادی از این سری لپ تاپ‌ها روانه‌ی بازار شده‌اند. شرکت مایکروسافت با تولید این لپ تاپ‌ها به وضوح به دنبال ارائه‌ی یک محصول شیک و بسیار جذاب از نظر ظاهری بوده و علاوه بر آن، کیفیت بدنه‌ی این لپ تاپ‌ها هم زبان‌زد هستند و آن‌ها را از بسیاری از لپ تاپ‌های موجود در بازار متمایز می‌کند. لپ تاپ مایکروسافت مدل Surface Laptop 4 - R از جمله محصولات پرطرفدار از این سری است و از مشخصات سخت‌افزاری جالب توجه‌ای بهره می‌برد. این لپ تاپ به پردازنده‌ی مرکزی شرکت AMD مدل Ryzen 5 4680U مجهز شده و در کنار این پردازنده 8 گیگابایت رم از نوع LPDDR4X برای آن در نظر گرفته شده است. این لپ تاپ فاقد حافظه‌ی گرافیکی مجزا بوده و تنها 128 گیگابایت حافظه‌ی داخلی SSD در آن تعبیه شده است. نمایشگر این لپ تاپ به عنوان یکی از نقاط قوت اساسی آن در نظر گرفته می‌شود. این نمایشگر از نسبت تصویر 3:2 و وضوح 2256x1504 بهره می‌برد و شاهد کیفیت تصویر فوق‌العاده بالایی در نمایشگر این لپ تاپ 13.5 اینچی هستیم.', 'سری لپ تاپ های Surface از سال 2017 روانه بازار شده‌اند و از همان زمان محبوبیت خاصی پیدا کرده‌اند. این لپ تاپ ها بسیار سبک هستند و می‌توانند جایگزین مناسبی برای تبلت‌های سرفیس باشند. در اواخر ماه ژوئن محصول دیگر کمپانی سرفیس یعنی Surface Book 3 به‌روز رسانی شد و حالا لپ تاپ Surface Laptop 4 رونمایی و عرضه شده است. با پلازا همراه باشید و راجع به این محصول جدید، اطلاعات بیشتری کسب کنید.', '<p class=\"mt-2 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                شب گذشته، مایکروسافت تیزری با محوریت دستگاه جدیدی از خانواده‌ی سرفیس منتشر و ساعاتی پیش، جدیدترین دستگاه سری سرفیس لپ تاپ را رونمایی کرد. به‌نوشته‌ی ورج، مدل جدید سرفیس لپ تاپ کانفیگ‌هایی مجهز به پردازنده‌ی اینتل و AMD دارد و با صفحه‌نمایش ۱۳٫۵ یا ۱۵ اینچی همراه می‌شود.\r\n\r\n                                هر دو اندازه از سرفیس لپ تاپ ۴ مایکروسافت (Microsoft Surface Laptop 4) از پردازنده‌ی نسل‌یازدهمی تایگر لیک اینتل یا پردازنده‌ی سری رایزن ۴۰۰۰ ای ام دی بهره می‌برند. مایکروسافت می‌گوید سرفیس لپ تاپ 4 را ۱۵ آوریل ۲۰۲۱ (۲۶ فروردین ۱۴۰۰) روانه‌ی بازار ایالات متحده‌ی آمریکا کانادا و ژاپن می‌کند. کانفیگ پایه‌ی مدل AMD سرفیس لپ تاپ 4 با قیمت ۹۹۹ دلار و کانفیگ پایه‌ی مدل اینتل با قیمت ۱۲۹۹ دلار عرضه می‌شود. این یعنی بین کانفیگ پایه‌ی دو مدل تفاوت قیمت ۳۰۰ دلاری به‌چشم می‌خورد.\r\n\r\n                                تفاوت محسوس بین قیمت مدل AMD و مدل اینتل سرفیس لپ تاپ 4 احتمالا به این دلیل است که مایکروسافت در لپ تاپ جدیدش از جدیدترین نسل پردازنده‌های AMD، یعنی خانواده‌ی رایزن ۵۰۰۰ استفاده نکرده و تصمیم گرفته است لپ تاپ پریمیوم جدیدش را به پردازنده‌های اختصاصی AMD Ryzen Surface Edition مبتنی‌بر هسته‌ی قدیمی ذن 2 مجهز کند. بااین‌حال، قدرت پردازشی دو مدل اینتل و AMD سرفیس لپ تاپ 4 احتمالا بسیار مشابه خواهد بود؛ البته برای دادن نظر قطعی در این زمینه، باید سرفیس لپ تاپ 4 به دفتر زومیت برسد تا کارشناسانمان آن را دقیق بررسی کنند.\r\n                            </p>\r\n                            <div class=\"text-center\">\r\n                                <img src=\"http://localhost:8000/storage/product/R.jfif\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <p class=\"my-4 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                به‌دلیل استفاده از پردازنده‌ی اینتل و AMD، کانفیگ‌های مختلف سرفیس لپ تاپ 4 بسیار متنوع هستند و ممکن است باعث سردرگمی کاربر شوند. کانفیگ پایه‌ی ۱۳٫۵ اینچی AMD و ۹۹۹ دلاری سرفیس لپ تاپ 4 با پردازنده‌ی Ryzen 5 4680U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی و کانفیگ پایه‌ی اینتل پردازنده‌ی نسل‌یازدهمی Core i5 1135G7 با هشت گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی همراه می‌شود.\r\n\r\nکانفیگ‌های اینتل بسیار متنوع هستند و قیمت قوی‌ترین آن‌ها قیمت ۲،۲۹۹ دلار است که از پردازنده‌ی Core i7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی بهره می‌برد. یکی از کانفیگ‌های AMD سرفیس لپ تاپ 4 به ۱۶ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی مجهز است و حدودا هشت هفته پس از عرضه‌ی اولیه، با قیمت ۱،۱۹۹ دلار به دست مشتریان می‌رسد.\r\n\r\nدر مدل ۱۵ اینچی سرفیس لپ تاپ 4، تنوع بیشتری برای کانفیگ‌های AMD را شاهد هستیم. کانفیگ پایه‌ی ۱۵ اینچی و ۱،۲۹۹ دلاری با AMD Ryzen 7 4980U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی روانه‌ی بازار می‌شود. گفتنی است این مدل را می‌توانید در قوی‌ترین کانفیگ با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی به قیمت ۱،۶۹۹ دلار تهیه کنید.\r\n\r\nقیمت مدل مدل پایه‌ی ۱۵ اینچی اینتل ۱،۷۹۹ دلار است و از پردازنده‌ی Core i7 1185G7 با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی استفاده می‌کند. کانفیگ دیگر ۲،۳۹۹ دلار قیمت دارد و از پردازنده‌ی Core i7 1185G7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی برخوردار است.\r\n                            </p>\r\n                            <div class=\"text-center mt-4\">\r\n                                <img src=\"http://localhost:8000/storage/product/M.jpg\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <br>\r\n', 0, 0, 480000000, 0, 20, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(44, 'لپ تاپ surface pro 8', 'لپ-تاپ-surface-pro-8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 35000000, 0, 0, NULL, NULL),
+(45, 'لپ تاپ surface laptop 4', 'لپ-تاپ-surface-laptop-4', 6, 'storage/product/surface laptop 4.jpg', 'storage/product/surface laptop 4-2.jpg', 'شرکت مایکروسافت طی چند سال گذشته از لپ تاپ‌های سری سرفیس خود رونمایی کرد و تا امروز تعداد زیادی از این سری لپ تاپ‌ها روانه‌ی بازار شده‌اند. شرکت مایکروسافت با تولید این لپ تاپ‌ها به وضوح به دنبال ارائه‌ی یک محصول شیک و بسیار جذاب از نظر ظاهری بوده و علاوه بر آن، کیفیت بدنه‌ی این لپ تاپ‌ها هم زبان‌زد هستند و آن‌ها را از بسیاری از لپ تاپ‌های موجود در بازار متمایز می‌کند. لپ تاپ مایکروسافت مدل Surface Laptop 4 - R از جمله محصولات پرطرفدار از این سری است و از مشخصات سخت‌افزاری جالب توجه‌ای بهره می‌برد. این لپ تاپ به پردازنده‌ی مرکزی شرکت AMD مدل Ryzen 5 4680U مجهز شده و در کنار این پردازنده 8 گیگابایت رم از نوع LPDDR4X برای آن در نظر گرفته شده است. این لپ تاپ فاقد حافظه‌ی گرافیکی مجزا بوده و تنها 128 گیگابایت حافظه‌ی داخلی SSD در آن تعبیه شده است. نمایشگر این لپ تاپ به عنوان یکی از نقاط قوت اساسی آن در نظر گرفته می‌شود. این نمایشگر از نسبت تصویر 3:2 و وضوح 2256x1504 بهره می‌برد و شاهد کیفیت تصویر فوق‌العاده بالایی در نمایشگر این لپ تاپ 13.5 اینچی هستیم.', 'سری لپ تاپ های Surface از سال 2017 روانه بازار شده‌اند و از همان زمان محبوبیت خاصی پیدا کرده‌اند. این لپ تاپ ها بسیار سبک هستند و می‌توانند جایگزین مناسبی برای تبلت‌های سرفیس باشند. در اواخر ماه ژوئن محصول دیگر کمپانی سرفیس یعنی Surface Book 3 به‌روز رسانی شد و حالا لپ تاپ Surface Laptop 4 رونمایی و عرضه شده است. با پلازا همراه باشید و راجع به این محصول جدید، اطلاعات بیشتری کسب کنید.', '<p class=\"mt-2 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                شب گذشته، مایکروسافت تیزری با محوریت دستگاه جدیدی از خانواده‌ی سرفیس منتشر و ساعاتی پیش، جدیدترین دستگاه سری سرفیس لپ تاپ را رونمایی کرد. به‌نوشته‌ی ورج، مدل جدید سرفیس لپ تاپ کانفیگ‌هایی مجهز به پردازنده‌ی اینتل و AMD دارد و با صفحه‌نمایش ۱۳٫۵ یا ۱۵ اینچی همراه می‌شود.\r\n\r\n                                هر دو اندازه از سرفیس لپ تاپ ۴ مایکروسافت (Microsoft Surface Laptop 4) از پردازنده‌ی نسل‌یازدهمی تایگر لیک اینتل یا پردازنده‌ی سری رایزن ۴۰۰۰ ای ام دی بهره می‌برند. مایکروسافت می‌گوید سرفیس لپ تاپ 4 را ۱۵ آوریل ۲۰۲۱ (۲۶ فروردین ۱۴۰۰) روانه‌ی بازار ایالات متحده‌ی آمریکا کانادا و ژاپن می‌کند. کانفیگ پایه‌ی مدل AMD سرفیس لپ تاپ 4 با قیمت ۹۹۹ دلار و کانفیگ پایه‌ی مدل اینتل با قیمت ۱۲۹۹ دلار عرضه می‌شود. این یعنی بین کانفیگ پایه‌ی دو مدل تفاوت قیمت ۳۰۰ دلاری به‌چشم می‌خورد.\r\n\r\n                                تفاوت محسوس بین قیمت مدل AMD و مدل اینتل سرفیس لپ تاپ 4 احتمالا به این دلیل است که مایکروسافت در لپ تاپ جدیدش از جدیدترین نسل پردازنده‌های AMD، یعنی خانواده‌ی رایزن ۵۰۰۰ استفاده نکرده و تصمیم گرفته است لپ تاپ پریمیوم جدیدش را به پردازنده‌های اختصاصی AMD Ryzen Surface Edition مبتنی‌بر هسته‌ی قدیمی ذن 2 مجهز کند. بااین‌حال، قدرت پردازشی دو مدل اینتل و AMD سرفیس لپ تاپ 4 احتمالا بسیار مشابه خواهد بود؛ البته برای دادن نظر قطعی در این زمینه، باید سرفیس لپ تاپ 4 به دفتر زومیت برسد تا کارشناسانمان آن را دقیق بررسی کنند.\r\n                            </p>\r\n                            <div class=\"text-center\">\r\n                                <img src=\"http://localhost:8000/storage/product/R.jfif\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <p class=\"my-4 my-f-13 my-font-IYL my-color-b-700 me-1\">\r\n                                به‌دلیل استفاده از پردازنده‌ی اینتل و AMD، کانفیگ‌های مختلف سرفیس لپ تاپ 4 بسیار متنوع هستند و ممکن است باعث سردرگمی کاربر شوند. کانفیگ پایه‌ی ۱۳٫۵ اینچی AMD و ۹۹۹ دلاری سرفیس لپ تاپ 4 با پردازنده‌ی Ryzen 5 4680U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی و کانفیگ پایه‌ی اینتل پردازنده‌ی نسل‌یازدهمی Core i5 1135G7 با هشت گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی همراه می‌شود.\r\n\r\nکانفیگ‌های اینتل بسیار متنوع هستند و قیمت قوی‌ترین آن‌ها قیمت ۲،۲۹۹ دلار است که از پردازنده‌ی Core i7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی بهره می‌برد. یکی از کانفیگ‌های AMD سرفیس لپ تاپ 4 به ۱۶ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی مجهز است و حدودا هشت هفته پس از عرضه‌ی اولیه، با قیمت ۱،۱۹۹ دلار به دست مشتریان می‌رسد.\r\n\r\nدر مدل ۱۵ اینچی سرفیس لپ تاپ 4، تنوع بیشتری برای کانفیگ‌های AMD را شاهد هستیم. کانفیگ پایه‌ی ۱۵ اینچی و ۱،۲۹۹ دلاری با AMD Ryzen 7 4980U و ۸ گیگابایت حافظه‌ی رم و ۲۵۶ گیگابایت حافظه‌ی ذخیره‌سازی روانه‌ی بازار می‌شود. گفتنی است این مدل را می‌توانید در قوی‌ترین کانفیگ با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی به قیمت ۱،۶۹۹ دلار تهیه کنید.\r\n\r\nقیمت مدل مدل پایه‌ی ۱۵ اینچی اینتل ۱،۷۹۹ دلار است و از پردازنده‌ی Core i7 1185G7 با ۱۶ گیگابایت حافظه‌ی رم و ۵۱۲ گیگابایت حافظه‌ی ذخیره‌سازی استفاده می‌کند. کانفیگ دیگر ۲،۳۹۹ دلار قیمت دارد و از پردازنده‌ی Core i7 1185G7 و ۳۲ گیگابایت حافظه‌ی رم و یک ترابایت حافظه‌ی ذخیره‌سازی برخوردار است.\r\n                            </p>\r\n                            <div class=\"text-center mt-4\">\r\n                                <img src=\"http://localhost:8000/storage/product/M.jpg\" class=\"w-50\" alt=\"\">\r\n                            </div>\r\n                            <br>\r\n', 0, 0, 480000000, 0, 20, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(46, 'لپ تاپ surface pro 8', 'لپ-تاپ-surface-pro-8', 6, 'storage/product/pro8.jpg', 'storage/product/pro8-2.jpg', 'test des1', 'test des2', 'test des3', 0, 0, 35000000, 0, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -887,6 +990,16 @@ CREATE TABLE `product_attributes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_attributes`
+--
+
+INSERT INTO `product_attributes` (`id`, `title`, `body`, `product_id`, `created_at`, `updated_at`) VALUES
+(1, 'پردازنده', 'ryzen 5 4680u', 17, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(2, 'هارد', '256G NVMe', 17, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(3, 'رام', '8G LPDD4X', 17, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(4, 'گرافیک', '512G Vega 7', 17, '2020-10-03 20:30:00', '2020-10-03 20:30:00');
 
 -- --------------------------------------------------------
 
@@ -904,6 +1017,14 @@ CREATE TABLE `product_colors` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `product_colors`
+--
+
+INSERT INTO `product_colors` (`id`, `number`, `price`, `product_id`, `color_id`, `created_at`, `updated_at`) VALUES
+(1, 2, 485000000, 17, 1, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(2, 2, 490000000, 17, 2, '2020-10-03 20:30:00', '2020-10-03 20:30:00');
+
 -- --------------------------------------------------------
 
 --
@@ -912,12 +1033,30 @@ CREATE TABLE `product_colors` (
 
 CREATE TABLE `product_comments` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) NOT NULL,
   `body` text NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_comments`
+--
+
+INSERT INTO `product_comments` (`id`, `title`, `body`, `product_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(803, 'test', 'test', 17, 1, '2023-03-16 01:38:35', '2023-03-16 01:38:35'),
+(804, 'test', 'test', 17, 1, '2023-03-16 01:38:40', '2023-03-16 01:38:40'),
+(805, 'wwwwwwwwww', 'wwwwwwwwwwwwwwwwwwwwww', 17, 1, '2023-03-16 02:08:19', '2023-03-16 02:08:19'),
+(806, 'wwwwwwwwww', 'wwwwwwwwwwwwwwwwwwwwww', 17, 1, '2023-03-16 02:09:16', '2023-03-16 02:09:16'),
+(807, 'wwwwwwwww', 'wwwwwwwwwwwwwwww', 17, 1, '2023-03-16 02:33:04', '2023-03-16 02:33:04'),
+(808, 'eeeeeeeeeeeee', 'eeeeeeeeeeeeeeeeeee', 17, 1, '2023-03-16 02:33:59', '2023-03-16 02:33:59'),
+(809, 'wwwwwwwww', 'w', 17, 1, '2023-03-16 02:34:29', '2023-03-16 02:34:29'),
+(810, 'sssssssssssss', 'ssssssssssssssssssssssss', 17, 1, '2023-03-16 02:52:47', '2023-03-16 02:52:47'),
+(811, 'eeeeeeeeeeeeeeee', 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', 17, 1, '2023-03-16 02:53:48', '2023-03-16 02:53:48'),
+(812, 'ssssssss', 'sssssssssssssssssssssssssssssssssssssssssssssss', 17, 1, '2023-03-16 02:54:55', '2023-03-16 02:54:55'),
+(813, '2222222222', '222222222222222', 17, 1, '2023-03-16 02:55:11', '2023-03-16 02:55:11');
 
 -- --------------------------------------------------------
 
@@ -933,6 +1072,17 @@ CREATE TABLE `product_images` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_images`
+--
+
+INSERT INTO `product_images` (`id`, `name`, `image`, `product_id`, `created_at`, `updated_at`) VALUES
+(1, 'surface laptop 4', '/storage/product/surface laptop 4.jpg', 17, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(2, 'surface laptop 4', '/storage/product/surface laptop 4-2.jpg', 17, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(3, 'surface laptop 4', '/storage/product/surface laptop 4-3.jpg', 17, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(4, 'surface laptop 4', '/storage/product/surface laptop 4-4.jpg', 17, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(5, 'surface laptop 4', '/storage/product/surface laptop 4-5.jpg', 17, '2020-10-03 20:30:00', '2020-10-03 20:30:00');
 
 -- --------------------------------------------------------
 
@@ -953,8 +1103,7 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'Administrator', '2023-02-11 03:38:00', '2023-02-11 03:38:00'),
-(2, 'user', 'Normal User', '2023-02-11 03:38:00', '2023-02-11 03:38:00');
+(1, 'admin', 'Administrator', '2023-04-06 03:44:40', '2023-04-06 03:44:40');
 
 -- --------------------------------------------------------
 
@@ -973,22 +1122,6 @@ CREATE TABLE `settings` (
   `group` varchar(191) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `settings`
---
-
-INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`, `order`, `group`) VALUES
-(1, 'site.title', 'Site Title', 'Site Title', '', 'text', 1, 'Site'),
-(2, 'site.description', 'Site Description', 'Site Description', '', 'text', 2, 'Site'),
-(3, 'site.logo', 'Site Logo', '', '', 'image', 3, 'Site'),
-(4, 'site.google_analytics_tracking_id', 'Google Analytics Tracking ID', '', '', 'text', 4, 'Site'),
-(5, 'admin.bg_image', 'Admin Background Image', '', '', 'image', 5, 'Admin'),
-(6, 'admin.title', 'Admin Title', 'Voyager', '', 'text', 1, 'Admin'),
-(7, 'admin.description', 'Admin Description', 'Welcome to Voyager. The Missing Admin for Laravel', '', 'text', 2, 'Admin'),
-(8, 'admin.loader', 'Admin Loader', '', '', 'image', 3, 'Admin'),
-(9, 'admin.icon_image', 'Admin Icon Image', '', '', 'image', 4, 'Admin'),
-(10, 'admin.google_analytics_client_id', 'Google Analytics Client ID (used for admin dashboard)', '', '', 'text', 1, 'Admin');
-
 -- --------------------------------------------------------
 
 --
@@ -1006,42 +1139,6 @@ CREATE TABLE `translations` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `translations`
---
-
-INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `locale`, `value`, `created_at`, `updated_at`) VALUES
-(1, 'data_types', 'display_name_singular', 5, 'pt', 'Post', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(2, 'data_types', 'display_name_singular', 6, 'pt', 'Página', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(3, 'data_types', 'display_name_singular', 1, 'pt', 'Utilizador', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(4, 'data_types', 'display_name_singular', 4, 'pt', 'Categoria', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(5, 'data_types', 'display_name_singular', 2, 'pt', 'Menu', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(6, 'data_types', 'display_name_singular', 3, 'pt', 'Função', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(7, 'data_types', 'display_name_plural', 5, 'pt', 'Posts', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(8, 'data_types', 'display_name_plural', 6, 'pt', 'Páginas', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(9, 'data_types', 'display_name_plural', 1, 'pt', 'Utilizadores', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(10, 'data_types', 'display_name_plural', 4, 'pt', 'Categorias', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(11, 'data_types', 'display_name_plural', 2, 'pt', 'Menus', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(12, 'data_types', 'display_name_plural', 3, 'pt', 'Funções', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(13, 'categories', 'slug', 1, 'pt', 'categoria-1', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(14, 'categories', 'name', 1, 'pt', 'Categoria 1', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(15, 'categories', 'slug', 2, 'pt', 'categoria-2', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(16, 'categories', 'name', 2, 'pt', 'Categoria 2', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(17, 'pages', 'title', 1, 'pt', 'Olá Mundo', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(18, 'pages', 'slug', 1, 'pt', 'ola-mundo', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(19, 'pages', 'body', 1, 'pt', '<p>Olá Mundo. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>\r\n<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(20, 'menu_items', 'title', 1, 'pt', 'Painel de Controle', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(21, 'menu_items', 'title', 2, 'pt', 'Media', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(22, 'menu_items', 'title', 12, 'pt', 'Publicações', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(23, 'menu_items', 'title', 3, 'pt', 'Utilizadores', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(24, 'menu_items', 'title', 11, 'pt', 'Categorias', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(25, 'menu_items', 'title', 13, 'pt', 'Páginas', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(26, 'menu_items', 'title', 4, 'pt', 'Funções', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(27, 'menu_items', 'title', 5, 'pt', 'Ferramentas', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(28, 'menu_items', 'title', 6, 'pt', 'Menus', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(29, 'menu_items', 'title', 7, 'pt', 'Base de dados', '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(30, 'menu_items', 'title', 10, 'pt', 'Configurações', '2023-02-11 03:38:01', '2023-02-11 03:38:01');
-
 -- --------------------------------------------------------
 
 --
@@ -1052,7 +1149,7 @@ CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `role_id` bigint(20) UNSIGNED DEFAULT NULL,
   `name` varchar(191) NOT NULL,
-  `email` varchar(191) NOT NULL,
+  `email` varchar(191) DEFAULT NULL,
   `mobile` varchar(191) NOT NULL,
   `avatar` varchar(191) DEFAULT 'users/default.png',
   `email_verified_at` timestamp NULL DEFAULT NULL,
@@ -1069,8 +1166,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `mobile`, `avatar`, `email_verified_at`, `password`, `google_id`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Admin', 'admin@admin.com', '09395231891', 'users/default.png', NULL, '$2y$10$n9tcofUAuSXwuqKRPbSL.elSY5RsD9bIuE4mWy.5saKQ3JJ3LULRm', '', '3oLtrdI7evtOHXYviIPs4KDgr0cJMmZfCs8zAKJl3Jbvfw9cYt76gKJ5FjaH', NULL, '2023-02-11 03:38:01', '2023-02-11 03:38:01'),
-(2, 2, 'None', 'None', '09151055204', 'users/default.png', NULL, '$2y$10$KY11JB4GfGbviQz/daRkM..jUXkKe6xeLPtUAmU7WedAUURu4rZPK', '', NULL, NULL, '2023-02-16 10:35:26', '2023-02-16 10:35:26');
+(1, NULL, 'None', 'None', '09395231890', 'users/default.png', NULL, '$2y$10$ANx1AFdE/QYY1XLkOVJOnuCgaxr3kESjmcQKp8nzI4/4sCZjkAO0u', 'None', NULL, NULL, '2023-03-06 04:16:53', '2023-03-06 04:16:53'),
+(12, NULL, 'None', 'None2', '09395231891', 'users/default.png', NULL, '$2y$10$ANx1AFdE/QYY1XLkOVJOnuCgaxr3kESjmcQKp8nzI4/4sCZjkAO0u', 'None', NULL, NULL, '2023-03-06 04:16:53', '2023-03-06 04:16:53'),
+(13, 1, 'test', 'your@email.com', 'None', 'users/default.png', NULL, '$2y$10$7vRb2UX8nanT6ZcYwN6rr.NBPuHsTL5qYVUjWXu3qNg/hjjj/yCCK', 'None', NULL, NULL, '2023-04-06 03:44:40', '2023-04-06 03:44:41');
 
 -- --------------------------------------------------------
 
@@ -1100,6 +1198,21 @@ CREATE TABLE `windows` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `windows`
+--
+
+INSERT INTO `windows` (`id`, `image`, `title`, `attrs`, `url`, `location`, `menu_sub_id`, `created_at`, `updated_at`) VALUES
+(1, '\\storage\\front\\cf4b6ed95b48304ee684396b10c060fdde7c17fd_1671370783.jpg', 'banner', 'banner', 'banner', '1', 6, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(2, '\\storage\\front\\cf4b6ed95b48304ee684396b10c060fdde7c17fd_1671370783.jpg', 'banner', 'banner', 'banner', '1', 15, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(3, '\\storage\\front\\6ce6603cb33cd4757c8db3a864aebdec48e83efe_1670246819.jpg', 'دنبای بزرگتر با Galaxy ZFold 4', 'فضای بیشتر,مناسب برای مالتی پلینکسنگ,طراحی بی نقص', 'none', '2', 6, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(4, '\\storage\\front\\a7d8384fcc529a4349fab75089450e0d9e0a2cfe_1669277203 (1).jpg', 'Galaxy s22 Ultra برای شکستن قوانین گوشی های هوشمند', 'دوربین با زوم بی انتها,کیفیت ساخت بی نظیر,بدنه ای با قدرت فوق العاده', 'none', '2', 6, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(5, '\\storage\\front\\6d224db3551f5f58a29b6bcea4adb7b4bc4430c6_1665303694.jpg', 'gallry', 'none', '/', '3', 6, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(6, '\\storage\\front\\26c06ee16eacbd3db15c2db16f35b4a58c41c9c4_1665303421.jpg', 'gallry', 'none', '/', '4', 6, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(7, '\\storage\\front\\2daf0b2c9093e288e263e59d8c24863443e7e964_1671366622.jpg', 'gallry', 'none', '/', '4', 6, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(8, '\\storage\\front\\0088728872ead058244ac159445b9d535126a582_1656835983.jpg', 'gallry', 'none', '/', '3', 6, '2020-10-03 20:30:00', '2020-10-03 20:30:00'),
+(9, '\\storage\\front\\cf4b6ed95b48304ee684396b10c060fdde7c17fd_1671370783.jpg', 'gallry', 'none', '/', '4', 6, '2020-10-03 20:30:00', '2020-10-03 20:30:00');
 
 --
 -- Indexes for dumped tables
@@ -1202,6 +1315,12 @@ ALTER TABLE `filter_titles`
 -- Indexes for table `footer_items`
 --
 ALTER TABLE `footer_items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `footer_titels`
+--
+ALTER TABLE `footer_titels`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1395,7 +1514,7 @@ ALTER TABLE `cards`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -1407,19 +1526,19 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `colors`
 --
 ALTER TABLE `colors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `factors`
@@ -1443,25 +1562,31 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `filter_attributes`
 --
 ALTER TABLE `filter_attributes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `filter_products`
 --
 ALTER TABLE `filter_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `filter_titles`
 --
 ALTER TABLE `filter_titles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `footer_items`
 --
 ALTER TABLE `footer_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `footer_titels`
+--
+ALTER TABLE `footer_titels`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `front_images`
@@ -1485,7 +1610,7 @@ ALTER TABLE `menu_indices`
 -- AUTO_INCREMENT for table `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `menu_subs`
@@ -1509,13 +1634,13 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `panel_messgaes`
 --
 ALTER TABLE `panel_messgaes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1533,61 +1658,61 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `product_attributes`
 --
 ALTER TABLE `product_attributes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product_colors`
 --
 ALTER TABLE `product_colors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `product_comments`
 --
 ALTER TABLE `product_comments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=814;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `windows`
 --
 ALTER TABLE `windows`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
